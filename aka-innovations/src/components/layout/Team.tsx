@@ -97,20 +97,25 @@ export function Team() {
 
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
+    setCurrentIndex((prev) => prev + newDirection);
+  };
 
-    setCurrentIndex((prev) =>
-      newDirection === 1
-        ? (prev + 1) % teamMembers.length
-        : prev === 0
-        ? teamMembers.length - 1
-        : prev - 1
-    );
+  const getWrappedIndex = (index: number) => {
+    return ((index % teamMembers.length) + teamMembers.length) % teamMembers.length;
   };
 
   const goToSlide = (index: number) => {
-    if (index === currentIndex) return;
-    setDirection(index > currentIndex ? 1 : -1);
-    setCurrentIndex(index);
+    const currentWrapped = getWrappedIndex(currentIndex);
+    let diff = index - currentWrapped;
+
+    // Adjust diff to find shortest path
+    if (diff > teamMembers.length / 2) diff -= teamMembers.length;
+    else if (diff < -teamMembers.length / 2) diff += teamMembers.length;
+
+    if (diff === 0) return;
+
+    setDirection(diff > 0 ? 1 : -1);
+    setCurrentIndex(currentIndex + diff);
   };
 
   // Calculate visible circles (current, prev, next)
@@ -118,8 +123,14 @@ export function Team() {
   const getVisibleMembers = () => {
     const visible = [];
     for (let i = -2; i <= 2; i++) {
-      const index = (activeIndex + i + teamMembers.length) % teamMembers.length;
-      visible.push({ member: teamMembers[index], offset: i, index });
+      const virtualIndex = activeIndex + i;
+      const index = getWrappedIndex(virtualIndex);
+      visible.push({
+        member: teamMembers[index],
+        offset: i,
+        index,
+        key: virtualIndex,
+      });
     }
     return visible;
   };
@@ -174,33 +185,33 @@ export function Team() {
             <div className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[20px] border-t-white" />
 
             <p className="text-gray-700 text-center leading-relaxed mb-6">
-              {teamMembers[currentIndex].description}
+              {teamMembers[getWrappedIndex(currentIndex)].description}
             </p>
 
             <div className="text-center">
               <h3 className="text-blue-600 font-semibold text-xl mb-1">
-                {teamMembers[currentIndex].name}
+                {teamMembers[getWrappedIndex(currentIndex)].name}
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                {teamMembers[currentIndex].role}
+                {teamMembers[getWrappedIndex(currentIndex)].role}
               </p>
 
               {/* Social Icons */}
               <div className="flex justify-center space-x-4">
                 <a
-                  href={teamMembers[currentIndex].social.twitter}
+                  href={teamMembers[getWrappedIndex(currentIndex)].social.twitter}
                   className="text-blue-400 hover:text-blue-600 transition-colors"
                 >
                   <Twitter className="w-5 h-5" />
                 </a>
                 <a
-                  href={teamMembers[currentIndex].social.facebook}
+                  href={teamMembers[getWrappedIndex(currentIndex)].social.facebook}
                   className="text-blue-600 hover:text-blue-800 transition-colors"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
-                  href={teamMembers[currentIndex].social.linkedin}
+                  href={teamMembers[getWrappedIndex(currentIndex)].social.linkedin}
                   className="text-blue-700 hover:text-blue-900 transition-colors"
                 >
                   <Linkedin className="w-5 h-5" />
@@ -228,20 +239,19 @@ export function Team() {
           }}
           className="flex items-center justify-center w-full cursor-grab active:cursor-grabbing"
         >
-          {getVisibleMembers().map(({ member, offset, index }) => {
+          {getVisibleMembers().map(({ member, offset, index, key }) => {
             const isActive = offset === 0;
             const { size, x, zIndex, opacity } = circleConfig(offset);
 
             return (
               <motion.div
-                key={index}
+                key={key}
                 animate={{ x, opacity }}
                 transition={{ type: "spring", stiffness: 260, damping: 28 }}
                 onClick={() => offset !== 0 && goToSlide(index)}
                 style={{ width: size, height: size, zIndex }}
-                className={`absolute rounded-full border ${
-                  isActive ? "border-gray-500" : "border-gray-300"
-                } bg-gray-200 overflow-hidden cursor-pointer`}
+                className={`absolute rounded-full border ${isActive ? "border-gray-500" : "border-gray-300"
+                  } bg-gray-200 overflow-hidden cursor-pointer`}
               >
                 <div className="w-full h-full flex items-center justify-center bg-[#e0e0e0] text-gray-700 font-semibold text-xl">
                   {member.name.charAt(0)}
@@ -258,11 +268,10 @@ export function Team() {
           <button
             key={member.id}
             onClick={() => goToSlide(index)}
-            className={`h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex
+            className={`h-3 rounded-full transition-all duration-300 ${index === getWrappedIndex(currentIndex)
                 ? "w-12 bg-blue-500"
                 : "w-3 bg-blue-300 hover:bg-blue-400"
-            }`}
+              }`}
             aria-label={`Go to ${member.name}`}
           />
         ))}

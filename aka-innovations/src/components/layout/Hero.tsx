@@ -4,63 +4,121 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import heroBack from "@/assets/heroBack.svg";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center px-4 md:px-20 overflow-hidden bg-[#f5f5f7] pt-24 md:pt-20 justify-center">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden bg-[#f5f5f7] pt-24 md:pt-20">
+
+      {/* Background Image with subtle motion */}
+      <motion.div
+        initial={{ scale: 1.05, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="absolute inset-0 pointer-events-none select-none"
+      >
         <Image
-          src={heroBack}
+          src="/heroBack.svg"
           alt="Background"
           fill
-          className="object-cover w-full h-full "
+          className="object-cover"
           priority
         />
-      </div>
+      </motion.div>
 
-      {/* Glassmorphism Card */}
+      {/* Soft Gradient Glow */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[70vw] max-w-[700px] h-[70vw] max-h-[700px] rounded-full bg-gradient-to-tr from-indigo-300/40 via-purple-300/30 to-pink-300/30 blur-[120px]" />
+
+      {/* Glass Card */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 w-full md:w-[90%] flex flex-col items-center"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.15 } },
+        }}
+        className="relative z-10 w-full max-w-6xl flex flex-col items-center"
       >
-        <div className="p-6 md:p-8 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/10 backdrop-blur-md border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#1a1a1a] mb-6 leading-tight">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 40, scale: 0.98 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+            },
+          }}
+          className="p-6 sm:p-10 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/15 backdrop-blur-xl border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.12)] text-center"
+        >
+          {/* Heading */}
+          <motion.h1
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+            }}
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-[#1a1a1a] mb-6 leading-tight"
+          >
             Building Intelligent Products that
-            <br className="hidden md:block" />{" "}
+            <br className="hidden md:block" />
             <span className="bg-gradient-to-r from-[#6e7bf2] via-[#a388ee] to-[#f28686] bg-clip-text text-transparent block md:inline mt-2 md:mt-0">
               Scale Businesses Today
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-base md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+          {/* Description */}
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light"
+          >
             Unlock AI-powered software solutions designed to automate workflows,
             enhance decision-making, and accelerate digital growth. We help
             startups and enterprises transform ideas into scalable, secure, and
             high-performing digital products using AI, cloud, and modern
             engineering.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 w-full sm:w-auto">
+        {/* CTA Buttons */}
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-10 w-full sm:w-auto"
+        >
           <Link
             href="/contact"
-            className="w-full sm:w-auto text-center px-8 py-3.5 bg-white rounded-full text-[#1a1a1a] font-semibold border border-white/50 shadow-sm hover:shadow-md transition-all duration-300"
+            className="
+              w-full sm:w-auto text-center
+              px-8 py-3.5 rounded-full
+              bg-white text-[#1a1a1a] font-semibold
+              border border-white/60
+              shadow-md hover:shadow-lg
+              transition-all duration-300
+              hover:-translate-y-[1px]
+            "
           >
             Book a Demo
           </Link>
 
           <Link
             href="/products"
-            className="w-full sm:w-auto flex justify-center items-center gap-2 px-8 py-3.5 bg-white/80 rounded-full text-[#1a1a1a] font-semibold hover:bg-white transition-all duration-300"
+            className="
+              w-full sm:w-auto flex justify-center items-center gap-2
+              px-8 py-3.5 rounded-full
+              bg-white/80 text-[#1a1a1a] font-semibold
+              hover:bg-white
+              transition-all duration-300
+              hover:-translate-y-[1px]
+            "
           >
             Explore Our Products
             <Play className="w-4 h-4 fill-current" />
           </Link>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

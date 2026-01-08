@@ -1,0 +1,5 @@
+<svg viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0"><defs><linearGradient id="paint113_linear_100_4" x1="294.48" y1="41.799999999999955" x2="100.33999999999992" y2="364.78999999999996" gradientUnits="userSpaceOnUse">
+<stop stop-color="#98FFCE"/>
+<stop offset="0.525" stop-color="#838FFF"/>
+<stop offset="1" stop-color="#60B2FF"/>
+</linearGradient></defs><path id="Ellipse 11" d="M350,175c0,96.65 -78.35,175 -175,175c-96.65,0 -175,-78.35 -175,-175c0,-96.65 78.35,-175 175,-175c96.65,0 175,78.35 175,175z" fill="url(#paint113_linear_100_4)"/></svg>
