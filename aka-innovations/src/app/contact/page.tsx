@@ -1,10 +1,61 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Send } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "General Inquiry",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    // Show loading toast
+    const loadingToast = toast.loading("Sending message...");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        toast.success("Message sent successfully!", { id: loadingToast });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          subject: "General Inquiry",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+        toast.error("Failed to send message. Please try again.", { id: loadingToast });
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+      toast.error("An error occurred. Please try again later.", { id: loadingToast });
+    }
+  };
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#e8eaed] flex items-center justify-center py-16 px-4">
       {/* Animated Background Orbs */}
@@ -165,7 +216,7 @@ export default function ContactPage() {
 
           {/* Right Side: Form */}
           <div className="w-full lg:w-[62%] p-10 md:p-12 relative bg-white/30">
-            <form className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-8">
               {/* Name Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="relative">
@@ -174,6 +225,10 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
                     className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 transition-colors"
                   />
                 </div>
@@ -183,6 +238,10 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
                     className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 transition-colors"
                   />
                 </div>
@@ -196,6 +255,10 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                     className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 transition-colors"
                   />
                 </div>
@@ -205,6 +268,9 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 transition-colors"
                   />
                 </div>
@@ -230,6 +296,9 @@ export default function ContactPage() {
                         <input
                           type="radio"
                           name="subject"
+                          value={subject}
+                          checked={formData.subject === subject}
+                          onChange={handleChange}
                           className="peer w-full h-full opacity-0 absolute cursor-pointer"
                         />
                         <div className="w-2 h-2 bg-gray-900 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity" />
@@ -248,8 +317,12 @@ export default function ContactPage() {
                   Message
                 </label>
                 <textarea
+                  name="message"
                   rows={1}
                   placeholder="Write your message.."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                   className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 placeholder:text-gray-500 transition-colors resize-none"
                 />
               </div>
@@ -282,10 +355,11 @@ export default function ContactPage() {
                 </div>
 
                 <button
-                  type="button"
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold py-3.5 px-10 rounded-lg transition-all active:scale-95 shadow-md"
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold py-3.5 px-10 rounded-lg transition-all active:scale-95 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {status === "loading" ? "Sending..." : "Send Message"}
                 </button>
               </div>
             </form>

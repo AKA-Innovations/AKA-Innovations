@@ -56,7 +56,7 @@ const FeaturesSection: FC = () => {
 
     return (
         <section className="relative py-20 bg-(--color-health-bg) overflow-hidden">
-            <div className="container mx-auto px-6 lg:px-12">
+            <div className="container mx-auto px-4 lg:px-12">
 
                 {/* FEATURE 1: Continuity of Care */}
                 <motion.div
