@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=Inter:wght@300;400;500;700;800&family=Raleway:wght@600;700&display=swap');
+
 @import "tailwindcss";
 
 :root {
@@ -16,4 +18,112 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+
+    /* Engineering Services Colors */
+    --color-cyan-primary: #38bdf8;
+    --color-blue-text: #5282b9;
+    --color-indigo-accent: #818cf8;
+    --color-pink-accent: #f472b6;
+    --color-emerald-accent: #34d399;
+    --color-slate-text: #94a3b8;
+    --color-off-white: #f8fafc;
+
+    /* Health-Connect Product Colors */
+    --color-health-cyan: #0ea5e9;
+    --color-health-blue: #2563eb;
+    --color-health-sky: #0284c7;
+    --color-health-indigo: #4f46e5;
+    --color-health-purple: #a855f7;
+    --color-health-green: #16a34a;
+    --color-health-green-light: #22c55e;
+    --color-health-orange: #f97316;
+    --color-health-orange-dark: #ea580c;
+    --color-health-red: #ef4444;
+    --color-health-navy: #0f172a;
+    --color-health-slate-dark: #334155;
+    --color-health-slate: #475569;
+    --color-health-slate-light: #64748b;
+    --color-health-gray: #94a3b8;
+    --color-health-gray-light: #cbd5e1;
+    --color-health-gray-lighter: #e2e8f0;
+    --color-health-gray-lightest: #f1f5f9;
+    --color-health-bg: #ededed;
+    --color-health-off-white: #f8fafc;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+  }
+
+  .font-rubik {
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-raleway {
+    font-family: 'Raleway', sans-serif;
+  }
+}
+
+@utility gradient-text-cyan-purple {
+  background: linear-gradient(90deg, #38bdf8 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility gradient-overlay-dark {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+@utility gradient-overlay-dark-blue {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.76)), linear-gradient(90deg, rgba(113, 134, 255, 1) 11%, rgba(60, 151, 222, 1) 100%);
+}
+
+@utility gradient-glow-cyan-blue {
+  background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
+}
+
+@utility gradient-health-heading {
+  background: linear-gradient(90deg, #7186ff 11%, #3c97de 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility glassmorphic-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+@utility glassmorphic-card-solid {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px);
+  border: 0.67px solid #f1f5f9;
 }

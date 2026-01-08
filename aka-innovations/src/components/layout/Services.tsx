@@ -1,34 +1,33 @@
 "use client";
 
-import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { BrainCircuit, Cpu } from "lucide-react";
 
 const industries = [
   {
     id: 1,
     name: "Logistics & Supply Chain",
-    icon: BrainCircuit,
+    image: "/industries/logistics.png",
   },
   {
     id: 2,
     name: "Education & EdTech",
-    icon: BrainCircuit,
+    image: "/industries/education.png",
   },
   {
     id: 3,
     name: "Retail & E-commerce",
-    icon: BrainCircuit,
+    image: "/industries/retail.png",
   },
   {
     id: 4,
     name: "Healthcare & HealthTech",
-    icon: BrainCircuit,
+    image: "/industries/healthcare.png",
   },
   {
     id: 5,
     name: "SaaS & Startups",
-    icon: BrainCircuit,
+    image: "/industries/saas.png",
   },
 ];
 
@@ -49,7 +48,7 @@ export function Services() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-[40%] left-[20%] w-[90px] h-[90px] rounded-full bg-gradient-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
+          className="absolute top-[40%] left-[20%] w-[90px] h-[90px] rounded-full bg-linear-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
         />
 
         {/* Top Right Cyan/Green Orb */}
@@ -64,7 +63,7 @@ export function Services() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-[45%] right-[20%] w-[120px] h-[120px] rounded-full bg-gradient-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
+          className="absolute top-[45%] right-[20%] w-[120px] h-[120px] rounded-full bg-linear-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
         />
 
         <motion.div
@@ -78,7 +77,7 @@ export function Services() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-[30%] left-[50%] w-[120px] h-[120px] rounded-full bg-gradient-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
+          className="absolute bottom-[30%] left-[50%] w-[120px] h-[120px] rounded-full bg-linear-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
         />
 
         {/* Bottom Left Blue Orb */}
@@ -93,7 +92,7 @@ export function Services() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-[10%] left-[10%] w-[120px] h-[120px] rounded-full bg-gradient-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
+          className="absolute bottom-[10%] left-[10%] w-[120px] h-[120px] rounded-full bg-linear-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
         />
 
         {/* Bottom Right Purple/Pink Orb */}
@@ -108,55 +107,46 @@ export function Services() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute bottom-[15%] right-[5%] w-[120px] h-[120px] rounded-full bg-gradient-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
+          className="absolute bottom-[15%] right-[5%] w-[120px] h-[120px] rounded-full bg-linear-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
         />
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             INDUSTRIES WE SERVE
           </h2>
-          <p className="text-gray-600 text-lg">
-            Unleash innovation and accelerate growth with our dynamic product.
+          <p className="text-gray-600 text-xl max-w-2xl mx-auto">
+            Unleash innovation and accelerate growth with our dynamic product across diverse sectors.
           </p>
         </div>
 
         {/* Glass Card */}
-        <div className="relative bg-white/30 backdrop-blur-sm rounded-[2.5rem] shadow-2xl border-2 border-white/60 p-12 md:p-16">
+        <div className="relative bg-white/30 backdrop-blur-sm rounded-[3rem] shadow-2xl border-2 border-white/60 p-8 md:p-16">
           {/* Industries Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-            {industries.slice(0, 4).map((industry) => (
+          <div className="flex flex-wrap justify-center gap-10 md:gap-16">
+            {industries.map((industry) => (
               <motion.div
                 key={industry.id}
-                whileHover={{ scale: 1.05 }}
-                className="flex flex-col items-center text-center space-y-3"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="flex flex-col items-center text-center space-y-5 w-48 lg:w-56"
               >
-                <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
-                  <industry.icon className="w-6 h-6 text-purple-600" />
+                <div className="relative w-40 h-40 md:w-48 md:h-48 drop-shadow-2xl">
+                  <Image
+                    src={industry.image}
+                    alt={industry.name}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 160px, 192px"
+                  />
                 </div>
-                <h3 className="text-gray-900 font-semibold text-base">
+                <h3 className="text-gray-900 font-bold text-lg leading-tight">
                   {industry.name}
                 </h3>
               </motion.div>
             ))}
-          </div>
-
-          {/* Center Item */}
-          <div className="flex justify-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex flex-col items-center text-center space-y-3"
-            >
-              <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
-                <Cpu className="w-6 h-6 text-purple-600" />
-              </div>
-              <h3 className="text-gray-900 font-semibold text-base">
-                {industries[4].name}
-              </h3>
-            </motion.div>
           </div>
 
           {/* View All Link */}
