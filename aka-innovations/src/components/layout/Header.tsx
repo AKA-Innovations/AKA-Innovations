@@ -21,12 +21,12 @@ export function Header() {
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-md">
-      <div className="container mx-auto px-12 h-20 flex items-center justify-between relative">
-        <Link href="/" className="text-2xl font-bold text-[#1a1a1a] flex items-center gap-2">
+      <div className="container mx-auto px-6 lg:px-12 h-20 flex items-center justify-between relative">
+        <Link href="/" className="text-md lg:text-2xl font-bold text-[#1a1a1a] flex items-center gap-2">
           {isHealthPage ? (
             <>
-              <span className="">AKA Innovations / </span>
-              <span className="text-(--color-health-cyan)">Health-Connect</span>
+              <span className="text-md lg:text-2xl">AKA Innovations / </span>
+              <span className="text-md lg:text-2xl text-(--color-health-cyan)">Health-Connect</span>
             </>
           ) : (
             "AKA Innovations"
@@ -66,7 +66,7 @@ export function Header() {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-5 w-5 text-black" /> : <Menu className="h-5 w-5 text-black" />}
           </button>
         </div>
       </div>
@@ -78,7 +78,7 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-b border-border bg-background"
+            className="md:hidden border-b border-border bg-background flex items-center justify-center text-black/80 font-medium"
           >
             <nav className="flex flex-col p-4 gap-4">
               {navItems.map((item) => {
@@ -97,9 +97,7 @@ export function Header() {
                   </Link>
                 )
               })}
-              <button className="bg-primary text-primary-foreground w-full py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
-                Get Started
-              </button>
+
             </nav>
           </motion.div>
         )}

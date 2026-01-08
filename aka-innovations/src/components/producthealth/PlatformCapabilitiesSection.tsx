@@ -11,7 +11,7 @@ export const PlatformCapabilitiesSection: FC = () => {
         visible: {
             transition: {
                 staggerChildren: 0.12,
-                delayChildren: 0.15,
+                delayChildren: 0.1,
             },
         },
     };
@@ -30,7 +30,6 @@ export const PlatformCapabilitiesSection: FC = () => {
 
     return (
         <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
-
             <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
 
                 {/* Heading */}
@@ -44,111 +43,85 @@ export const PlatformCapabilitiesSection: FC = () => {
                         Health-Connect is not a hospital management system.
                     </h2>
 
-                    <p className="text-[17px] sm:text-[18px] font-inter text-(--color-health-slate) leading-relaxed max-w-3xl mx-auto mb-16">
+                    <p className="text-[17px] sm:text-[18px] pb-8 font-inter text-(--color-health-slate) leading-relaxed max-w-3xl mx-auto mb-10">
                         It is a care continuity and practice management platform built specifically for
                         individual doctors, clinics, and patients.
                     </p>
                 </motion.div>
 
-                {/* Grid Wrapper */}
-                <div className="relative max-w-5xl mx-auto">
+                {/* Illustration */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.92 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="flex justify-center mb-12 md:mb-16"
+                >
+                    <Image
+                        src="/illustrations/people-avatars.svg"
+                        alt="Healthcare professionals"
+                        width={340}
+                        height={320}
+                        className="opacity-90"
+                    />
+                </motion.div>
 
-                    {/* Top Row */}
+                {/* Cards Grid */}
+                <motion.div
+                    variants={containerStagger}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto"
+                >
                     <motion.div
-                        variants={containerStagger}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-80px" }}
-                        className="grid md:grid-cols-2 gap-8 mb-10"
+                        variants={itemFadeUp}
+                        whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className="bg-(--color-health-off-white) border border-gray-200 rounded-xl p-6 flex items-center gap-4 shadow-sm"
                     >
-                        <motion.div
-                            variants={itemFadeUp}
-                            whileHover={{
-                                y: -4,
-                                boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
-                            }}
-                            transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="bg-(--color-health-off-white) border border-gray-200 rounded-xl p-6 flex items-center gap-4 shadow-sm"
-                        >
-                            <Image src="/icons/calendar-green.svg" alt="" width={18} height={18} />
-                            <p className="text-[16px] font-inter font-medium text-(--color-health-slate-dark)">
-                                Appointments (Online & Offline)
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            variants={itemFadeUp}
-                            whileHover={{
-                                y: -4,
-                                boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
-                            }}
-                            transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="md:col-start-2 bg-(--color-health-off-white) border border-gray-200 rounded-xl p-6 flex items-center gap-4 shadow-sm"
-                        >
-                            <Image src="/icons/lab-purple.svg" alt="" width={18} height={16} />
-                            <p className="text-[16px] font-inter font-medium text-(--color-health-slate-dark)">
-                                Lab Test Booking & Reports
-                            </p>
-                        </motion.div>
+                        <Image src="/icons/calendar-green.svg" alt="" width={18} height={18} />
+                        <p className="text-[16px] font-inter font-medium text-(--color-health-slate-dark)">
+                            Appointments (Online & Offline)
+                        </p>
                     </motion.div>
 
-                    {/* Bottom Row */}
                     <motion.div
-                        variants={containerStagger}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-80px" }}
-                        className="grid md:grid-cols-2 gap-8"
+                        variants={itemFadeUp}
+                        whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className="bg-(--color-health-off-white) border border-gray-200 rounded-xl p-6 flex items-center gap-4 shadow-sm"
                     >
-                        <motion.div
-                            variants={itemFadeUp}
-                            whileHover={{
-                                y: -4,
-                                boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
-                            }}
-                            transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="bg-(--color-health-off-white) border border-gray-200 rounded-xl p-6 flex items-center gap-4 shadow-sm"
-                        >
-                            <Image src="/icons/file-blue.svg" alt="" width={15} height={18} />
-                            <p className="text-[16px] font-inter font-medium text-(--color-health-slate-dark)">
-                                Consultations & Prescriptions
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            variants={itemFadeUp}
-                            whileHover={{
-                                y: -4,
-                                boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
-                            }}
-                            transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="md:col-start-2 bg-(--color-health-off-white) border border-gray-200 rounded-xl p-6 flex items-center gap-4 shadow-sm"
-                        >
-                            <Image src="/icons/database-orange.svg" alt="" width={16} height={18} />
-                            <p className="text-[16px] font-inter font-medium text-(--color-health-slate-dark)">
-                                Unified Patient Records
-                            </p>
-                        </motion.div>
+                        <Image src="/icons/lab-purple.svg" alt="" width={18} height={16} />
+                        <p className="text-[16px] font-inter font-medium text-(--color-health-slate-dark)">
+                            Your personal health assistant
+                        </p>
                     </motion.div>
 
-                    {/* Central Illustration */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.92 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
-                        viewport={{ once: true }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block pointer-events-none"
+                        variants={itemFadeUp}
+                        whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className="bg-(--color-health-off-white) border border-gray-200 rounded-xl p-6 flex items-center gap-4 shadow-sm"
                     >
-                        <Image
-                            src="/illustrations/people-avatars.svg"
-                            alt="Healthcare professionals"
-                            width={340}
-                            height={320}
-                            className="opacity-90"
-                        />
+                        <Image src="/icons/file-blue.svg" alt="" width={15} height={18} />
+                        <p className="text-[16px] font-inter font-medium text-(--color-health-slate-dark)">
+                            Consultations & Prescriptions
+                        </p>
                     </motion.div>
 
-                </div>
+                    <motion.div
+                        variants={itemFadeUp}
+                        whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}
+                        transition={{ duration: 0.25, ease: "easeOut" }}
+                        className="bg-(--color-health-off-white) border border-gray-200 rounded-xl p-6 flex items-center gap-4 shadow-sm"
+                    >
+                        <Image src="/icons/database-orange.svg" alt="" width={16} height={18} />
+                        <p className="text-[16px] font-inter font-medium text-(--color-health-slate-dark)">
+                            Unified Patient Records
+                        </p>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );

@@ -72,7 +72,7 @@ export const HealthHero: FC = () => {
                 />
             </motion.div>
 
-            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+            <div className="container mx-auto px-4 lg:px-12 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content - Glassmorphic Card */}
                     <motion.div
@@ -124,7 +124,7 @@ export const HealthHero: FC = () => {
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-(--color-health-navy) text-white px-8 py-3.5 rounded-lg text-[14px] font-inter font-medium hover:opacity-90 transition-opacity"
+                                className="bg-(--color-health-navy) text-white px-8 py-3.5 rounded-full text-[14px] font-inter font-medium hover:opacity-90 transition-opacity"
                             >
                                 Request Demo
                             </motion.button>

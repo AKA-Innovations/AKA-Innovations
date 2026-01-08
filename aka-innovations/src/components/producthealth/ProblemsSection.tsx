@@ -67,8 +67,8 @@ export const ProblemsSection: FC = () => {
                 <Image src="/decorations/gradient-blob-purple.svg" alt="" fill />
             </motion.div>
 
-            <div className="container mx-auto px-6 lg:px-12 relative z-10">
-                <div className="glassmorphic-card rounded-[40px] p-12 lg:p-16">
+            <div className="container mx-auto px-4 lg:px-12 relative z-10">
+                <div className="glassmorphic-card rounded-[40px] p-4 lg:p-16">
                     {/* Section Header */}
                     <div className="text-center mb-12">
                         <motion.h2
@@ -99,13 +99,13 @@ export const ProblemsSection: FC = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
-                        className="grid md:grid-cols-2 gap-12 lg:gap-16 mb-8"
+                        className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-16 mb-8"
                     >
                         {/* Problem Card 1 */}
                         <motion.div
                             variants={cardVariants}
                             whileHover={{ scale: 1.02 }}
-                            className="glassmorphic-card-solid rounded-[40px] p-8 relative"
+                            className="glassmorphic-card-solid rounded-[40px] p-4 lg:p-8 relative"
                         >
                             <div className="mb-4">
                                 <Image
@@ -128,7 +128,7 @@ export const ProblemsSection: FC = () => {
                         <motion.div
                             variants={cardVariants}
                             whileHover={{ scale: 1.02 }}
-                            className="glassmorphic-card-solid rounded-[40px] p-8 relative"
+                            className="glassmorphic-card-solid rounded-[40px] p-4 lg:p-8 relative"
                         >
                             <div className="mb-4">
                                 <Image
@@ -151,7 +151,7 @@ export const ProblemsSection: FC = () => {
                         <motion.div
                             variants={cardVariants}
                             whileHover={{ scale: 1.02 }}
-                            className="glassmorphic-card-solid rounded-[40px] p-8 relative"
+                            className="glassmorphic-card-solid rounded-[40px] p-4 lg:p-8 relative"
                         >
                             <div className="mb-4">
                                 <Image
@@ -174,7 +174,7 @@ export const ProblemsSection: FC = () => {
                         <motion.div
                             variants={cardVariants}
                             whileHover={{ scale: 1.02 }}
-                            className="glassmorphic-card-solid rounded-[40px] p-8 relative"
+                            className="glassmorphic-card-solid rounded-[40px] p-4 lg:p-8 relative"
                         >
                             <div className="mb-4">
                                 <Image
