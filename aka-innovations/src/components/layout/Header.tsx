@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -16,11 +16,30 @@ const navItems = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
   const pathname = usePathname();
   const isHealthPage = pathname === "/producthealth";
 
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-md">
+    <motion.header
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-md shadow-sm"
+    >
       <div className="container mx-auto px-6 lg:px-12 h-20 flex items-center justify-between relative">
         <Link href="/" className="text-md lg:text-2xl font-bold text-[#1a1a1a] flex items-center gap-2">
           {isHealthPage ? (
@@ -56,9 +75,11 @@ export function Header() {
 
         {/* Right Side Action */}
         <div className="flex items-center gap-4">
-          <button className="hidden md:block border border-[#634c9f] text-[#634c9f] px-6 py-2.5 rounded-full text-[15px] font-medium hover:bg-[#634c9f] hover:text-white transition-all hover:opacity-90 hover:cursor-pointer" >
-            Contact Us
-          </button>
+          <Link href="/contact">
+            <button className="hidden md:block border border-[#634c9f] text-[#634c9f] px-6 py-2.5 rounded-full text-[15px] font-medium hover:bg-[#634c9f] hover:text-white transition-all hover:opacity-90 hover:cursor-pointer" >
+              Contact Us
+            </button>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -78,9 +99,9 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-b border-border bg-background flex items-center justify-center text-black/80 font-medium"
+            className="md:hidden border-b border-border bg-background flex items-center justify-center text-black/80 font-medium bg-white"
           >
-            <nav className="flex flex-col p-4 gap-4">
+            <nav className="flex flex-col p-4 gap-4 w-full text-center">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
@@ -89,7 +110,7 @@ export function Header() {
                     href={item.href}
                     className={cn(
                       "text-lg font-medium py-2 transition-colors",
-                      isActive ? "text-primary" : "hover:text-primary"
+                      isActive ? "text-[#634c9f]" : "hover:text-[#634c9f]"
                     )}
                     onClick={() => setIsOpen(false)}
                   >
@@ -97,11 +118,15 @@ export function Header() {
                   </Link>
                 )
               })}
-
+              <Link href="/contact" onClick={() => setIsOpen(false)}>
+                <button className="w-full mt-2 border border-[#634c9f] text-[#634c9f] px-6 py-2.5 rounded-full text-[15px] font-medium hover:bg-[#634c9f] hover:text-white transition-all">
+                  Contact Us
+                </button>
+              </Link>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
