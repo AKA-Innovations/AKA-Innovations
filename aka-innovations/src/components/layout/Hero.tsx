@@ -26,7 +26,7 @@ export function Hero() {
       </motion.div>
 
       {/* Soft Gradient Glow - Optimized blur */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[70vw] max-w-[700px] h-[70vw] max-h-[700px] rounded-full bg-gradient-to-tr from-indigo-300/40 via-purple-300/30 to-pink-300/30 blur-[80px]" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[70vw] max-w-[700px] h-[70vw] max-h-[700px] rounded-full bg-white/70 blur-[80px]" />
 
       {/* Glass Card - Optimized backdrop blur */}
       <motion.div

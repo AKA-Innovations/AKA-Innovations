@@ -5,13 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Products", href: "/producthealth" },
-  { name: "About us", href: "/#about" },
+  { name: "About us", href: "/#team" },
 ];
 
 export function Header() {
@@ -42,13 +43,19 @@ export function Header() {
     >
       <div className="container mx-auto px-6 lg:px-12 h-20 flex items-center justify-between relative">
         <Link href="/" className="text-md lg:text-2xl font-bold text-[#1a1a1a] flex items-center gap-2">
-          {isHealthPage ? (
+          <Image
+            src="/logo.svg"
+            alt="AKA Innovations Logo"
+            width={40}
+            height={40}
+            className="h-10 w-auto"
+          />
+          {!isHealthPage && <span>AKA Innovations</span>}
+          {isHealthPage && (
             <>
-              <span className="text-md lg:text-2xl">AKA Innovations / </span>
+              <span className="text-md lg:text-2xl ml-2">/ </span>
               <span className="text-md lg:text-2xl text-(--color-health-cyan)">Health-Connect</span>
             </>
-          ) : (
-            "AKA Innovations"
           )}
         </Link>
 
