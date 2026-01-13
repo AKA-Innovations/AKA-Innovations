@@ -60,7 +60,7 @@ export function Hero() {
           >
             Building Intelligent Products that
             <br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-[#6e7bf2] via-[#a388ee] to-[#f28686] bg-clip-text text-transparent block md:inline mt-2 md:mt-0">
+            <span className="bg-gradient-to-r from-[#374af2] via-[#7861b5] to-[#f28686] bg-clip-text text-transparent block md:inline mt-2 md:mt-0">
               Scale Businesses Today
             </span>
           </motion.h1>
