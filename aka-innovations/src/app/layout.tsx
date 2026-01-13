@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aka-innovations.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: "AKA Innovations | Digital Engineering & Product Solutions",
     template: "%s | AKA Innovations",
@@ -29,7 +32,9 @@ export const metadata: Metadata = {
     "React Development",
     "Next.js Experts",
     "Cloud Solutions",
-    "System Architecture"
+    "System Architecture",
+    "AI Solutions",
+    "Artificial Intelligence"
   ],
   authors: [{ name: "AKA Innovations" }],
   creator: "AKA Innovations",
@@ -42,7 +47,7 @@ export const metadata: Metadata = {
     description: "Transforming ideas into digital reality. AKA Innovations specializes in high-quality software engineering and product health assessments.",
     images: [
       {
-        url: "/og-image.jpg", // We should ensure this image exists or is added later
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "AKA Innovations",
@@ -73,11 +78,48 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "AKA Innovations",
+        "url": "https://aka-innovations.com",
+        "logo": "https://aka-innovations.com/logo.svg",
+        "sameAs": [
+          "https://www.linkedin.com/company/aka-innovations"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hr@akainnovations.com",
+          "contactType": "customer service"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "name": "AKA Innovations",
+        "url": "https://aka-innovations.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://aka-innovations.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  };
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
       </body>

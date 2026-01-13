@@ -100,6 +100,7 @@ export function FeaturedSolutions() {
             style={{ height: `${services.length * 100}vh` }}
         >
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-10">
+                <h2 className="sr-only">Featured Solutions</h2>
                 {/* Global AmbientBackground handles the visuals now, but we add local orbs as requested */}
 
                 {/* Animated Background Orbs - Optimized */}
