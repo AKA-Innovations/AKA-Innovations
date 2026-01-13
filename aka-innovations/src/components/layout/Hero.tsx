@@ -7,14 +7,14 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden bg-[#f5f5f7] pt-24 md:pt-20">
+    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden bg-[#f5f5f7] pt-24 md:pt-20">
 
       {/* Background Image with subtle motion */}
       <motion.div
         initial={{ scale: 1.05, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="absolute inset-0 pointer-events-none select-none"
+        className="absolute inset-0 pointer-events-none select-none will-change-transform"
       >
         <Image
           src="/heroBack.svg"
@@ -25,10 +25,10 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* Soft Gradient Glow */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[70vw] max-w-[700px] h-[70vw] max-h-[700px] rounded-full bg-gradient-to-tr from-indigo-300/40 via-purple-300/30 to-pink-300/30 blur-[120px]" />
+      {/* Soft Gradient Glow - Optimized blur */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[70vw] max-w-[700px] h-[70vw] max-h-[700px] rounded-full bg-gradient-to-tr from-indigo-300/40 via-purple-300/30 to-pink-300/30 blur-[80px]" />
 
-      {/* Glass Card */}
+      {/* Glass Card - Optimized backdrop blur */}
       <motion.div
         initial="hidden"
         animate="visible"
@@ -48,7 +48,7 @@ export function Hero() {
               transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
             },
           }}
-          className="p-6 sm:p-10 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/15 backdrop-blur-xl border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.12)] text-center"
+          className="p-6 sm:p-10 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/15 backdrop-blur-lg border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.12)] text-center will-change-transform"
         >
           {/* Heading */}
           <motion.h1

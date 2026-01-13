@@ -3,59 +3,52 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Twitter, Facebook, Linkedin } from "lucide-react";
+import Image from "next/image";
+
+// Team Avatars
+import AdityaAvatar from "@/assets/team/aditya.png";
+import KaranAvatar from "@/assets/team/karan.jpeg";
+import AyushAvatar from "@/assets/team/ayush.png";
 
 // Team member data
 const teamMembers = [
   {
     id: 1,
-    name: "aleven",
-    role: "CEO, AKA Innovation",
+    name: "Aditya Kumar",
+    role: "Co-Founder & Operations Lead",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    image: "/team/member1.jpg",
+      "Aditya is the operational backbone of AKA Innovations, ensuring seamless execution across all projects. He combines strategic resource management with agile methodologies to streamline workflows and optimize delivery timelines. His expertise in cross-functional coordination and client relationship management guarantees that projects stay on track and within budget. Aditya is dedicated to fostering a culture of operational excellence, ensuring that our internal processes translate into superior client outcomes and reliability.",
+    icon: AdityaAvatar,
     social: {
       twitter: "#",
       facebook: "#",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/aditya-kumar-010823227/",
     },
   },
   {
     id: 2,
-    name: "Sarah Johnson",
-    role: "CTO, AKA Innovation",
+    name: "Karan Gangwar",
+    role: "Co-Founder & Design Lead",
     description:
-      "Passionate about technology and innovation, Sarah leads our technical team with expertise in AI and machine learning. She has over 10 years of experience in building scalable solutions and mentoring developers.",
-    image: "/team/member2.jpg",
+      "Karan brings creative vision to life, ensuring that every digital product we build is not only functional but visually stunning and intuitive. With a mastery of UI/UX principles and design systems, he leads our creative direction, transforming complex user requirements into elegant, accessible interfaces. His user-centric approach involves deep empathy and rigorous testing, ensuring that our designs captivate users and drive engagement from the very first interaction.",
+    icon: KaranAvatar,
     social: {
       twitter: "#",
       facebook: "#",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/karan-gangwar-59aa8b225/",
     },
   },
   {
     id: 3,
-    name: "Michael Chen",
-    role: "Head of Design, AKA Innovation",
+    name: "Ayush Sahu",
+    role: "Co-Founder & Tech Lead",
     description:
-      "Michael brings creative vision to life with stunning user experiences. With a background in both design and psychology, he ensures every product we build is intuitive and beautiful.",
-    image: "/team/member3.jpg",
+      "As the driving force behind our technical innovations, Ayush specializes in designing high-performance, scalable architectures that power complex digital ecosystems. With deep expertise in full-stack development and cloud infrastructure, he ensures every system we build is robust, secure, and future-proof. His leadership in adopting cutting-edge technologies enables AKA Innovations to deliver enterprise-grade solutions that stand the test of time while maintaining exceptional code quality and efficiency.",
+    icon: AyushAvatar,
     social: {
       twitter: "#",
       facebook: "#",
-      linkedin: "#",
-    },
-  },
-  {
-    id: 4,
-    name: "Emily Rodriguez",
-    role: "VP of Engineering, AKA Innovation",
-    description:
-      "Emily drives our engineering excellence with a focus on quality and performance. Her leadership has helped scale our products to serve millions of users worldwide.",
-    image: "/team/member4.jpg",
-    social: {
-      twitter: "#",
-      facebook: "#",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/ayush-sahu-62b788225/",
     },
   },
 ];
@@ -64,11 +57,11 @@ export function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  // Auto-swipe every 3 seconds
+  // Auto-swipe every 8 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 3000);
+    }, 8000);
 
     return () => clearInterval(timer);
   }, [currentIndex]);
@@ -118,11 +111,23 @@ export function Team() {
     setCurrentIndex(currentIndex + diff);
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   // Calculate visible circles (current, prev, next)
   const activeIndex = currentIndex;
   const getVisibleMembers = () => {
     const visible = [];
-    for (let i = -2; i <= 2; i++) {
+    const range = isMobile ? 1 : 2; // Show fewer items on mobile
+    for (let i = -range; i <= range; i++) {
       const virtualIndex = activeIndex + i;
       const index = getWrappedIndex(virtualIndex);
       visible.push({
@@ -136,6 +141,21 @@ export function Team() {
   };
 
   const circleConfig = (offset: number) => {
+    if (isMobile) {
+      // Mobile Configuration (Tighter packing, smaller icons)
+      switch (offset) {
+        case -1:
+          return { size: 90, x: -90, zIndex: 3, opacity: 0.7 };
+        case 0:
+          return { size: 140, x: 0, zIndex: 10, opacity: 1 };
+        case 1:
+          return { size: 90, x: 90, zIndex: 3, opacity: 0.7 };
+        default:
+          return { size: 0, x: 0, zIndex: 0, opacity: 0 };
+      }
+    }
+
+    // Desktop Configuration
     switch (offset) {
       case -2:
         return { size: 160, x: -260, zIndex: 1, opacity: 1 };
@@ -153,8 +173,10 @@ export function Team() {
   };
 
   return (
-    <section className="relative min-h-screen w-full bg-[#e8eaed] flex flex-col items-center justify-center py-20 px-4 overflow-hidden">
-      {/* Header */}
+    <section id="team" className="relative min-h-screen w-full flex flex-col items-center justify-center py-24 px-4 overflow-visible">
+
+      {/* Global AmbientBackground handles visuals now */}
+
       <div className="text-center mb-8">
         <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
           Meet our team
@@ -223,7 +245,7 @@ export function Team() {
       </div>
 
       {/* Circular Carousel - Swipeable */}
-      <div className="relative w-full max-w-4xl h-64 flex items-center justify-center mb-12">
+      <div className="relative w-full mt-24 lg:mt-12 max-w-4xl h-48 md:h-64 flex items-center justify-center mb-8 md:mb-12">
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
@@ -253,8 +275,8 @@ export function Team() {
                 className={`absolute rounded-full border ${isActive ? "border-gray-500" : "border-gray-300"
                   } bg-gray-200 overflow-hidden cursor-pointer`}
               >
-                <div className="w-full h-full flex items-center justify-center bg-[#e0e0e0] text-gray-700 font-semibold text-xl">
-                  {member.name.charAt(0)}
+                <div className="w-full h-full flex items-center justify-center bg-white">
+                  <Image src={member.icon} alt={member.name} className="w-full h-full object-cover" />
                 </div>
               </motion.div>
             );
@@ -269,8 +291,8 @@ export function Team() {
             key={member.id}
             onClick={() => goToSlide(index)}
             className={`h-3 rounded-full transition-all duration-300 ${index === getWrappedIndex(currentIndex)
-                ? "w-12 bg-blue-500"
-                : "w-3 bg-blue-300 hover:bg-blue-400"
+              ? "w-12 bg-blue-500"
+              : "w-3 bg-blue-300 hover:bg-blue-400"
               }`}
             aria-label={`Go to ${member.name}`}
           />

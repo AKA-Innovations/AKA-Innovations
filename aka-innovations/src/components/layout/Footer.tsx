@@ -12,8 +12,7 @@ export function Footer() {
               AKA Innovations
             </Link>
             <p className="mt-4 text-sm text-gray-600 leading-relaxed max-w-xs">
-              With lots of unique blocks, you can easily build a page without
-              coding. Build your next landing page.
+              Building intelligent solutions for the modern enterprise. Scale your business with our cutting-edge tech.
             </p>
 
             {/* Social Icons */}
@@ -21,24 +20,28 @@ export function Footer() {
               <a
                 href="#"
                 className="text-gray-600 hover:text-gray-900 transition-colors"
+                aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="#"
                 className="text-gray-600 hover:text-gray-900 transition-colors"
+                aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="#"
                 className="text-gray-600 hover:text-gray-900 transition-colors"
+                aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="#"
                 className="text-gray-600 hover:text-gray-900 transition-colors"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -51,7 +54,15 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <Link
-                  href="#"
+                  href="/#hero"
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#team"
                   className="hover:text-gray-900 transition-colors"
                 >
                   About us
@@ -59,15 +70,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
-                  className="hover:text-gray-900 transition-colors"
-                >
-                  Contact us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
+                  href="/#team"
                   className="hover:text-gray-900 transition-colors"
                 >
                   Our Team
@@ -75,7 +78,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/#features"
                   className="hover:text-gray-900 transition-colors"
                 >
                   Why us
@@ -90,7 +93,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <Link
-                  href="#"
+                  href="/#features"
                   className="hover:text-gray-900 transition-colors"
                 >
                   Features
@@ -98,7 +101,15 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/producthealth"
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  Product Health Check
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
                   className="hover:text-gray-900 transition-colors"
                 >
                   Pricing
@@ -106,23 +117,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-gray-900 transition-colors"
-                >
-                  News
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-gray-900 transition-colors"
-                >
-                  Help desk
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
+                  href="/contact"
                   className="hover:text-gray-900 transition-colors"
                 >
                   Support
@@ -137,7 +132,15 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <Link
-                  href="#"
+                  href="/services"
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  Overview
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
                   className="hover:text-gray-900 transition-colors"
                 >
                   AI/ML Solutions
@@ -145,34 +148,26 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/services"
                   className="hover:text-gray-900 transition-colors"
                 >
-                  SAAS
+                  Web Engineering
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/services"
                   className="hover:text-gray-900 transition-colors"
                 >
-                  Custom Software
+                  Mobile Apps
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/services"
                   className="hover:text-gray-900 transition-colors"
                 >
-                  UI Design
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-gray-900 transition-colors"
-                >
-                  Cloud Engineerin
+                  UI/UX Design
                 </Link>
               </li>
             </ul>
@@ -184,7 +179,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <Link
-                  href="#"
+                  href="/privacy-policy"
                   className="hover:text-gray-900 transition-colors"
                 >
                   Privacy Policy
@@ -192,7 +187,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/terms-conditions"
                   className="hover:text-gray-900 transition-colors"
                 >
                   Terms & Conditions

@@ -59,7 +59,7 @@ export function Contact() {
     }
   };
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#e8eaed] flex items-center justify-center py-16 px-4">
+    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center py-16 px-4">
       {/* Animated Background Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Top Left Purple Orb */}
