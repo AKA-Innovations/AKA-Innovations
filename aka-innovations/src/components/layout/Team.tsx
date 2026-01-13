@@ -245,7 +245,7 @@ export function Team() {
       </div>
 
       {/* Circular Carousel - Swipeable */}
-      <div className="relative w-full mt-24 lg:mt-12 max-w-4xl h-48 md:h-64 flex items-center justify-center mb-8 md:mb-12">
+      <div className="relative w-full mt-32 lg:mt-12 max-w-4xl h-48 md:h-64 flex items-center justify-center mb-8 md:mb-12">
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}

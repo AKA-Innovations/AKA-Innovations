@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Twitter, Facebook, Instagram, Linkedin } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -8,8 +9,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
           {/* Brand Section */}
           <div className="md:col-span-1">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-              AKA Innovations
+            <Link href="/" className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+              <Image
+                src="/logo.svg"
+                alt="AKA Innovations Logo"
+                width={40}
+                height={40}
+                className="h-10 w-auto"
+              />
+              <span>AKA Innovations</span>
             </Link>
             <p className="mt-4 text-sm text-gray-600 leading-relaxed max-w-xs">
               Building intelligent solutions for the modern enterprise. Scale your business with our cutting-edge tech.
@@ -39,7 +47,7 @@ export function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/aka-innovations"
                 className="text-gray-600 hover:text-gray-900 transition-colors"
                 aria-label="LinkedIn"
               >
