@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send } from "lucide-react";
+import { ArrowLeft, Mail, MapPin, Send } from "lucide-react";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function ContactClient() {
+export function ContactClient() {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -57,70 +60,80 @@ export default function ContactClient() {
         }
     };
     return (
-        <div className="relative min-h-screen w-full overflow-hidden bg-[#e8eaed] flex items-center justify-center py-16 px-4">
+        <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center py-16 px-4">
+            {/* Back Button */}
+            <motion.button
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                onClick={() => router.back()}
+                className="absolute top-6 left-6 md:top-10 md:left-10 z-50 p-3 bg-white/20 backdrop-blur-xl border border-white/40 rounded-full shadow-lg text-gray-900 hover:bg-white/40 transition-colors"
+            >
+                <ArrowLeft size={24} />
+            </motion.button>
             {/* Animated Background Orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Top Left Purple Orb */}
                 <motion.div
                     animate={{
-                        x: [0, -20, 0],
-                        y: [0, 20, 0],
-                        scale: [1, 1.1, 1],
+                        x: [0, -70, 0],
+                        y: [0, 70, 0],
+                        scale: [1, 1, 1],
                     }}
                     transition={{
                         duration: 8,
                         repeat: Infinity,
                         ease: "easeInOut",
                     }}
-                    className="absolute top-[15%] left-[5%] w-[350px] h-[350px] rounded-full bg-gradient-to-br from-blue-500 to-purple-600 blur-[100px] opacity-70"
+                    className="absolute top-[15%] left-[15%] w-[150px] h-[150px] rounded-full bg-gradient-to-br from-[#5F9FFF] from-0% via-[#7E69FF] via-42% to-[#FE3D41] to-100%"
                 />
 
                 {/* Top Right Cyan/Green Orb */}
                 <motion.div
                     animate={{
-                        x: [0, 30, 0],
-                        y: [0, -20, 0],
-                        scale: [1, 1.15, 1],
+                        x: [0, 50, 0],
+                        y: [0, -40, 0],
+                        scale: [1, 1, 1],
                     }}
                     transition={{
-                        duration: 10,
+                        duration: 7,
                         repeat: Infinity,
                         ease: "easeInOut",
                         delay: 1,
                     }}
-                    className="absolute top-[10%] right-[0%] w-[450px] h-[450px] rounded-full bg-gradient-to-bl from-cyan-300 via-blue-400 to-purple-500 blur-[100px] opacity-70"
+                    className="absolute top-[10%] right-[0%] w-[300px] h-[300px] rounded-full bg-gradient-to-bl from-[#98FFCE] from-0% via-[#838FFF] via-70% to-[#60B2FF] to-100%"
                 />
 
                 {/* Bottom Left Blue Orb */}
                 <motion.div
                     animate={{
-                        x: [0, -25, 0],
-                        y: [0, -30, 0],
-                        scale: [1, 1.2, 1],
+                        x: [0, -50, 0],
+                        y: [0, -60, 0],
+                        scale: [1, 1, 1],
                     }}
                     transition={{
-                        duration: 12,
+                        duration: 7,
                         repeat: Infinity,
                         ease: "easeInOut",
                         delay: 2,
                     }}
-                    className="absolute bottom-[5%] left-[-5%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-blue-400 to-cyan-300 blur-[100px] opacity-70"
+                    className="absolute bottom-[0%] left-[5%] w-[350px] h-[350px] rounded-full bg-gradient-to-tr from-[#98FFCE] from-0% via-[#5F9FFF] via-25% via-[#8571FF] via-75% to-[#3F2FA5] to-100%"
                 />
 
                 {/* Bottom Right Purple/Pink Orb */}
                 <motion.div
                     animate={{
-                        x: [0, 20, 0],
-                        y: [0, 25, 0],
-                        scale: [1, 1.1, 1],
+                        x: [0, 40, 0],
+                        y: [0, 50, 0],
+                        scale: [1, 1, 1],
                     }}
                     transition={{
-                        duration: 9,
+                        duration: 5,
                         repeat: Infinity,
                         ease: "easeInOut",
                         delay: 0.5,
                     }}
-                    className="absolute bottom-[15%] right-[10%] w-[300px] h-[300px] rounded-full bg-gradient-to-tl from-purple-500 to-pink-400 blur-[80px] opacity-60"
+                    className="absolute bottom-[5%] right-[15%] w-[150px] h-[150px] rounded-full bg-gradient-to-br from-[#FF3BDE] from-0% via-[#7E69FF] via-41% via-[#828FF1] via-59% to-[#8DFFC9] to-100%"
                 />
             </div>
 
@@ -128,18 +141,18 @@ export default function ContactClient() {
             <div className="relative z-10 w-full max-w-6xl flex flex-col items-center">
                 {/* Page Header */}
                 <div className="text-center mb-12">
-                    <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-3">
+                    <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-3">
                         Contact Us
-                    </h1>
+                    </h2>
                     <p className="text-gray-600 text-lg">
                         Lets build something intelligent
                     </p>
                 </div>
 
                 {/* Glass Card with Strong Border */}
-                <div className="w-full bg-white/50 backdrop-blur-2xl rounded-[2.5rem] shadow-2xl border-2 border-white/60 overflow-hidden flex flex-col lg:flex-row">
+                <div className="w-full bg-white/10 backdrop-blur-md rounded-[2.5rem] shadow-2xl border-2 border-white/60 overflow-hidden flex flex-col lg:flex-row">
                     {/* Left Side: Contact Info */}
-                    <div className="w-full lg:w-[38%] relative p-10 md:p-12 flex flex-col justify-between overflow-hidden">
+                    <div className="w-full lg:w-[38%] relative p-10 md:p-12 flex flex-col justify-between overflow-hidden backdrop-blur-md">
                         {/* Pink/Purple Gradient Glow behind heading */}
                         <div className="absolute top-[15%] left-[10%] w-[250px] h-[150px] bg-gradient-to-br from-pink-400 via-purple-400 to-transparent blur-[60px] opacity-60 pointer-events-none" />
 
@@ -152,7 +165,7 @@ export default function ContactClient() {
                             </h2>
 
                             <div className="space-y-8">
-                                <div className="flex items-start space-x-4">
+                                <div className="flex items-center space-x-4">
                                     <div className="mt-1 bg-gray-900 p-1.5 rounded">
                                         <Mail className="w-5 h-5 text-white" />
                                     </div>
@@ -174,7 +187,7 @@ export default function ContactClient() {
                         </div>
 
                         {/* Social Icons at Bottom */}
-                        <div className="relative z-10 mt-16 flex space-x-4">
+                        <div className="relative z-10 justify-center mt-16 flex space-x-4">
                             <a
                                 href="#"
                                 className="p-2.5 bg-[#1DA1F2] text-white rounded-md hover:scale-110 transition-transform"
@@ -200,7 +213,7 @@ export default function ContactClient() {
                                 </svg>
                             </a>
                             <a
-                                href="#"
+                                href="https://www.linkedin.com/company/aka-innovations"
                                 className="p-2.5 bg-[#0077B5] text-white rounded-md hover:scale-110 transition-transform"
                             >
                                 <svg
@@ -215,7 +228,7 @@ export default function ContactClient() {
                     </div>
 
                     {/* Right Side: Form */}
-                    <div className="w-full lg:w-[62%] p-10 md:p-12 relative bg-white/30">
+                    <div className="w-full lg:w-[62%] p-10 md:p-12 relative  ">
                         <form onSubmit={handleSubmit} className="space-y-8">
                             {/* Name Row */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -330,19 +343,19 @@ export default function ContactClient() {
                             {/* Footer Action */}
                             <div className="flex items-center justify-end pt-6 relative">
                                 {/* Paper Plane Trail */}
-                                <div className="absolute left-0 bottom-8 pointer-events-none hidden lg:block">
+                                <div className="absolute right-[32%] bottom-[-5%] pointer-events-none hidden lg:block">
                                     <svg
-                                        width="280"
-                                        height="100"
-                                        viewBox="0 0 280 100"
+                                        width="200"
+                                        height="80"
+                                        viewBox="0 0 200 80"
                                         fill="none"
-                                        className="opacity-40"
+                                        className=""
                                     >
                                         <path
-                                            d="M 20 80 Q 80 20 140 60 T 260 50"
-                                            stroke="#9333ea"
-                                            strokeWidth="2"
-                                            strokeDasharray="6 6"
+                                            d="M 10 60 Q 60 20 120 50 Q 150 65 180 55"
+                                            stroke="#7D818D"
+                                            strokeWidth="1.5"
+                                            strokeDasharray="4 4"
                                             fill="none"
                                             strokeLinecap="round"
                                         />
@@ -350,8 +363,12 @@ export default function ContactClient() {
                                 </div>
 
                                 {/* Paper Plane Icon */}
-                                <div className="absolute right-44 -bottom-2 pointer-events-none hidden lg:block text-gray-600">
-                                    <Send size={40} className="rotate-45" strokeWidth={1.5} />
+                                <div className="absolute right-[32%] bottom-[5%] pointer-events-none hidden lg:block text-gray-500">
+                                    <Send
+                                        size={32}
+                                        className="rotate-[45deg]"
+                                        strokeWidth={1.5}
+                                    />
                                 </div>
 
                                 <button
@@ -366,6 +383,6 @@ export default function ContactClient() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

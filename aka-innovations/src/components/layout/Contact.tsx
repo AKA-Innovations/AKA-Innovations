@@ -130,9 +130,9 @@ export function Contact() {
       <div className="relative z-10 w-full max-w-6xl flex flex-col items-center">
         {/* Page Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-3">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-3">
             Contact Us
-          </h1>
+          </h2>
           <p className="text-gray-600 text-lg">
             Lets build something intelligent
           </p>

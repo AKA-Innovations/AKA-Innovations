@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { Twitter, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import Logo from "@/assets/logo.svg"; // Import SVG as component
 import Image from "next/image";
+import { FooterMetrics } from "./FooterMetrics";
 
 export function Footer() {
   return (
@@ -202,6 +204,30 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Visitor Metrics */}
+        <FooterMetrics />
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-200 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
+          <p className="text-gray-500">
+            © {new Date().getFullYear()} AKA Innovations. All rights reserved.
+          </p>
+          <div className="flex items-center space-x-6">
+            <Link
+              href="/privacy-policy"
+              className="text-gray-500 hover:text-gray-900 transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-conditions"
+              className="text-gray-500 hover:text-gray-900 transition-colors"
+            >
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>
