@@ -15,8 +15,20 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Home",
+    "description": "AKA Innovations providing digital engineering and product health solutions.",
+    "url": "https://aka-innovations.com"
+  };
+
   return (
     <div className="min-h-screen w-full flex flex-col relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <AmbientBackground />
       <Header />
       <Hero />
