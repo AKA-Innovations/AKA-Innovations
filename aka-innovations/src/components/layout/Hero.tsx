@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden bg-[#f5f5f7] pt-24 md:pt-20">
+    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden pt-24 md:pt-20">
 
       {/* Background Image with subtle motion */}
       <motion.div
@@ -26,7 +26,7 @@ export function Hero() {
       </motion.div>
 
       {/* Soft Gradient Glow - Optimized blur */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[70vw] max-w-[700px] h-[70vw] max-h-[700px] rounded-full bg-white/70 blur-[80px]" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[70vw] max-w-[700px] h-[70vw] max-h-[700px] rounded-full blur-[80px]" />
 
       {/* Glass Card - Optimized backdrop blur */}
       <motion.div
@@ -36,7 +36,7 @@ export function Hero() {
           hidden: {},
           visible: { transition: { staggerChildren: 0.15 } },
         }}
-        className="relative z-10 w-full max-w-6xl flex flex-col items-center"
+        className="relative z-10 w-full max-w-7xl flex flex-col items-center"
       >
         <motion.div
           variants={{
@@ -48,7 +48,7 @@ export function Hero() {
               transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
             },
           }}
-          className="p-6 sm:p-10 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/15 backdrop-blur-lg border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.12)] text-center will-change-transform"
+          className="p-6 sm:p-10 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/45 backdrop-blur-lg border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.12)] text-center will-change-transform"
         >
           {/* Heading */}
           <motion.h1
@@ -56,12 +56,11 @@ export function Hero() {
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
             }}
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-[#1a1a1a] mb-6 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold tracking-tight text-[#1a1a1a] mb-6 leading-tight"
           >
-            Building Intelligent Products that
-            <br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-[#374af2] via-[#7861b5] to-[#f28686] bg-clip-text text-transparent block md:inline mt-2 md:mt-0">
-              Scale Businesses Today
+            We are a product-first engineering team helping businesses
+            <span className="bg-gradient-to-r from-[#374af2] via-[#7861b5] to-[#f28686] bg-clip-text text-transparent block mt-2">
+              design, build, and scale custom digital systems.
             </span>
           </motion.h1>
 
@@ -73,11 +72,7 @@ export function Hero() {
             }}
             className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light"
           >
-            Unlock AI-powered software solutions designed to automate workflows,
-            enhance decision-making, and accelerate digital growth. We help
-            startups and enterprises transform ideas into scalable, secure, and
-            high-performing digital products using AI, cloud, and modern
-            engineering.
+            Early. Focused. Thoughtful. We work directly with founders and decision-makers—no handoffs, no middle layers. Just experienced engineers solving hard problems.
           </motion.p>
         </motion.div>
 
