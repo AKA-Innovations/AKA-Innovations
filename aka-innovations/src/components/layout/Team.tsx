@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Twitter, Facebook, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import Image from "next/image";
 
 // Team Avatars
@@ -16,40 +16,25 @@ const teamMembers = [
     id: 1,
     name: "Aditya Kumar",
     role: "Co-Founder & Operations Lead",
-    description:
-      "Aditya is the operational backbone of AKA Innovations, ensuring seamless execution across all projects. He combines strategic resource management with agile methodologies to streamline workflows and optimize delivery timelines. His expertise in cross-functional coordination and client relationship management guarantees that projects stay on track and within budget. Aditya is dedicated to fostering a culture of operational excellence, ensuring that our internal processes translate into superior client outcomes and reliability.",
+    credibility: "Experience scaling operational workflows for early-stage startups using agile methodologies. Focused on resource optimization, client communication cycles, and ensuring project delivery milestones are met with precision. Background in cross-functional team coordination.",
     icon: AdityaAvatar,
-    social: {
-      twitter: "#",
-      facebook: "#",
-      linkedin: "https://www.linkedin.com/in/aditya-kumar-010823227/",
-    },
+    linkedin: "https://www.linkedin.com/in/aditya-kumar-010823227/",
   },
   {
     id: 2,
     name: "Karan Gangwar",
-    role: "Co-Founder & Design Lead",
-    description:
-      "Karan brings creative vision to life, ensuring that every digital product we build is not only functional but visually stunning and intuitive. With a mastery of UI/UX principles and design systems, he leads our creative direction, transforming complex user requirements into elegant, accessible interfaces. His user-centric approach involves deep empathy and rigorous testing, ensuring that our designs captivate users and drive engagement from the very first interaction.",
+    role: "Co-Founder & Product Engineer",
+    credibility: "Experience building full-stack web applications, scalable dashboards, and internal tools across healthcare, SaaS, and public-sector platforms. Strong focus on system design, UI/UX clarity, and translating business requirements into reliable software. Has worked on production systems using React, Spring Boot, AWS, and modern frontend stacks.",
     icon: KaranAvatar,
-    social: {
-      twitter: "#",
-      facebook: "#",
-      linkedin: "https://www.linkedin.com/in/karan-gangwar-59aa8b225/",
-    },
+    linkedin: "https://www.linkedin.com/in/karan-gangwar-59aa8b225/",
   },
   {
     id: 3,
     name: "Ayush Sahu",
     role: "Co-Founder & Tech Lead",
-    description:
-      "As the driving force behind our technical innovations, Ayush specializes in designing high-performance, scalable architectures that power complex digital ecosystems. With deep expertise in full-stack development and cloud infrastructure, he ensures every system we build is robust, secure, and future-proof. His leadership in adopting cutting-edge technologies enables AKA Innovations to deliver enterprise-grade solutions that stand the test of time while maintaining exceptional code quality and efficiency.",
+    credibility: "Specialized in cloud-native architectures and backend scalability. Experience designing secure API ecosystems and database schemas for data-intensive applications. Deep expertise in Next.js, Node.js environment, and verified security practices for enterprise integration.",
     icon: AyushAvatar,
-    social: {
-      twitter: "#",
-      facebook: "#",
-      linkedin: "https://www.linkedin.com/in/ayush-sahu-62b788225/",
-    },
+    linkedin: "https://www.linkedin.com/in/ayush-sahu-62b788225/",
   },
 ];
 
@@ -57,11 +42,11 @@ export function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  // Auto-swipe every 8 seconds
+  // Auto-swipe every 10 seconds (slower for reading)
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 8000);
+    }, 10000);
 
     return () => clearInterval(timer);
   }, [currentIndex]);
@@ -173,22 +158,26 @@ export function Team() {
   };
 
   return (
-    <section id="team" className="relative min-h-screen w-full flex flex-col items-center justify-center py-24 px-4 overflow-visible">
+    <section id="team" className="relative min-h-screen w-full flex flex-col items-center justify-center py-24 px-4 overflow-hidden">
 
-      {/* Global AmbientBackground handles visuals now */}
+      {/* Small Team Disclaimer */}
+      <div className="mb-16 text-center max-w-2xl mx-auto bg-blue-50/50 border border-blue-100 p-6 rounded-2xl backdrop-blur-sm">
+        <p className="text-gray-800 font-medium text-lg leading-relaxed">
+          &ldquo;We are a small, focused engineering team that works directly with founders and decision-makers — no handoffs, no middle layers.&rdquo;
+        </p>
+      </div>
 
       <div className="text-center mb-8">
-        <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-          Meet our team
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Who We Are
         </h2>
-        <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-          We are a team of engineers, designers, and problem-solvers obsessed
-          with building meaningful products.
+        <p className="text-gray-600 text-lg">
+          Meet the engineers building your product.
         </p>
       </div>
 
       {/* Description Card */}
-      <div className="relative w-full max-w-3xl mb-16 h-[320px]">
+      <div className="relative w-full max-w-3xl mb-16 h-[380px] md:h-[320px]">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
@@ -201,51 +190,40 @@ export function Team() {
               x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 },
             }}
-            className="bg-white rounded-3xl shadow-lg p-8 md:p-12 absolute top-0 left-0 w-full"
+            className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-10 absolute top-0 left-0 w-full flex flex-col items-center text-center"
           >
-            {/* Speech bubble arrow */}
-            <div className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[20px] border-t-white" />
 
-            <p className="text-gray-700 text-center leading-relaxed mb-6">
-              {teamMembers[getWrappedIndex(currentIndex)].description}
-            </p>
-
-            <div className="text-center">
-              <h3 className="text-blue-600 font-semibold text-xl mb-1">
+            <div className="mb-4">
+              <h3 className="text-gray-900 font-bold text-2xl mb-1">
                 {teamMembers[getWrappedIndex(currentIndex)].name}
               </h3>
-              <p className="text-gray-600 text-sm mb-4">
+              <p className="text-blue-600 font-medium text-sm mb-4 uppercase tracking-wide">
                 {teamMembers[getWrappedIndex(currentIndex)].role}
               </p>
+            </div>
 
-              {/* Social Icons */}
-              <div className="flex justify-center space-x-4">
-                <a
-                  href={teamMembers[getWrappedIndex(currentIndex)].social.twitter}
-                  className="text-blue-400 hover:text-blue-600 transition-colors"
-                >
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a
-                  href={teamMembers[getWrappedIndex(currentIndex)].social.facebook}
-                  className="text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a
-                  href={teamMembers[getWrappedIndex(currentIndex)].social.linkedin}
-                  className="text-blue-700 hover:text-blue-900 transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
+            <p className="text-gray-700 leading-relaxed mb-6 max-w-2xl">
+              {teamMembers[getWrappedIndex(currentIndex)].credibility}
+            </p>
+
+            {/* Social Icons */}
+            <div className="flex justify-center space-x-4 mt-auto">
+              <a
+                href={teamMembers[getWrappedIndex(currentIndex)].linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-500 hover:text-[#0077b5] transition-colors text-sm font-medium"
+              >
+                <Linkedin className="w-5 h-5" />
+                <span>Connect on LinkedIn</span>
+              </a>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
 
       {/* Circular Carousel - Swipeable */}
-      <div className="relative w-full mt-32 lg:mt-12 max-w-4xl h-48 md:h-64 flex items-center justify-center mb-8 md:mb-12">
+      <div className="relative w-full mt-12 max-w-4xl h-48 md:h-64 flex items-center justify-center mb-8 md:mb-12">
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
@@ -272,8 +250,8 @@ export function Team() {
                 transition={{ type: "spring", stiffness: 260, damping: 28 }}
                 onClick={() => offset !== 0 && goToSlide(index)}
                 style={{ width: size, height: size, zIndex }}
-                className={`absolute rounded-full border ${isActive ? "border-gray-500" : "border-gray-300"
-                  } bg-gray-200 overflow-hidden cursor-pointer`}
+                className={`absolute rounded-full border-4 ${isActive ? "border-white shadow-xl scale-105" : "border-gray-100 grayscale-[0.5]"
+                  } bg-gray-200 overflow-hidden cursor-pointer transition-all duration-300`}
               >
                 <div className="w-full h-full flex items-center justify-center bg-white">
                   <Image src={member.icon} alt={member.name} className="w-full h-full object-cover" />
@@ -290,9 +268,9 @@ export function Team() {
           <button
             key={member.id}
             onClick={() => goToSlide(index)}
-            className={`h-3 rounded-full transition-all duration-300 ${index === getWrappedIndex(currentIndex)
-              ? "w-12 bg-blue-500"
-              : "w-3 bg-blue-300 hover:bg-blue-400"
+            className={`h-2 rounded-full transition-all duration-300 ${index === getWrappedIndex(currentIndex)
+              ? "w-8 bg-gray-800"
+              : "w-2 bg-gray-300 hover:bg-gray-400"
               }`}
             aria-label={`Go to ${member.name}`}
           />

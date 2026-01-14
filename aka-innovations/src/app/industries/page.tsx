@@ -9,8 +9,20 @@ export const metadata: Metadata = {
 };
 
 export default function IndustriesPage() {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Industries We Serve",
+        "description": "Digital engineering solutions for Healthcare, Logistics, Finance, and Education.",
+        "url": "https://aka-innovations.com/industries"
+    };
+
     return (
         <div className="min-h-screen w-full flex flex-col bg-[#f5f5f7]">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Header />
 
             <main className="grow pt-32 pb-20">

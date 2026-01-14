@@ -99,8 +99,15 @@ export function FeaturedSolutions() {
             className="relative w-full"
             style={{ height: `${services.length * 100}vh` }}
         >
-            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-10">
-                <h2 className="sr-only">Featured Solutions</h2>
+            <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 md:px-10">
+                <div className="relative z-20 text-center mb-6 md:mb-10">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-2 md:mb-4">
+                        Core Capabilities
+                    </h2>
+                    <p className="hidden md:block text-lg text-gray-600 font-light">
+                        Engineering excellence across every layer of the stack.
+                    </p>
+                </div>
                 {/* Global AmbientBackground handles the visuals now, but we add local orbs as requested */}
 
                 {/* Animated Background Orbs - Optimized */}
