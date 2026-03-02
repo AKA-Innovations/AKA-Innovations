@@ -375,7 +375,7 @@ export function EngineeringServices() {
 
         {/* ═══════ SERVICE SECTIONS ═══════ */}
         {services.map((svc, i) => (
-          <React.Fragment key={svc.id ?? svc.index}>
+          <React.Fragment key={svc.index}>
 
             {/* Ruled divider */}
             <div className="pt-16 pb-12">

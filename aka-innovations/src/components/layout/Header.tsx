@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "Products", href: "/producthealth" },
+  { name: "Products", href: "/products" },
   { name: "About us", href: "/#team" },
 ];
 
@@ -94,17 +94,18 @@ export function Header() {
                   onMouseEnter={() => setHoveredProduct(true)}
                   onMouseLeave={() => setHoveredProduct(false)}
                 >
-                  <button
+                  <Link
+                    href="/products"
                     className={cn(
                       "text-[15px] font-medium transition-colors flex items-center gap-1",
-                      (pathname === "/school-erp" || pathname === "/producthealth") || hoveredProduct
+                      (pathname === "/products" || pathname === "/school-erp" || pathname === "/producthealth") || hoveredProduct
                         ? "text-[#634c9f] font-semibold"
                         : "text-[#1a1a1a] hover:text-[#634c9f]"
                     )}
                   >
                     Products
                     <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", hoveredProduct ? "rotate-180" : "")} />
-                  </button>
+                  </Link>
 
                   <AnimatePresence>
                     {hoveredProduct && (
@@ -196,7 +197,16 @@ export function Header() {
                 if (item.name === "Products") {
                   return (
                     <div key={item.name} className="flex flex-col gap-2 py-2">
-                      <div className="text-lg font-medium text-slate-900 px-2">Products</div>
+                      <Link
+                        href="/products"
+                        className={cn(
+                          "text-lg font-medium px-2 transition-colors",
+                          pathname === "/products" ? "text-blue-600" : "text-slate-900"
+                        )}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Products
+                      </Link>
                       <div className="pl-4 flex flex-col gap-2 border-l-2 border-slate-100 ml-2">
                         {productLinks.map((product) => (
                           <Link
