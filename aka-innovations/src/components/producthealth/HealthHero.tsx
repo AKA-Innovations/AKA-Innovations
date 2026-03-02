@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { FC } from "react";
+import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 
 export const HealthHero: FC = () => {
@@ -121,13 +122,12 @@ export const HealthHero: FC = () => {
                         </motion.p>
 
                         <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="bg-(--color-health-navy) text-white px-8 py-3.5 rounded-full text-[14px] font-inter font-medium hover:opacity-90 transition-opacity"
+                            <Link
+                                href="/contact?subject=Health+Connect"
+                                className="bg-(--color-health-navy) text-white px-8 py-3.5 rounded-full text-[14px] font-inter font-medium hover:opacity-90 transition-opacity flex items-center justify-center cursor-pointer"
                             >
                                 Request Demo
-                            </motion.button>
+                            </Link>
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}

@@ -1,20 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Mail, MapPin, Send } from "lucide-react";
 import toast from "react-hot-toast";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export function ContactClient() {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const initialSubject = searchParams.get("subject") || "General Inquiry";
+
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
         email: "",
         phone: "",
-        subject: "General Inquiry",
+        subject: initialSubject,
         message: "",
     });
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -297,8 +299,9 @@ export function ContactClient() {
                                 <div className="flex flex-wrap gap-6">
                                     {[
                                         "General Inquiry",
-                                        "Brand Identity",
-                                        "Product",
+                                        "School ERP",
+                                        "Health Connect",
+                                        "Product Maintenance",
                                         "Got an Idea",
                                     ].map((subject) => (
                                         <label

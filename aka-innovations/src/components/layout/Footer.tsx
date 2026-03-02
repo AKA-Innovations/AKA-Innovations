@@ -99,22 +99,22 @@ export function Footer() {
 
           {/* Product */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Product</h3>
+            <h3 className="font-semibold text-gray-900 mb-4">Products</h3>
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <Link
-                  href="/#features"
-                  className="hover:text-gray-900 transition-colors"
+                  href="/school-erp"
+                  className="hover:text-blue-600 transition-colors"
                 >
-                  Features
+                  School ERP Ecosystem
                 </Link>
               </li>
               <li>
                 <Link
                   href="/producthealth"
-                  className="hover:text-gray-900 transition-colors"
+                  className="hover:text-blue-600 transition-colors"
                 >
-                  Product Health Check
+                  Health-Connect
                 </Link>
               </li>
               <li>
@@ -130,7 +130,7 @@ export function Footer() {
                   href="/contact"
                   className="hover:text-gray-900 transition-colors"
                 >
-                  Support
+                  Enterprise Support
                 </Link>
               </li>
             </ul>
