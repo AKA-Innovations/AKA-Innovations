@@ -57,7 +57,7 @@ export function Header() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-md shadow-sm border-b border-white/20"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-white/20"
     >
       <div className="container mx-auto px-6 lg:px-12 h-20 flex items-center justify-between relative">
         <Link href="/" className="text-md lg:text-2xl font-bold text-[#1a1a1a] flex items-center gap-2 z-20">

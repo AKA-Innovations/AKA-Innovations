@@ -194,7 +194,7 @@ export default function DashboardHighlights() {
                             {pageContent.badge}
                         </motion.div>
 
-                        <h2 className="text-4xl font-extrabold text-[#1C2237] mb-4 leading-tight font-syne">
+                        <h2 className="text-4xl font-extrabold text-[#1C2237] mb-4 leading-tight font-dm-sans">
                             {pageContent.heading.line1}<br />
                             <span style={{ color: accent }}>{pageContent.heading.line2}</span>
                         </h2>
@@ -239,7 +239,7 @@ export default function DashboardHighlights() {
                                 exit={{ opacity: 0, y: -18 }}
                                 transition={{ duration: 0.35 }}
                             >
-                                <h3 className="text-2xl font-bold text-[#1C2237] mb-3 font-syne">{current.title}</h3>
+                                <h3 className="text-2xl font-bold text-[#1C2237] mb-3 font-dm-sans">{current.title}</h3>
                                 <p className="text-[#6B7492] max-w-md mb-8 leading-relaxed font-dm-sans">{current.description}</p>
 
                                 <div className="space-y-4">
@@ -294,7 +294,7 @@ export default function DashboardHighlights() {
                                             style={{ background: accent }}>
                                             {React.createElement(current.icon, { className: 'w-4 h-4 text-white' })}
                                         </div>
-                                        <span className="font-bold text-[#1C2237] font-syne">{dash.heading}</span>
+                                        <span className="font-bold text-[#1C2237] font-dm-sans">{dash.heading}</span>
                                     </div>
                                     <div className="flex items-center gap-1.5">
                                         <span className="w-3 h-3 rounded-full bg-[#F7604F]" />
@@ -318,7 +318,7 @@ export default function DashboardHighlights() {
                                                 <p className="text-xs mb-1 font-dm-sans" style={{ color: i === 0 ? 'rgba(255,255,255,0.75)' : '#6B7492' }}>
                                                     {s.label}
                                                 </p>
-                                                <p className="text-xl font-extrabold leading-none font-syne" style={{ color: i === 0 ? '#fff' : '#1C2237' }}>
+                                                <p className="text-xl font-extrabold leading-none font-dm-sans" style={{ color: i === 0 ? '#fff' : '#1C2237' }}>
                                                     {s.value}
                                                 </p>
                                                 <p className="text-[11px] mt-1 font-dm-sans" style={{ color: i === 0 ? 'rgba(255,255,255,0.6)' : '#AAB0C0' }}>

@@ -236,7 +236,7 @@ export default function Hero() {
 
                     {/* Headline */}
                     <h1
-                        className="text-5xl md:text-6xl font-black leading-[1.05] mb-6 font-syne"
+                        className="text-5xl md:text-6xl font-black leading-[1.05] mb-6 font-dm-sans"
                     >
                         <motion.span
                             initial={{ opacity: 0, y: 20 }}
@@ -361,7 +361,7 @@ export default function Hero() {
                                     <BarChart2 className="w-4 h-4 text-blue-400" />
                                 </div>
                                 <div>
-                                    <p className="text-white text-sm font-bold font-syne">
+                                    <p className="text-white text-sm font-bold font-dm-sans">
                                         {pageContent.dashboard.header.title}
                                     </p>
                                     <p className="text-white/30 text-[11px]">{pageContent.dashboard.header.subtitle}</p>
@@ -387,7 +387,7 @@ export default function Hero() {
                                         style={{ background: `${s.color}0F` }}
                                     >
                                         <p className="text-[10px] text-white/40 mb-1.5 leading-tight">{s.label}</p>
-                                        <p className="text-lg font-extrabold text-white leading-none mb-1 font-syne">{s.value}</p>
+                                        <p className="text-lg font-extrabold text-white leading-none mb-1 font-dm-sans">{s.value}</p>
                                         <p className="text-[10px] font-semibold" style={{ color: s.color }}>{s.delta}</p>
                                     </motion.div>
                                 ))}
