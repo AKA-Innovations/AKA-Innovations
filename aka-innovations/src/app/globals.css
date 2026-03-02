@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=Inter:wght@300;400;500;700;800&family=Raleway:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap');
 
 @import "tailwindcss";
 
@@ -87,6 +88,14 @@ body {
   .font-raleway {
     font-family: 'Raleway', sans-serif;
   }
+}
+
+@utility font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+@utility font-dm-sans {
+  font-family: 'DM Sans', sans-serif;
 }
 
 @utility gradient-text-cyan-purple {

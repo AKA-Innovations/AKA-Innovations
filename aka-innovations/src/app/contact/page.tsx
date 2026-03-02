@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { ContactClient } from "./ContactClient";
 
 export const metadata: Metadata = {
@@ -34,7 +35,9 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <ContactClient />
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+        <ContactClient />
+      </Suspense>
     </div>
   );
 }
