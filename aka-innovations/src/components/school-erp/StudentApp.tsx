@@ -53,7 +53,7 @@ const StudentApp = () => {
                             ))}
                         </ul>
 
-                        <div className="flex gap-4">
+                        {/* <div className="flex gap-4">
                             <button className="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-all shadow-lg hover:shadow-slate-900/40 hover:-translate-y-1">
                                 <Download className="w-5 h-5" />
                                 <div className="text-left">
@@ -68,7 +68,7 @@ const StudentApp = () => {
                                     <div className="text-sm font-bold leading-none">Google Play</div>
                                 </div>
                             </button>
-                        </div>
+                        </div> */}
                     </motion.div>
 
                     {/* Right Visuals (App Screens) */}

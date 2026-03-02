@@ -16,10 +16,6 @@ const reasons = [
     {
         title: "Zero-Training Interface",
         desc: "If you can use Facebook or WhatsApp, you can use our ERP. No complex manuals required."
-    },
-    {
-        title: "Indian Context Ready",
-        desc: "Built-in support for CBSE/ICSE grading patterns, local SMS gateways, and fee structures."
     }
 ];
 

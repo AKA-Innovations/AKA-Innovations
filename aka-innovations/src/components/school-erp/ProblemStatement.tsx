@@ -51,7 +51,7 @@ const ProblemStatement = () => {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-bold font-syne text-slate-900 mb-6"
+                        className="text-3xl md:text-4xl font-bold font-dm-sans text-slate-900 mb-6"
                     >
                         {pageContent.heading.start}
                         <span className="text-red-500">{pageContent.heading.highlight}</span>
@@ -83,7 +83,7 @@ const ProblemStatement = () => {
                                 <div className="w-12 h-12 rounded-xl bg-red-50/50 border border-red-100 flex items-center justify-center mb-6 text-red-500 shadow-sm group-hover:scale-110 group-hover:bg-red-100 transition-all duration-300">
                                     <Icon className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-lg font-bold font-syne text-slate-900 mb-3 group-hover:text-red-700 transition-colors">{item.title}</h3>
+                                <h3 className="text-lg font-bold font-dm-sans text-slate-900 mb-3 group-hover:text-red-700 transition-colors">{item.title}</h3>
                                 <p className="text-sm font-dm-sans text-slate-600 leading-relaxed">
                                     {item.description}
                                 </p>
