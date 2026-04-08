@@ -29,6 +29,7 @@ export const metadata: Metadata = {
         title: 'Modern School ERP Software & Mobile App',
         description: 'Unified attendance, academics, and fees management for forward-thinking schools.',
     },
+    alternates: { canonical: '/school-erp' },
 };
 
 export default function SchoolERPPage() {

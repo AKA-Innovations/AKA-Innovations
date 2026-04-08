@@ -5,21 +5,42 @@ import { EngineeringServices } from "@/components/engineering/EngineeringService
 
 export const metadata: Metadata = {
   title: "Engineering Services | AKA Innovations",
-  description: "Expert engineering services including web development, cloud solutions, AI/ML integration, and system architecture.",
+  description: "Expert engineering services including web development, cloud solutions, Enterprise SaaS, Software ERPs, AI/ML integration, and system architecture.",
+  alternates: { canonical: '/services' },
 };
 
 export default function ServicesPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Engineering Services",
-    "description": "Expert engineering services including web development, cloud solutions, AI/ML integration, and system architecture.",
-    "url": "https://aka-innovations.com/services",
-    "provider": {
-      "@type": "Organization",
-      "name": "AKA Innovations"
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Engineering Services",
+      "description": "Expert engineering services including web development, cloud solutions, Enterprise SaaS, Software ERPs, AI/ML integration, and system architecture.",
+      "url": "https://aka-innovations.com/services",
+      "provider": {
+        "@type": "Organization",
+        "name": "AKA Innovations"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aka-innovations.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://aka-innovations.com/services"
+        }
+      ]
     }
-  };
+  ];
 
   return (
     <div className="min-h-screen w-full flex flex-col bg-white">

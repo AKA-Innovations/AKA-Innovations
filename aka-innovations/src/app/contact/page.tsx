@@ -5,6 +5,7 @@ import { ContactClient } from "./ContactClient";
 export const metadata: Metadata = {
   title: "Contact Us | AKA Innovations",
   description: "Get in touch with AKA Innovations for your software engineering and product health needs. We are ready to build something intelligent with you.",
+  alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {

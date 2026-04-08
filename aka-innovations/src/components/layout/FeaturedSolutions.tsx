@@ -221,6 +221,7 @@ export function FeaturedSolutions() {
                                     <div>
                                         <Link
                                             href="/services"
+                                            aria-label={`Learn more about ${services[activeService].title}`}
                                             className="inline-flex items-center gap-2 text-blue-600 font-semibold group hover:gap-3 transition-all"
                                         >
                                             <span className="border-b border-blue-600/0 group-hover:border-blue-600 transition-colors">

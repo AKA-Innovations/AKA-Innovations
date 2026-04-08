@@ -13,7 +13,8 @@ import { AmbientBackground } from "@/components/layout/AmbientBackground";
 
 export const metadata: Metadata = {
   title: "AKA Innovations | Product-First Engineering Team",
-  description: "We are an engineering team helping businesses design, build, and scale custom digital systems. No fluff, just shipping.",
+  description: "We are an engineering team helping businesses design, build, and scale custom digital systems like Education Management SaaS, School ERP and Healthcare monitoring systems. No fluff, just shipping.",
+  alternates: { canonical: '/' },
 };
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "AKA Innovations",
-    "description": "Product-first engineering team for early and mid-stage businesses.",
+    "description": "Product-first engineering team for early and mid-stage businesses, specializing in SaaS, Cloud School ERP, and Healthcare monitoring systems.",
     "url": "https://aka-innovations.com",
     "publisher": {
       "@type": "Organization",

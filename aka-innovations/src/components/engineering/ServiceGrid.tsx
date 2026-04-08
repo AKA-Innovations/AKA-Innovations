@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+
 function MotionTile({
   title,
   desc,
@@ -24,9 +26,11 @@ function MotionTile({
       className={`group relative overflow-hidden rounded-2xl bg-slate-900 ${className}`}
     >
       {/* Background */}
-      <img
+      <Image
         src={img}
         alt={title}
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
         className="absolute inset-0 h-full w-full object-cover scale-105 transition-transform duration-[1200ms] group-hover:scale-110"
       />
 
