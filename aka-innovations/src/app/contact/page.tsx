@@ -14,7 +14,7 @@ export default function ContactPage() {
     "@type": "ContactPage",
     "name": "Contact AKA Innovations",
     "description": "Contact page for AKA Innovations, offering digital engineering and product solutions.",
-    "url": "https://aka-innovations.com/contact",
+    "url": "https://akainnovations.com/contact",
     "mainEntity": {
       "@type": "Organization",
       "name": "AKA Innovations",
