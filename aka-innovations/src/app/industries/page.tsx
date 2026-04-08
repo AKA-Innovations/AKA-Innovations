@@ -14,7 +14,7 @@ export default function IndustriesPage() {
         "@type": "CollectionPage",
         "name": "Industries We Serve",
         "description": "Digital engineering solutions for Healthcare, Logistics, Finance, and Education.",
-        "url": "https://akainnovations.com.com/industries"
+        "url": "https://akainnovations.com/industries"
     };
 
     return (
