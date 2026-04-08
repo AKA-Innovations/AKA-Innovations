@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aka-innovations.com'),
+  metadataBase: new URL('https://akainnovations.com.com'),
   title: {
     default: "AKA Innovations | Digital Engineering & Product Solutions",
     template: "%s | AKA Innovations",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://aka-innovations.com",
+    url: "https://akainnovations.com.com",
     siteName: "AKA Innovations",
     title: "AKA Innovations | Digital Engineering & Product Solutions",
     description: "Transforming ideas into digital reality. AKA Innovations specializes in high-quality software engineering and product health assessments.",
@@ -84,10 +84,10 @@ export default function RootLayout({
       {
         "@type": "Organization",
         "name": "AKA Innovations",
-        "url": "https://aka-innovations.com",
-        "logo": "https://aka-innovations.com/logo.svg",
+        "url": "https://akainnovations.com.com",
+        "logo": "https://akainnovations.com.com/logo.svg",
         "sameAs": [
-          "https://www.linkedin.com/company/aka-innovations"
+          "https://www.linkedin.com/company/akainnovations.com"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
@@ -102,37 +102,37 @@ export default function RootLayout({
             "@type": "SiteNavigationElement",
             "position": 1,
             "name": "About Us",
-            "url": "https://aka-innovations.com/#team"
+            "url": "https://akainnovations.com.com/#team"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 2,
             "name": "Services",
-            "url": "https://aka-innovations.com/services"
+            "url": "https://akainnovations.com.com/services"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 3,
             "name": "Solutions",
-            "url": "https://aka-innovations.com/producthealth"
+            "url": "https://akainnovations.com.com/producthealth"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 4,
             "name": "Contact Us",
-            "url": "https://aka-innovations.com/contact"
+            "url": "https://akainnovations.com.com/contact"
           }
         ]
       },
       {
         "@type": "WebSite",
         "name": "AKA Innovations",
-        "url": "https://aka-innovations.com",
+        "url": "https://akainnovations.com.com",
         "potentialAction": {
           "@type": "SearchAction",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://aka-innovations.com/search?q={search_term_string}"
+            "urlTemplate": "https://akainnovations.com.com/search?q={search_term_string}"
           },
           "query-input": "required name=search_term_string"
         }

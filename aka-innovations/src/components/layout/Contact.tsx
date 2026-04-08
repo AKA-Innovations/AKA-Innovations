@@ -202,7 +202,7 @@ export function Contact() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/company/aka-innovations"
+                href="https://www.linkedin.com/company/akainnovations.com"
                 className="p-2.5 bg-[#0077B5] text-white rounded-md hover:scale-110 transition-transform"
               >
                 <svg

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Modern School ERP Software & Mobile App | AKA Innovations',
         description: 'Transform your school operations with our unified, cloud-based ERP ecosystem. Trusted by modern institutions.',
-        url: 'https://aka-innovations.com/school-erp',
+        url: 'https://akainnovations.com.com/school-erp',
         siteName: 'AKA Innovations',
         locale: 'en_US',
         type: 'website',
@@ -54,7 +54,7 @@ export default function SchoolERPPage() {
         'author': {
             '@type': 'Organization',
             'name': 'AKA Innovations',
-            'url': 'https://aka-innovations.com',
+            'url': 'https://akainnovations.com.com',
         },
     };
 
