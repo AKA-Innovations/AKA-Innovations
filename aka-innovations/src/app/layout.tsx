@@ -15,9 +15,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aka-innovations.com'),
-  alternates: {
-    canonical: '/',
-  },
   title: {
     default: "AKA Innovations | Digital Engineering & Product Solutions",
     template: "%s | AKA Innovations",
@@ -54,11 +51,14 @@ export const metadata: Metadata = {
       },
     ],
   },
+  verification: {
+    google: "7AVqDZIJQYuXaxH0ktbLhuscrCCuXUG4UZtbUKeUOMw",
+  },
   twitter: {
     card: "summary_large_image",
     title: "AKA Innovations | Digital Engineering & Product Solutions",
     description: "Transforming ideas into digital reality. AKA Innovations specializes in high-quality software engineering and product health assessments.",
-    // images: ["/og-image.jpg"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -94,6 +94,35 @@ export default function RootLayout({
           "email": "hr@akainnovations.com",
           "contactType": "customer service"
         }
+      },
+      {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "About Us",
+            "url": "https://aka-innovations.com/#team"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Services",
+            "url": "https://aka-innovations.com/services"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "Solutions",
+            "url": "https://aka-innovations.com/producthealth"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 4,
+            "name": "Contact Us",
+            "url": "https://aka-innovations.com/contact"
+          }
+        ]
       },
       {
         "@type": "WebSite",
