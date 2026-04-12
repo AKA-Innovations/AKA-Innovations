@@ -23,13 +23,13 @@ export default function Home() {
     "@type": "WebPage",
     "name": "AKA Innovations",
     "description": "Product-first engineering team for early and mid-stage businesses, specializing in SaaS, Cloud School ERP, and Healthcare monitoring systems.",
-    "url": "https://akainnovations.com",
+    "url": "https://www.akainnovations.com",
     "publisher": {
       "@type": "Organization",
       "name": "AKA Innovations",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://akainnovations.com/logo.svg"
+        "url": "https://www.akainnovations.com/logo.svg"
       }
     }
   };

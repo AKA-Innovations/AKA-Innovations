@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://akainnovations.com'),
+  metadataBase: new URL('https://www.akainnovations.com'),
   title: {
     default: "AKA Innovations | Digital Engineering & Product Solutions",
     template: "%s | AKA Innovations",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://akainnovations.com",
+    url: "https://www.akainnovations.com",
     siteName: "AKA Innovations",
     title: "AKA Innovations | Digital Engineering & Product Solutions",
     description: "Transforming ideas into digital reality. AKA Innovations specializes in high-quality software engineering and product health assessments.",
@@ -84,8 +84,13 @@ export default function RootLayout({
       {
         "@type": "Organization",
         "name": "AKA Innovations",
-        "url": "https://akainnovations.com",
-        "logo": "https://akainnovations.com/logo.svg",
+        "url": "https://www.akainnovations.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.akainnovations.com/logo.png",
+          "width": 512,
+          "height": 512
+        },
         "sameAs": [
           "https://www.linkedin.com/company/akainnovations.com"
         ],
@@ -102,37 +107,37 @@ export default function RootLayout({
             "@type": "SiteNavigationElement",
             "position": 1,
             "name": "About Us",
-            "url": "https://akainnovations.com/#team"
+            "url": "https://www.akainnovations.com/#team"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 2,
             "name": "Services",
-            "url": "https://akainnovations.com/services"
+            "url": "https://www.akainnovations.com/services"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 3,
             "name": "Solutions",
-            "url": "https://akainnovations.com/producthealth"
+            "url": "https://www.akainnovations.com/producthealth"
           },
           {
             "@type": "SiteNavigationElement",
             "position": 4,
             "name": "Contact Us",
-            "url": "https://akainnovations.com/contact"
+            "url": "https://www.akainnovations.com/contact"
           }
         ]
       },
       {
         "@type": "WebSite",
         "name": "AKA Innovations",
-        "url": "https://akainnovations.com",
+        "url": "https://www.akainnovations.com",
         "potentialAction": {
           "@type": "SearchAction",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://akainnovations.com/search?q={search_term_string}"
+            "urlTemplate": "https://www.akainnovations.com/search?q={search_term_string}"
           },
           "query-input": "required name=search_term_string"
         }
@@ -142,13 +147,15 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
         <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
       </body>
