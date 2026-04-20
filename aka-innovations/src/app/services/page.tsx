@@ -16,7 +16,7 @@ export default function ServicesPage() {
       "@type": "CollectionPage",
       "name": "Engineering Services",
       "description": "Expert engineering services including web development, cloud solutions, Enterprise SaaS, Software ERPs, AI/ML integration, and system architecture.",
-      "url": "https://akainnovations.com/services",
+      "url": "https://www.akainnovations.com/services",
       "provider": {
         "@type": "Organization",
         "name": "AKA Innovations"
@@ -30,13 +30,13 @@ export default function ServicesPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://akainnovations.com/"
+          "item": "https://www.akainnovations.com/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Services",
-          "item": "https://akainnovations.com/services"
+          "item": "https://www.akainnovations.com/services"
         }
       ]
     }
