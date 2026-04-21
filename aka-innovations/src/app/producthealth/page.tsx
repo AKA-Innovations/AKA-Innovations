@@ -28,7 +28,8 @@ export default function HealthConnectPage() {
         "provider": {
             "@type": "Organization",
             "name": "AKA Innovations"
-        }
+        },
+        "url": "https://www.akainnovations.com/producthealth"
     };
 
     return (
