@@ -7,14 +7,14 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden pt-24 md:pt-20">
+    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden pt-24 md:pt-20 dark:bg-[#0a0a0a]">
 
       {/* Background Image with subtle motion */}
       <motion.div
         initial={{ scale: 1.05, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="absolute inset-0 pointer-events-none select-none will-change-transform"
+        className="absolute inset-0 pointer-events-none select-none will-change-transform dark:opacity-10"
       >
         <Image
           src="/heroBack.svg"
@@ -48,7 +48,7 @@ export function Hero() {
               transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
             },
           }}
-          className="p-6 sm:p-10 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/45 backdrop-blur-lg border border-white/40 shadow-[0_20px_60px_rgba(0,0,0,0.12)] text-center will-change-transform"
+          className="p-6 sm:p-10 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/45 dark:bg-slate-900/40 backdrop-blur-lg border border-white/40 dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] text-center will-change-transform"
         >
           {/* Heading */}
           <motion.h1
@@ -56,7 +56,7 @@ export function Hero() {
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
             }}
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold tracking-tight text-[#1a1a1a] mb-6 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold tracking-tight text-[#1a1a1a] dark:text-white mb-6 leading-tight"
           >
             We are a product-first engineering team helping businesses
             <span className="bg-gradient-to-r from-[#374af2] via-[#7861b5] to-[#f28686] bg-clip-text text-transparent block mt-2">
@@ -70,7 +70,7 @@ export function Hero() {
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-light"
           >
             Early. Focused. Thoughtful. We work directly with founders and decision-makers—no handoffs, no middle layers. Just experienced engineers solving hard problems.
           </motion.p>
@@ -89,9 +89,9 @@ export function Hero() {
             className="
               w-full sm:w-auto text-center
               px-8 py-3.5 rounded-full
-              bg-white text-[#1a1a1a] font-semibold
-              border border-white/60
-              shadow-md hover:shadow-lg
+              bg-white dark:bg-[#A78BFA] text-[#1a1a1a] dark:text-slate-900 font-semibold
+              border border-white/60 dark:border-transparent
+              shadow-md hover:shadow-lg dark:hover:bg-[#8b5cf6]
               transition-all duration-300
               hover:-translate-y-[1px]
             "
@@ -104,8 +104,9 @@ export function Hero() {
             className="
               w-full sm:w-auto flex justify-center items-center gap-2
               px-8 py-3.5 rounded-full
-              bg-white/80 text-[#1a1a1a] font-semibold
-              hover:bg-white
+              bg-white/80 dark:bg-white/10 text-[#1a1a1a] dark:text-white font-semibold
+              hover:bg-white dark:hover:bg-white/20
+              border border-transparent dark:border-white/20
               transition-all duration-300
               hover:-translate-y-[1px]
             "

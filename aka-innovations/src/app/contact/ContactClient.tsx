@@ -69,7 +69,7 @@ export function ContactClient() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
                 onClick={() => router.back()}
-                className="absolute top-6 left-6 md:top-10 md:left-10 z-50 p-3 bg-white/20 backdrop-blur-xl border border-white/40 rounded-full shadow-lg text-gray-900 hover:bg-white/40 transition-colors"
+                className="absolute top-6 left-6 md:top-10 md:left-10 z-50 p-3 bg-white/20 dark:bg-slate-900/40 backdrop-blur-xl border border-white/40 dark:border-white/10 rounded-full shadow-lg text-gray-900 dark:text-white hover:bg-white/40 dark:hover:bg-slate-800/40 transition-colors"
             >
                 <ArrowLeft size={24} />
             </motion.button>
@@ -143,16 +143,16 @@ export function ContactClient() {
             <div className="relative z-10 w-full max-w-6xl flex flex-col items-center">
                 {/* Page Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-3">
+                    <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-3">
                         Contact Us
                     </h2>
-                    <p className="text-gray-600 text-lg">
+                    <p className="text-gray-600 dark:text-gray-300 text-lg">
                         Lets build something intelligent
                     </p>
                 </div>
 
                 {/* Glass Card with Strong Border */}
-                <div className="w-full bg-white/10 backdrop-blur-md rounded-[2.5rem] shadow-2xl border-2 border-white/60 overflow-hidden flex flex-col lg:flex-row">
+                <div className="w-full bg-white/10 dark:bg-slate-900/40 backdrop-blur-md rounded-[2.5rem] shadow-2xl border-2 border-white/60 dark:border-white/10 overflow-hidden flex flex-col lg:flex-row">
                     {/* Left Side: Contact Info */}
                     <div className="w-full lg:w-[38%] relative p-10 md:p-12 flex flex-col justify-between overflow-hidden backdrop-blur-md">
                         {/* Pink/Purple Gradient Glow behind heading */}
@@ -162,7 +162,7 @@ export function ContactClient() {
                         <div className="absolute bottom-[10%] left-[20%] w-[280px] h-[280px] bg-gradient-to-t from-purple-400 via-blue-400 to-transparent blur-[80px] opacity-50 pointer-events-none" />
 
                         <div className="relative z-10">
-                            <h2 className="text-3xl font-bold text-gray-900 mb-12">
+                            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">
                                 Contact Information
                             </h2>
 
@@ -171,7 +171,7 @@ export function ContactClient() {
                                     <div className="mt-1 bg-gray-900 p-1.5 rounded">
                                         <Mail className="w-5 h-5 text-white" />
                                     </div>
-                                    <span className="text-base text-gray-900 font-semibold">
+                                    <span className="text-base text-gray-900 dark:text-white font-semibold">
                                         hr@akainnovations.com
                                     </span>
                                 </div>
@@ -180,7 +180,7 @@ export function ContactClient() {
                                     <div className="mt-1 bg-gray-900 p-1.5 rounded">
                                         <MapPin className="w-5 h-5 text-white" />
                                     </div>
-                                    <span className="text-gray-800 leading-relaxed text-sm max-w-[250px]">
+                                    <span className="text-gray-800 dark:text-gray-300 leading-relaxed text-sm max-w-[250px]">
                                         08 Triveni Tower 3rd Floor, Central Avenue, GandhiPutla,
                                         Itwari, Nagpur 440002, India.
                                     </span>
@@ -235,7 +235,7 @@ export function ContactClient() {
                             {/* Name Row */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="relative">
-                                    <label className="text-sm font-medium text-gray-900 block mb-3">
+                                    <label className="text-sm font-medium text-gray-900 dark:text-gray-200 block mb-3">
                                         First Name
                                     </label>
                                     <input
@@ -244,11 +244,11 @@ export function ContactClient() {
                                         value={formData.firstName}
                                         onChange={handleChange}
                                         required
-                                        className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 transition-colors"
+                                        className="w-full bg-transparent border-b-2 border-gray-400 dark:border-gray-600 focus:border-gray-900 dark:focus:border-white outline-none pb-2 text-gray-900 dark:text-white transition-colors"
                                     />
                                 </div>
                                 <div className="relative">
-                                    <label className="text-sm font-medium text-gray-900 block mb-3">
+                                    <label className="text-sm font-medium text-gray-900 dark:text-gray-200 block mb-3">
                                         Last Name
                                     </label>
                                     <input
@@ -257,7 +257,7 @@ export function ContactClient() {
                                         value={formData.lastName}
                                         onChange={handleChange}
                                         required
-                                        className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 transition-colors"
+                                        className="w-full bg-transparent border-b-2 border-gray-400 dark:border-gray-600 focus:border-gray-900 dark:focus:border-white outline-none pb-2 text-gray-900 dark:text-white transition-colors"
                                     />
                                 </div>
                             </div>
@@ -265,7 +265,7 @@ export function ContactClient() {
                             {/* Contact Row */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="relative">
-                                    <label className="text-sm font-medium text-gray-900 block mb-3">
+                                    <label className="text-sm font-medium text-gray-900 dark:text-gray-200 block mb-3">
                                         Email
                                     </label>
                                     <input
@@ -274,11 +274,11 @@ export function ContactClient() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 transition-colors"
+                                        className="w-full bg-transparent border-b-2 border-gray-400 dark:border-gray-600 focus:border-gray-900 dark:focus:border-white outline-none pb-2 text-gray-900 dark:text-white transition-colors"
                                     />
                                 </div>
                                 <div className="relative">
-                                    <label className="text-sm font-medium text-gray-900 block mb-3">
+                                    <label className="text-sm font-medium text-gray-900 dark:text-gray-200 block mb-3">
                                         Phone Number
                                     </label>
                                     <input
@@ -286,14 +286,14 @@ export function ContactClient() {
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
-                                        className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 transition-colors"
+                                        className="w-full bg-transparent border-b-2 border-gray-400 dark:border-gray-600 focus:border-gray-900 dark:focus:border-white outline-none pb-2 text-gray-900 dark:text-white transition-colors"
                                     />
                                 </div>
                             </div>
 
                             {/* Subject Selection */}
                             <div>
-                                <label className="text-sm font-bold text-gray-900 block mb-4">
+                                <label className="text-sm font-bold text-gray-900 dark:text-white block mb-4">
                                     Select Subject?
                                 </label>
                                 <div className="flex flex-wrap gap-6">
@@ -308,7 +308,7 @@ export function ContactClient() {
                                             key={subject}
                                             className="flex items-center cursor-pointer space-x-2.5 group"
                                         >
-                                            <div className="relative w-4 h-4 rounded-full border-2 border-gray-900 flex items-center justify-center">
+                                            <div className="relative w-4 h-4 rounded-full border-2 border-gray-900 dark:border-white flex items-center justify-center">
                                                 <input
                                                     type="radio"
                                                     name="subject"
@@ -317,9 +317,9 @@ export function ContactClient() {
                                                     onChange={handleChange}
                                                     className="peer w-full h-full opacity-0 absolute cursor-pointer"
                                                 />
-                                                <div className="w-2 h-2 bg-gray-900 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity" />
+                                                <div className="w-2 h-2 bg-gray-900 dark:bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity" />
                                             </div>
-                                            <span className="text-sm text-gray-900 font-medium">
+                                            <span className="text-sm text-gray-900 dark:text-gray-200 font-medium">
                                                 {subject}
                                             </span>
                                         </label>
@@ -329,7 +329,7 @@ export function ContactClient() {
 
                             {/* Message */}
                             <div className="relative">
-                                <label className="text-sm font-medium text-gray-900 block mb-3">
+                                <label className="text-sm font-medium text-gray-900 dark:text-gray-200 block mb-3">
                                     Message
                                 </label>
                                 <textarea
@@ -339,7 +339,7 @@ export function ContactClient() {
                                     value={formData.message}
                                     onChange={handleChange}
                                     required
-                                    className="w-full bg-transparent border-b-2 border-gray-400 focus:border-gray-900 outline-none pb-2 text-gray-900 placeholder:text-gray-500 transition-colors resize-none"
+                                    className="w-full bg-transparent border-b-2 border-gray-400 dark:border-gray-600 focus:border-gray-900 dark:focus:border-white outline-none pb-2 text-gray-900 dark:text-white placeholder:text-gray-500 transition-colors resize-none"
                                 />
                             </div>
 

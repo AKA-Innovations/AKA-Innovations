@@ -101,10 +101,10 @@ export function FeaturedSolutions() {
         >
             <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 md:px-10">
                 <div className="relative z-20 text-center mb-6 md:mb-10">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-2 md:mb-4">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-2 md:mb-4">
                         Core Capabilities
                     </h2>
-                    <p className="hidden md:block text-lg text-gray-600 font-light">
+                    <p className="hidden md:block text-lg text-gray-600 dark:text-gray-300 font-light">
                         Engineering excellence across every layer of the stack.
                     </p>
                 </div>
@@ -185,7 +185,7 @@ export function FeaturedSolutions() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -40, scale: 0.98 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
-                            className="relative bg-white/40 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] p-6 sm:p-10 md:p-16 will-change-transform"
+                            className="relative bg-white/40 dark:bg-slate-900/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 dark:border-white/10 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] dark:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] p-6 sm:p-10 md:p-16 will-change-transform"
                         >
                             {/* Gradient Halo */}
                             {/* <div
@@ -196,10 +196,10 @@ export function FeaturedSolutions() {
                                 {/* Left Content */}
                                 <div className="flex-1 space-y-8 text-center md:text-left">
                                     <div className="space-y-4">
-                                        <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                                        <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
                                             {services[activeService].title}
                                         </h3>
-                                        <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                                        <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                                             {services[activeService].description}
                                         </p>
                                     </div>
@@ -208,7 +208,7 @@ export function FeaturedSolutions() {
                                         {services[activeService].features.map((feature, i) => (
                                             <li
                                                 key={i}
-                                                className="flex items-center justify-center md:justify-start gap-3 text-gray-700 font-medium text-sm sm:text-base"
+                                                className="flex items-center justify-center md:justify-start gap-3 text-gray-700 dark:text-gray-300 font-medium text-sm sm:text-base"
                                             >
                                                 <span
                                                     className={`w-2 h-2 rounded-full ${services[activeService].dot}`}
@@ -248,7 +248,7 @@ export function FeaturedSolutions() {
 
                     {/* Pagination */}
                     <div className="absolute -bottom-20 left-1/2 -translate-x-1/2">
-                        <div className="flex items-center gap-2 px-3 py-2 bg-white/30 backdrop-blur-md rounded-full border border-white/40 shadow-lg">
+                        <div className="flex items-center gap-2 px-3 py-2 bg-white/30 dark:bg-slate-800/50 backdrop-blur-md rounded-full border border-white/40 dark:border-white/10 shadow-lg">
                             {services.map((_, i) => (
                                 <div
                                     key={i}

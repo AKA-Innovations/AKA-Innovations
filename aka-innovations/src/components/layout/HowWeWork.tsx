@@ -26,7 +26,7 @@ function StepItem({ step, index }: any) {
           w-9 h-9 rounded-full border
           ${step.highlight
                         ? "bg-blue-600 border-blue-600 text-white"
-                        : "bg-white border-gray-300 text-gray-600"
+                        : "bg-white dark:bg-slate-900 border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
                     }
         `}
             >
@@ -38,10 +38,10 @@ function StepItem({ step, index }: any) {
                 <span className="block text-sm font-medium text-gray-400 mb-1">
                     {step.id}
                 </span>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                     {step.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {step.description}
                 </p>
             </div>
@@ -108,17 +108,17 @@ export function HowWeWork() {
 
                         {/* Headline */}
                         <div>
-                            <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
+                            <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
                                 How we work
                             </h2>
-                            <p className="text-xl text-gray-600 leading-relaxed max-w-md">
+                            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-md">
                                 Our process is designed to reduce risk,
                                 eliminate waste, and compound clarity over time.
                             </p>
                         </div>
 
                         {/* Divider */}
-                        <div className="w-16 h-px bg-gray-300" />
+                        <div className="w-16 h-px bg-gray-300 dark:bg-gray-700" />
 
                         {/* Process Index */}
                         <div className="space-y-4">
@@ -127,8 +127,8 @@ export function HowWeWork() {
                                     key={step.id}
                                     className={`flex items-center gap-4 text-sm
                     ${step.highlight
-                                            ? "text-gray-900 font-semibold"
-                                            : "text-gray-400"
+                                            ? "text-gray-900 dark:text-white font-semibold"
+                                            : "text-gray-400 dark:text-gray-500"
                                         }
                   `}
                                 >
@@ -139,7 +139,7 @@ export function HowWeWork() {
                         </div>
 
                         {/* Philosophy Line */}
-                        <p className="text-sm text-gray-500 max-w-sm leading-relaxed">
+                        <p className="text-sm text-gray-500 dark:text-gray-400 max-w-sm leading-relaxed">
                             We don’t separate strategy, design, and engineering.
                             Treating them as silos is how products quietly fail.
                         </p>
@@ -148,7 +148,7 @@ export function HowWeWork() {
                     {/* RIGHT — EXECUTION */}
                     <div className="relative">
                         {/* Vertical guide */}
-                        <div className="absolute left-[18px] top-0 bottom-0 w-px bg-gray-200" />
+                        <div className="absolute left-[18px] top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-800" />
 
                         <div className="space-y-20">
                             {steps.map((step, index) => (

@@ -146,7 +146,7 @@ function RuledDivider({
         </span>
 
         {/* Rule */}
-        <div className="flex-1 h-px bg-slate-200" />
+        <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800" />
 
         {/* Discipline label */}
         <span
@@ -192,7 +192,7 @@ function DetailSection({ svc }: { svc: ServiceDetail }) {
 
       {/* Title */}
       <h2
-        className="text-3xl md:text-4xl font-black text-slate-900 leading-[1.06] mb-5"
+        className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white leading-[1.06] mb-5"
         style={{ fontFamily: 'Inter' }}
       >
         {svc.title}
@@ -200,7 +200,7 @@ function DetailSection({ svc }: { svc: ServiceDetail }) {
 
       {/* Description */}
       <p
-        className="text-[15px] leading-[1.85] text-slate-500 mb-8 max-w-[50ch]"
+        className="text-[15px] leading-[1.85] text-slate-500 dark:text-slate-300 mb-8 max-w-[50ch]"
         style={{ fontFamily: '"DM Sans", sans-serif' }}
       >
         {svc.description}
@@ -223,7 +223,7 @@ function DetailSection({ svc }: { svc: ServiceDetail }) {
               style={{ background: svc.accentHex }}
             />
             <span
-              className="text-sm text-slate-600 leading-relaxed"
+              className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
               style={{ fontFamily: '"DM Sans", sans-serif' }}
             >
               {f}
@@ -322,8 +322,7 @@ export function EngineeringServices() {
       `}</style>
 
       <div
-        className="w-full overflow-hidden"
-        style={{ background: "#FAFAF8" }}   /* warm off-white, not clinical */
+        className="w-full overflow-hidden bg-[#FAFAF8] dark:bg-[#0a0a0a] transition-colors duration-500"
       >
         {/* ── HERO ── */}
         <EngineeringHero />
@@ -346,8 +345,7 @@ export function EngineeringServices() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-end justify-between gap-8 pb-6"
-            style={{ borderBottom: "1px solid #e2e2dd" }}
+            className="flex items-end justify-between gap-8 pb-6 border-b border-[#e2e2dd] dark:border-white/10"
           >
             <div>
               <p
@@ -357,14 +355,14 @@ export function EngineeringServices() {
                 What We Build
               </p>
               <h2
-                className="text-4xl md:text-5xl font-black text-slate-900 leading-tight"
+                className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight"
                 style={{ fontFamily: 'Inter' }}
               >
                 Core Capabilities
               </h2>
             </div>
             <p
-              className="hidden md:block max-w-[38ch] text-sm text-slate-500 leading-relaxed text-right"
+              className="hidden md:block max-w-[38ch] text-sm text-slate-500 dark:text-slate-400 leading-relaxed text-right"
               style={{ fontFamily: '"DM Sans", sans-serif' }}
             >
               Engineering excellence across every layer of the stack — from
@@ -395,9 +393,8 @@ export function EngineeringServices() {
           </React.Fragment>
         ))}
 
-        {/* ── Bottom rule ── */}
         <div className="px-8 md:px-16 lg:px-24">
-          <div className="h-px w-full" style={{ background: "#e2e2dd" }} />
+          <div className="h-px w-full bg-[#e2e2dd] dark:bg-white/10" />
         </div>
       </div>
     </>

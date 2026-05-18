@@ -30,8 +30,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-white
-    ">
+    <div className="bg-white dark:bg-[#0a0a0a]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

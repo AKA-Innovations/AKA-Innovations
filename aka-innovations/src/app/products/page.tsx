@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight, GraduationCap, Activity, LayoutDashboard, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
 import { AmbientBackground } from "@/components/layout/AmbientBackground";
 import { Header } from "@/components/layout/Header";
@@ -59,7 +60,7 @@ const products = [
 
 export default function ProductsPage() {
     return (
-        <div className="relative min-h-screen bg-[#F8FAFC] overflow-hidden">
+        <div className="relative min-h-screen bg-[#F8FAFC] dark:bg-[#0a0a0a] overflow-hidden transition-colors duration-500">
             <Header />
             <div className="absolute inset-0 opacity-40">
                 <AmbientBackground />
@@ -69,13 +70,13 @@ export default function ProductsPage() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white/80 backdrop-blur-md mb-8 shadow-sm"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md mb-8 shadow-sm"
                 >
                     <LayoutDashboard className="w-4 h-4 text-emerald-600" />
-                    <span className="text-slate-600 text-sm font-medium tracking-wide">Our Flagship Products</span>
+                    <span className="text-slate-600 dark:text-slate-300 text-sm font-medium tracking-wide">Our Flagship Products</span>
                 </motion.div>
 
-                <motion.h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
+                <motion.h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
                     Built for <br className="md:hidden" />
                     <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
                         Scale and Speed
@@ -96,12 +97,14 @@ export default function ProductsPage() {
 
 function FlipCard({ product }: { product: any }) {
     const [isFlipped, setIsFlipped] = useState(false);
+    const router = useRouter();
 
     return (
         <div
-            className="group h-[600px] [perspective:1500px]"
+            className="group h-[600px] [perspective:1500px] cursor-pointer"
             onMouseEnter={() => setIsFlipped(true)}
             onMouseLeave={() => setIsFlipped(false)}
+            onClick={() => router.push(product.link)}
         >
             <motion.div
                 className="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d]"
@@ -111,17 +114,17 @@ function FlipCard({ product }: { product: any }) {
                 {/* --- FRONT SIDE --- */}
                 <div className="absolute inset-0 [backface-visibility:hidden]">
                     <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-50 blur-xl z-0`} />
-                    <div className={`relative h-full flex flex-col p-8 sm:p-10 bg-white/70 backdrop-blur-xl border border-white rounded-3xl ${product.border} shadow-xl z-10`}>
+                    <div className={`relative h-full flex flex-col p-8 sm:p-10 bg-white/70 dark:bg-slate-800/80 backdrop-blur-xl border border-white dark:border-slate-700 rounded-3xl ${product.border} shadow-xl z-10`}>
                         <div className={`w-16 h-16 rounded-2xl ${product.iconBg} flex items-center justify-center mb-6`}>
                             <product.icon className="w-8 h-8 text-white" />
                         </div>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-3">{product.name}</h2>
+                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">{product.name}</h2>
                         <h3 className="text-emerald-600 font-semibold mb-4 text-sm uppercase tracking-wide">{product.tagline}</h3>
-                        <p className="text-slate-600 leading-relaxed mb-8 flex-1">{product.description}</p>
+                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-8 flex-1">{product.description}</p>
                         <ul className="mb-10 space-y-3">
                             {product.features.map((f: string, i: number) => (
-                                <li key={i} className="flex items-center text-slate-500 text-sm">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300 mr-3" />
+                                <li key={i} className="flex items-center text-slate-500 dark:text-slate-400 text-sm">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 mr-3" />
                                     {f}
                                 </li>
                             ))}
@@ -166,6 +169,7 @@ function FlipCard({ product }: { product: any }) {
 
                         <Link
                             href={product.link}
+                            onClick={(e) => e.stopPropagation()}
                             className={`mt-6 inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl text-white font-semibold transition-all duration-300 bg-white/10 border border-white/20 hover:bg-white hover:text-slate-900`}
                         >
                             Get Started with {product.name}
