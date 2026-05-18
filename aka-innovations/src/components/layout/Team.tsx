@@ -161,17 +161,17 @@ export function Team() {
     <section id="team" className="relative min-h-screen w-full flex flex-col items-center justify-center py-24 px-4 overflow-hidden">
 
       {/* Small Team Disclaimer */}
-      <div className="mb-16 text-center max-w-2xl mx-auto bg-blue-50/50 border border-blue-100 p-6 rounded-2xl backdrop-blur-sm">
-        <p className="text-gray-800 font-medium text-lg leading-relaxed">
+      <div className="mb-16 text-center max-w-2xl mx-auto bg-blue-50/50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 p-6 rounded-2xl backdrop-blur-sm">
+        <p className="text-gray-800 dark:text-gray-200 font-medium text-lg leading-relaxed">
           &ldquo;We are a small, focused engineering team that works directly with founders and decision-makers — no handoffs, no middle layers.&rdquo;
         </p>
       </div>
 
       <div className="text-center mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
           Who We Are
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 dark:text-gray-400 text-lg">
           Meet the engineers building your product.
         </p>
       </div>
@@ -190,11 +190,11 @@ export function Team() {
               x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 },
             }}
-            className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-10 absolute top-0 left-0 w-full flex flex-col items-center text-center"
+            className="bg-white dark:bg-slate-900 rounded-3xl shadow-xl dark:shadow-2xl border border-gray-100 dark:border-white/10 p-8 md:p-10 absolute top-0 left-0 w-full flex flex-col items-center text-center"
           >
 
             <div className="mb-4">
-              <h3 className="text-gray-900 font-bold text-2xl mb-1">
+              <h3 className="text-gray-900 dark:text-white font-bold text-2xl mb-1">
                 {teamMembers[getWrappedIndex(currentIndex)].name}
               </h3>
               <p className="text-blue-600 font-medium text-sm mb-4 uppercase tracking-wide">
@@ -202,7 +202,7 @@ export function Team() {
               </p>
             </div>
 
-            <p className="text-gray-700 leading-relaxed mb-6 max-w-2xl">
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 max-w-2xl">
               {teamMembers[getWrappedIndex(currentIndex)].credibility}
             </p>
 
@@ -212,7 +212,7 @@ export function Team() {
                 href={teamMembers[getWrappedIndex(currentIndex)].linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-500 hover:text-[#0077b5] transition-colors text-sm font-medium"
+                className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-[#0077b5] dark:hover:text-[#00a0dc] transition-colors text-sm font-medium"
               >
                 <Linkedin className="w-5 h-5" />
                 <span>Connect on LinkedIn</span>
@@ -222,45 +222,7 @@ export function Team() {
         </AnimatePresence>
       </div>
 
-      {/* Circular Carousel - Swipeable */}
-      <div className="relative w-full mt-12 max-w-4xl h-48 md:h-64 flex items-center justify-center mb-8 md:mb-12">
-        <motion.div
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={1}
-          onDragEnd={(e, { offset, velocity }) => {
-            const swipe = swipePower(offset.x, velocity.x);
 
-            if (swipe < -swipeConfidenceThreshold) {
-              paginate(1);
-            } else if (swipe > swipeConfidenceThreshold) {
-              paginate(-1);
-            }
-          }}
-          className="flex items-center justify-center w-full cursor-grab active:cursor-grabbing"
-        >
-          {getVisibleMembers().map(({ member, offset, index, key }) => {
-            const isActive = offset === 0;
-            const { size, x, zIndex, opacity } = circleConfig(offset);
-
-            return (
-              <motion.div
-                key={key}
-                animate={{ x, opacity }}
-                transition={{ type: "spring", stiffness: 260, damping: 28 }}
-                onClick={() => offset !== 0 && goToSlide(index)}
-                style={{ width: size, height: size, zIndex }}
-                className={`absolute rounded-full border-4 ${isActive ? "border-white shadow-xl scale-105" : "border-gray-100 grayscale-[0.5]"
-                  } bg-gray-200 overflow-hidden cursor-pointer transition-all duration-300`}
-              >
-                <div className="w-full h-full flex items-center justify-center bg-white">
-                  <Image src={member.icon} alt={member.name} className="w-full h-full object-cover" />
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
 
       {/* Dots Navigation */}
       <div className="flex space-x-3">
@@ -269,8 +231,8 @@ export function Team() {
             key={member.id}
             onClick={() => goToSlide(index)}
             className={`h-2 rounded-full transition-all duration-300 ${index === getWrappedIndex(currentIndex)
-              ? "w-8 bg-gray-800"
-              : "w-2 bg-gray-300 hover:bg-gray-400"
+              ? "w-8 bg-gray-800 dark:bg-gray-200"
+              : "w-2 bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
               }`}
             aria-label={`Go to ${member.name}`}
           />

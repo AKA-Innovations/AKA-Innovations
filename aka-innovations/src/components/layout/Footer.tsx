@@ -6,12 +6,12 @@ import { FooterMetrics } from "./FooterMetrics";
 
 export function Footer() {
   return (
-    <footer className="bg-[#e8eaed] py-16">
+    <footer className="bg-[#e8eaed] dark:bg-slate-900 py-16 border-t border-transparent dark:border-white/10 transition-colors">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
           {/* Brand Section */}
           <div className="md:col-span-1">
-            <Link href="/" className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+            <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
               <Image
                 src="/logo.svg"
                 alt="AKA Innovations Logo"
@@ -21,7 +21,7 @@ export function Footer() {
               />
               <span>AKA Innovations</span>
             </Link>
-            <p className="mt-4 text-sm text-gray-600 leading-relaxed max-w-xs">
+            <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-xs">
               Building intelligent solutions for the modern enterprise. Scale your business with our cutting-edge tech.
             </p>
 
@@ -29,28 +29,28 @@ export function Footer() {
             <div className="flex space-x-4 mt-6">
               <a
                 href="#"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="https://www.linkedin.com/company/akainnovations.com"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -60,12 +60,12 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Company</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Company</h3>
+            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
               <li>
                 <Link
                   href="/#hero"
-                  className="hover:text-gray-900 transition-colors"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Home
                 </Link>
@@ -73,7 +73,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/#team"
-                  className="hover:text-gray-900 transition-colors"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   About us
                 </Link>
@@ -81,7 +81,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/#team"
-                  className="hover:text-gray-900 transition-colors"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Our Team
                 </Link>
@@ -89,7 +89,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/#features"
-                  className="hover:text-gray-900 transition-colors"
+                  className="hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Why us
                 </Link>
@@ -99,8 +99,8 @@ export function Footer() {
 
           {/* Product */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Products</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Products</h3>
+            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
               <li>
                 <Link
                   href="/school-erp"
@@ -138,8 +138,8 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Services</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Services</h3>
+            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
               <li>
                 <Link
                   href="/services"
@@ -185,8 +185,8 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Legal</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Legal</h3>
+            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
               <li>
                 <Link
                   href="/privacy-policy"
@@ -211,8 +211,8 @@ export function Footer() {
         <FooterMetrics />
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-200 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
-          <p className="text-gray-500">
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
+          <p className="text-gray-500 dark:text-gray-400">
             © {new Date().getFullYear()} AKA Innovations. All rights reserved.
           </p>
           <div className="flex items-center space-x-6">

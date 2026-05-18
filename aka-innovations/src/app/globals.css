@@ -2,17 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap');
 
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
@@ -58,11 +57,18 @@ body {
     --color-health-off-white: #f8fafc;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: #0a0a0a;
-      --foreground: #ededed;
-    }
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    
+    /* Product Health Dark Mode Mappings */
+    --color-health-bg: #0a0a0a;
+    --color-health-navy: #f8fafc;
+    --color-health-slate: #cbd5e1;
+    --color-health-slate-dark: #e2e8f0;
+    --color-health-slate-light: #94a3b8;
+    --color-health-off-white: #171717;
+    --color-health-gray-lightest: #1e293b;
   }
 
   * {

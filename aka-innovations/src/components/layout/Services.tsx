@@ -100,13 +100,13 @@ function TiltCard({ industry }: { industry: (typeof industries)[0] }) {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{ rotateX, rotateY }}
-        className="relative z-10 flex flex-col items-center text-center space-y-4 p-5 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/70 shadow-xl"
+        className="relative z-10 flex flex-col items-center text-center space-y-4 p-5 rounded-3xl bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/70 dark:border-white/10 shadow-xl"
       >
         {/* Floating Icon Box */}
         <motion.div
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="relative w-28 h-28 rounded-2xl bg-white/70 border border-white/80 shadow-lg flex items-center justify-center overflow-hidden"
+          className="relative w-28 h-28 rounded-2xl bg-white/70 dark:bg-slate-800/70 border border-white/80 dark:border-white/10 shadow-lg flex items-center justify-center overflow-hidden"
         >
           {/* Icon */}
           <div className="absolute inset-0 transition-all duration-300 group-hover:opacity-10 group-hover:scale-90 group-hover:blur-sm flex items-center justify-center">
@@ -115,13 +115,13 @@ function TiltCard({ industry }: { industry: (typeof industries)[0] }) {
 
           {/* Description */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 px-3">
-            <p className="text-xs text-gray-800 font-medium leading-snug">
+            <p className="text-xs text-gray-800 dark:text-gray-200 font-medium leading-snug">
               {industry.description}
             </p>
           </div>
         </motion.div>
 
-        <h3 className="text-gray-900 font-semibold text-sm leading-tight group-hover:text-[#634c9f] transition-colors">
+        <h3 className="text-gray-900 dark:text-white font-semibold text-sm leading-tight group-hover:text-[#634c9f] transition-colors">
           {industry.name}
         </h3>
       </motion.div>
@@ -143,16 +143,15 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
             INDUSTRIES WE SERVE
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto font-light">
+          <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl mx-auto font-light">
             Unleash innovation and accelerate growth with our dynamic products across diverse sectors.
           </p>
         </motion.div>
 
-        {/* Glass Container */}
-        <div className="relative bg-white/35 backdrop-blur-xl rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.25)] border border-white/60 p-10 md:p-16">
+        <div className="relative bg-white/35 dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border border-white/60 dark:border-white/10 p-10 md:p-16">
           <motion.div
             variants={container}
             initial="hidden"
@@ -168,7 +167,7 @@ export function Services() {
           {/* CTA */}
           <div className="flex justify-center mt-16">
             <Link href="/industries">
-              <button className="px-7 py-3 rounded-full bg-white/70 backdrop-blur-md border border-white/70 shadow-lg text-gray-800 font-medium hover:text-[#634c9f] transition group flex items-center gap-2 cursor-pointer">
+              <button className="px-7 py-3 rounded-full bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-white/70 dark:border-white/10 shadow-lg text-gray-800 dark:text-white font-medium hover:text-[#634c9f] dark:hover:text-[#A78BFA] transition group flex items-center gap-2 cursor-pointer">
                 <span>View All Industries</span>
                 <svg
                   className="w-4 h-4 transition-transform group-hover:translate-x-1"

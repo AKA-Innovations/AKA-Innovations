@@ -50,9 +50,9 @@ export function FooterMetrics() {
     }
 
     return (
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 py-6 border-t border-gray-200 mt-8">
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 py-6 border-t border-gray-200 dark:border-gray-800 mt-8">
             {/* Live Users Metric */}
-            <div className="flex items-center gap-2 text-gray-600">
+            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                 <div className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
@@ -65,10 +65,10 @@ export function FooterMetrics() {
             </div>
 
             {/* Vertical Divider (Hidden on small screens) */}
-            <div className="hidden md:block h-4 w-px bg-gray-300"></div>
+            <div className="hidden md:block h-4 w-px bg-gray-300 dark:bg-gray-700"></div>
 
             {/* Total Visits Metric */}
-            <div className="flex items-center gap-2 text-gray-600 font-medium">
+            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 font-medium">
                 <Eye className="w-4 h-4" />
                 <span className="tabular-nums">
                     {totalVisits.toLocaleString()}

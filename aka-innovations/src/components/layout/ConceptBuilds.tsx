@@ -53,10 +53,10 @@ export function ConceptBuilds() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
                     <div className="max-w-2xl">
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
                             Proof of Capability
                         </h2>
-                        <p className="text-lg md:text-xl text-gray-600 font-light leading-relaxed">
+                        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed">
                             These are not demos or experiments.
                             They are real systems built to handle scale, complexity, and responsibility.
                         </p>
@@ -79,11 +79,11 @@ export function ConceptBuilds() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-                            className="group relative flex flex-col p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:border-blue-200 hover:bg-white hover:shadow-xl transition-all duration-300"
+                            className="group relative flex flex-col p-8 bg-gray-50 dark:bg-slate-900/50 rounded-3xl border border-gray-100 dark:border-white/10 hover:border-blue-200 dark:hover:border-blue-500/30 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300"
                         >
                             {/* Icon */}
-                            <div className="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
-                                <project.icon className="w-6 h-6 text-gray-700" />
+                            <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-white/10 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                                <project.icon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
                             </div>
 
                             {/* Title */}
@@ -91,7 +91,7 @@ export function ConceptBuilds() {
                                 <span className="text-xs font-bold tracking-wider text-blue-600 uppercase block mb-2">
                                     {project.category}
                                 </span>
-                                <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                     {project.title}
                                 </h3>
                             </div>
@@ -99,18 +99,18 @@ export function ConceptBuilds() {
                             {/* Content */}
                             <div className="space-y-4 mb-8 flex-grow">
                                 <div>
-                                    <span className="text-sm font-semibold text-gray-900 block mb-1">
+                                    <span className="text-sm font-semibold text-gray-900 dark:text-white block mb-1">
                                         Problem
                                     </span>
-                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                                         {project.problem}
                                     </p>
                                 </div>
                                 <div>
-                                    <span className="text-sm font-semibold text-gray-900 block mb-1">
+                                    <span className="text-sm font-semibold text-gray-900 dark:text-white block mb-1">
                                         Solution
                                     </span>
-                                    <p className="text-sm text-gray-600 leading-relaxed">
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                                         {project.solution}
                                     </p>
                                 </div>
@@ -121,7 +121,7 @@ export function ConceptBuilds() {
                                 {project.stack.map((tech) => (
                                     <span
                                         key={tech}
-                                        className="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-gray-600"
+                                        className="px-3 py-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-white/10 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300"
                                     >
                                         {tech}
                                     </span>

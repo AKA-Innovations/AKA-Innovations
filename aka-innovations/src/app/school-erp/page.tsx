@@ -59,7 +59,7 @@ export default function SchoolERPPage() {
     };
 
     return (
-        <main className="min-h-screen bg-white text-slate-900 font-inter selection:bg-blue-100 selection:text-blue-900">
+        <main className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-white font-inter selection:bg-blue-100 selection:text-blue-900">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

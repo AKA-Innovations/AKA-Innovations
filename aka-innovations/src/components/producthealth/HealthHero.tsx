@@ -98,7 +98,7 @@ export const HealthHero: FC = () => {
 
                         <motion.h2
                             variants={itemVariants}
-                            className="text-[18px] font-inter font-medium text-black mb-6"
+                            className="text-[18px] font-inter font-medium text-black dark:text-white mb-6"
                         >
                             A Continuous Care Healthcare Platform — Not Just Another Consultation App
                         </motion.h2>
@@ -116,7 +116,7 @@ export const HealthHero: FC = () => {
                             consultations.
                             <br />
                             <br />
-                            <span className="text-black font-medium">
+                            <span className="text-black dark:text-white font-medium">
                                 Designed with real doctors and real clinical workflows
                             </span>
                         </motion.p>
@@ -175,7 +175,7 @@ export const HealthHero: FC = () => {
                                     initial={{ opacity: 0, y: 40, x: 20 }}
                                     animate={{ opacity: 1, y: 0, x: 0 }}
                                     transition={{ delay: 1, type: "spring", stiffness: 100 }}
-                                    className="absolute bottom-24 right-8 bg-white/90 backdrop-blur-md rounded-xl border border-gray-100 shadow-xl p-4 flex items-center gap-3 z-20"
+                                    className="absolute bottom-24 right-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-xl border border-gray-100 dark:border-slate-800 shadow-xl p-4 flex items-center gap-3 z-20"
                                 >
                                     <div className="w-5 h-5 rounded-full border-2 border-(--color-health-green) flex items-center justify-center">
                                         <div className="w-2 h-2 bg-(--color-health-green) rounded-full" />
