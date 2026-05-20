@@ -8,13 +8,13 @@ export const ProblemsSection: FC = () => {
     const blobVariants: Variants = {
         animate: {
             scale: [1, 1.1, 1],
-            opacity: [0.6, 0.8, 0.6],
+            opacity: [0.4, 0.7, 0.4],
             transition: {
                 duration: 8,
                 repeat: Infinity,
-                ease: "easeInOut"
-            }
-        }
+                ease: "easeInOut",
+            },
+        },
     };
 
     const containerVariants: Variants = {
@@ -22,188 +22,332 @@ export const ProblemsSection: FC = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1
-            }
-        }
+                staggerChildren: 0.12,
+            },
+        },
     };
 
     const cardVariants: Variants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: {
+            opacity: 0,
+            y: 30,
+        },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
                 type: "spring",
-                stiffness: 50,
-                damping: 15
-            }
-        }
+                stiffness: 60,
+                damping: 15,
+            },
+        },
     };
 
+    const problems = [
+        {
+            icon: "/icons/warning-triangle-red.svg",
+            title: "I don't know which doctor to see",
+            description:
+                "Symptoms don't map clearly to specializations, leading to wrong consultations.",
+        },
+        {
+            icon: "/icons/box-orange.svg",
+            title: "I have to explain everything again",
+            description:
+                "Medical history is scattered across reports, apps, and memory.",
+        },
+        {
+            icon: "/icons/language-purple.svg",
+            title: "I can't explain my problem properly",
+            description:
+                "Language barriers reduce trust and clarity in care.",
+        },
+        {
+            icon: "/icons/clipboard-blue.svg",
+            title: "My doctor doesn't know my history",
+            description:
+                "Lack of patient context impacts diagnosis and continuity.",
+        },
+    ];
+
     return (
-        <section className="relative py-20 mt-20 overflow-hidden">
-            {/* Gradient Blobs */}
+        <section className="relative overflow-hidden bg-white dark:bg-[#07111F] py-24 lg:py-32 transition-colors duration-500">
+            {/* Background Blobs */}
             <motion.div
                 variants={blobVariants}
                 animate="animate"
-                className="absolute top-0 left-0 w-64 h-64 opacity-60"
-            >
-                <Image src="/decorations/gradient-blob-cyan.svg" alt="" fill />
-            </motion.div>
+                className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl dark:bg-cyan-500/10"
+            />
+
             <motion.div
                 variants={blobVariants}
                 animate="animate"
                 transition={{ delay: 2 }}
-                className="absolute top-32 right-0 w-80 h-80 opacity-60"
-            >
-                <Image src="/decorations/gradient-blob-blue.svg" alt="" fill />
-            </motion.div>
+                className="absolute right-0 top-40 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl dark:bg-blue-500/10"
+            />
+
             <motion.div
                 variants={blobVariants}
                 animate="animate"
                 transition={{ delay: 4 }}
-                className="absolute bottom-0 left-1/4 w-60 h-60 opacity-60"
-            >
-                <Image src="/decorations/gradient-blob-purple.svg" alt="" fill />
-            </motion.div>
+                className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-purple-400/10 blur-3xl dark:bg-purple-500/10"
+            />
 
-            <div className="container mx-auto px-4 lg:px-12 relative z-10">
-                <div className="glassmorphic-card rounded-[40px] p-4 lg:p-16">
-                    {/* Section Header */}
-                    <div className="text-center mb-12">
-                        <motion.h2
+            <div className="container relative z-10 mx-auto px-4 lg:px-12">
+                {/* Main Glass Container */}
+                <div
+                    className="
+                        relative
+                        overflow-hidden
+                        rounded-[40px]
+                        border
+                        border-slate-200/70
+                        dark:border-white/10
+                        bg-white/70
+                        dark:bg-white/[0.03]
+                        backdrop-blur-2xl
+                        p-6
+                        lg:p-16
+                        shadow-[0_20px_80px_rgba(0,0,0,0.06)]
+                        dark:shadow-[0_20px_80px_rgba(0,0,0,0.45)]
+                    "
+                >
+                    {/* Inner Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-500/5 pointer-events-none" />
+
+                    {/* Header */}
+                    <div className="relative z-10 mb-16 text-center">
+                        {/* Badge */}
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="text-[30px] font-inter font-extrabold text-(--color-health-navy) leading-tight mb-3"
+                            transition={{ duration: 0.5 }}
+                            className="
+                                inline-flex
+                                items-center
+                                rounded-full
+                                border
+                                border-red-200
+                                dark:border-red-400/20
+                                bg-red-50
+                                dark:bg-red-500/10
+                                px-4
+                                py-2
+                                text-[11px]
+                                font-semibold
+                                uppercase
+                                tracking-[0.18em]
+                                text-red-600
+                                dark:text-red-300
+                            "
                         >
-                            Why Today's Healthcare Feels Broken?
-                            <br />
-                            <span className="text-[24px] font-normal">
-                                Real problems faced by patients and doctors every day.
+                            Current Healthcare Problems
+                        </motion.div>
+
+                        {/* Title */}
+                        <motion.h2
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="
+                                mt-6
+                                text-[34px]
+                                sm:text-[42px]
+                                lg:text-[48px]
+                                font-bold
+                                leading-[1.15]
+                                tracking-tight
+                                text-slate-900
+                                dark:text-white
+                            "
+                        >
+                            Why Today's Healthcare{" "}
+                            <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+                                Feels Broken?
                             </span>
                         </motion.h2>
+
+                        {/* Subtitle */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 18 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className="
+                                mx-auto
+                                mt-6
+                                max-w-3xl
+                                text-[18px]
+                                leading-8
+                                text-slate-600
+                                dark:text-slate-400
+                            "
+                        >
+                            Real problems faced by patients and doctors every
+                            single day.
+                        </motion.p>
+
+                        {/* Underline */}
                         <motion.div
                             initial={{ width: 0 }}
-                            whileInView={{ width: 80 }}
+                            whileInView={{ width: 100 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                            className="h-1 bg-(--color-health-cyan) rounded-full mx-auto mt-4"
+                            transition={{
+                                duration: 0.8,
+                                delay: 0.3,
+                            }}
+                            className="mx-auto mt-6 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"
                         />
                     </div>
 
-                    {/* Problem Cards Grid */}
+                    {/* Cards Grid */}
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
-                        className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-16 mb-8"
+                        className="
+                            relative
+                            z-10
+                            grid
+                            gap-6
+                            md:grid-cols-2
+                            lg:grid-cols-2
+                        "
                     >
-                        {/* Problem Card 1 */}
-                        <motion.div
-                            variants={cardVariants}
-                            whileHover={{ scale: 1.02 }}
-                            className="glassmorphic-card-solid rounded-[40px] p-4 lg:p-8 relative"
-                        >
-                            <div className="mb-4">
-                                <Image
-                                    src="/icons/warning-triangle-red.svg"
-                                    alt=""
-                                    width={20}
-                                    height={18}
-                                    className="mb-4"
+                        {problems.map((problem, index) => (
+                            <motion.div
+                                key={index}
+                                variants={cardVariants}
+                                whileHover={{
+                                    y: -6,
+                                }}
+                                transition={{
+                                    duration: 0.25,
+                                }}
+                                className="
+                                    group
+                                    relative
+                                    overflow-hidden
+                                    rounded-[28px]
+                                    border
+                                    border-slate-200/70
+                                    dark:border-white/10
+                                    bg-white/80
+                                    dark:bg-white/[0.04]
+                                    p-6
+                                    lg:p-8
+                                    backdrop-blur-xl
+                                    shadow-[0_10px_40px_rgba(0,0,0,0.05)]
+                                    dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)]
+                                    transition-all
+                                    duration-300
+                                    hover:border-cyan-300/60
+                                    dark:hover:border-cyan-400/20
+                                "
+                            >
+                                {/* Hover Glow */}
+                                <div
+                                    className="
+                                        absolute
+                                        inset-0
+                                        bg-gradient-to-br
+                                        from-cyan-500/5
+                                        to-blue-500/5
+                                        opacity-0
+                                        transition-opacity
+                                        duration-300
+                                        group-hover:opacity-100
+                                    "
                                 />
-                                <h3 className="text-[20px] font-inter font-medium text-(--color-health-slate-dark) mb-2">
-                                    I don't know which doctor to see
-                                </h3>
-                                <p className="text-[12px] font-inter font-light text-black leading-relaxed">
-                                    Symptoms don't map clearly to specializations, leading to wrong consultations.
-                                </p>
-                            </div>
-                        </motion.div>
 
-                        {/* Problem Card 2 */}
-                        <motion.div
-                            variants={cardVariants}
-                            whileHover={{ scale: 1.02 }}
-                            className="glassmorphic-card-solid rounded-[40px] p-4 lg:p-8 relative"
-                        >
-                            <div className="mb-4">
-                                <Image
-                                    src="/icons/box-orange.svg"
-                                    alt=""
-                                    width={20}
-                                    height={20}
-                                    className="mb-4"
-                                />
-                                <h3 className="text-[20px] font-inter font-medium text-(--color-health-slate-dark) mb-2">
-                                    I have to explain everything again
-                                </h3>
-                                <p className="text-[12px] font-inter font-light text-black leading-relaxed">
-                                    Medical history is scattered across reports, apps, and memory
-                                </p>
-                            </div>
-                        </motion.div>
+                                {/* Icon */}
+                                <div
+                                    className="
+                                        relative
+                                        z-10
+                                        flex
+                                        h-14
+                                        w-14
+                                        items-center
+                                        justify-center
+                                        rounded-2xl
+                                        bg-slate-100
+                                        dark:bg-white/5
+                                    "
+                                >
+                                    <Image
+                                        src={problem.icon}
+                                        alt=""
+                                        width={22}
+                                        height={22}
+                                    />
+                                </div>
 
-                        {/* Problem Card 3 */}
-                        <motion.div
-                            variants={cardVariants}
-                            whileHover={{ scale: 1.02 }}
-                            className="glassmorphic-card-solid rounded-[40px] p-4 lg:p-8 relative"
-                        >
-                            <div className="mb-4">
-                                <Image
-                                    src="/icons/language-purple.svg"
-                                    alt=""
-                                    width={20}
-                                    height={20}
-                                    className="mb-4"
-                                />
-                                <h3 className="text-[20px] font-inter font-medium text-(--color-health-slate-dark) mb-2">
-                                    I can't explain my problem properly
+                                {/* Title */}
+                                <h3
+                                    className="
+                                        relative
+                                        z-10
+                                        mt-6
+                                        text-[22px]
+                                        font-semibold
+                                        leading-snug
+                                        text-slate-900
+                                        dark:text-white
+                                    "
+                                >
+                                    {problem.title}
                                 </h3>
-                                <p className="text-[12px] font-inter font-light text-black leading-relaxed">
-                                    Language barriers reduce trust and clarity in care
-                                </p>
-                            </div>
-                        </motion.div>
 
-                        {/* Problem Card 4 */}
-                        <motion.div
-                            variants={cardVariants}
-                            whileHover={{ scale: 1.02 }}
-                            className="glassmorphic-card-solid rounded-[40px] p-4 lg:p-8 relative"
-                        >
-                            <div className="mb-4">
-                                <Image
-                                    src="/icons/clipboard-blue.svg"
-                                    alt=""
-                                    width={16}
-                                    height={20}
-                                    className="mb-4"
-                                />
-                                <h3 className="text-[20px] font-inter font-medium text-(--color-health-slate-dark) mb-2">
-                                    My doctor doesn't know my history
-                                </h3>
-                                <p className="text-[12px] font-inter font-light text-black leading-relaxed">
-                                    Lack of patient context impacts diagnosis and continuity
+                                {/* Description */}
+                                <p
+                                    className="
+                                        relative
+                                        z-10
+                                        mt-4
+                                        text-[15px]
+                                        leading-7
+                                        text-slate-600
+                                        dark:text-slate-400
+                                    "
+                                >
+                                    {problem.description}
                                 </p>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        ))}
                     </motion.div>
 
                     {/* Quote */}
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.6, duration: 1 }}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-center text-[23px] font-inter text-(--color-health-slate) italic"
+                        transition={{
+                            delay: 0.5,
+                            duration: 0.8,
+                        }}
+                        className="relative z-10 mt-16 text-center"
                     >
-                        "Healthcare shouldn't reset every time you meet a new doctor."
-                    </motion.p>
+                        <p
+                            className="
+                                mx-auto
+                                max-w-4xl
+                                text-[24px]
+                                lg:text-[30px]
+                                font-medium
+                                italic
+                                leading-relaxed
+                                text-slate-700
+                                dark:text-slate-300
+                            "
+                        >
+                            “Healthcare shouldn't reset every time you meet a
+                            new doctor.”
+                        </p>
+                    </motion.div>
                 </div>
             </div>
         </section>

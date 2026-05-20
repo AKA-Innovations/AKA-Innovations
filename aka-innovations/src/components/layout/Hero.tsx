@@ -1,11 +1,22 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 export function Hero() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
+
   return (
     <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden pt-24 md:pt-20 dark:bg-[#0a0a0a]">
 
@@ -17,7 +28,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none select-none will-change-transform dark:opacity-10"
       >
         <Image
-          src="/heroBack.svg"
+          src={isDark ? "/heroBack_dark.svg" : "/heroBack.svg"}
           alt="Background"
           fill
           className="object-cover"

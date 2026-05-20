@@ -44,14 +44,14 @@ const problemIcons: Record<string, React.ElementType> = {
 
 const ProblemStatement = () => {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-white dark:bg-[#0a0a0a]">
             <div className="container mx-auto px-4 lg:px-8">
                 <div className="max-w-3xl mx-auto text-center mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-bold font-dm-sans text-slate-900 mb-6"
+                        className="text-3xl dark:text-white/70 md:text-4xl font-bold font-dm-sans text-slate-900 mb-6"
                     >
                         {pageContent.heading.start}
                         <span className="text-red-500">{pageContent.heading.highlight}</span>
@@ -68,29 +68,69 @@ const ProblemStatement = () => {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {pageContent.problems.map((item, index) => {
-                        const Icon = problemIcons[item.id];
-                        return (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="group p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-red-100 hover:bg-red-50/10 transition-all duration-300 hover:-translate-y-1"
-                            >
-                                <div className="w-12 h-12 rounded-xl bg-red-50/50 border border-red-100 flex items-center justify-center mb-6 text-red-500 shadow-sm group-hover:scale-110 group-hover:bg-red-100 transition-all duration-300">
-                                    <Icon className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-lg font-bold font-dm-sans text-slate-900 mb-3 group-hover:text-red-700 transition-colors">{item.title}</h3>
-                                <p className="text-sm font-dm-sans text-slate-600 leading-relaxed">
-                                    {item.description}
-                                </p>
-                            </motion.div>
-                        );
-                    })}
-                </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  {pageContent.problems.map((item, index) => {
+    const Icon = problemIcons[item.id];
+
+    return (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.1 }}
+        className="
+          group p-6 rounded-2xl
+          bg-white dark:bg-slate-900/80
+          border border-slate-100 dark:border-slate-800
+          shadow-sm dark:shadow-black/20
+          hover:shadow-xl
+          hover:border-red-100 dark:hover:border-red-900/40
+          hover:bg-red-50/10 dark:hover:bg-red-950/10
+          transition-all duration-300 hover:-translate-y-1
+        "
+      >
+        <div
+          className="
+            w-12 h-12 rounded-xl
+            bg-red-50/50 dark:bg-red-950/30
+            border border-red-100 dark:border-red-900/40
+            flex items-center justify-center
+            mb-6 text-red-500 dark:text-red-400
+            shadow-sm
+            group-hover:scale-110
+            group-hover:bg-red-100 dark:group-hover:bg-red-900/40
+            transition-all duration-300
+          "
+        >
+          <Icon className="w-6 h-6" />
+        </div>
+
+        <h3
+          className="
+            text-lg font-bold font-dm-sans
+            text-slate-900 dark:text-white
+            mb-3
+            group-hover:text-red-700 dark:group-hover:text-red-400
+            transition-colors
+          "
+        >
+          {item.title}
+        </h3>
+
+        <p
+          className="
+            text-sm font-dm-sans
+            text-slate-600 dark:text-slate-400
+            leading-relaxed
+          "
+        >
+          {item.description}
+        </p>
+      </motion.div>
+    );
+  })}
+</div>
             </div>
         </section>
     );

@@ -15,7 +15,7 @@ const features = [
 
 const StudentApp = () => {
     return (
-        <section className="py-24 bg-slate-50 overflow-hidden">
+        <section className="py-24 bg-slate-50 dark:bg-[#0a0a0a] overflow-hidden">
             <div className="container mx-auto px-4 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -31,7 +31,7 @@ const StudentApp = () => {
                             Top-Rated Mobile App
                         </div>
 
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                        <h2 className="text-3xl md:text-4xl dark:text-white/70 font-bold text-slate-900 mb-6">
                             Student Experience: <br />
                             <span className="text-indigo-600">Designed for Daily Use</span>
                         </h2>
