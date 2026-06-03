@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Mail, MapPin, Send } from "lucide-react";
 import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from "next/navigation";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 
 export function ContactClient() {
     const router = useRouter();
@@ -346,7 +347,7 @@ export function ContactClient() {
                             {/* Footer Action */}
                             <div className="flex items-center justify-end pt-6 relative">
                                 {/* Paper Plane Trail */}
-                                <div className="absolute right-[32%] bottom-[-5%] pointer-events-none hidden lg:block">
+                                {/* <div className="absolute right-[32%] bottom-[-5%] pointer-events-none hidden lg:block">
                                     <svg
                                         width="200"
                                         height="80"
@@ -363,24 +364,27 @@ export function ContactClient() {
                                             strokeLinecap="round"
                                         />
                                     </svg>
-                                </div>
+                                </div> */}
 
                                 {/* Paper Plane Icon */}
-                                <div className="absolute right-[32%] bottom-[5%] pointer-events-none hidden lg:block text-gray-500">
-                                    <Send
-                                        size={32}
-                                        className="rotate-[45deg]"
-                                        strokeWidth={1.5}
-                                    />
-                                </div>
+                                {/* <div className="absolute right-[32%] bottom-[5%] pointer-events-none hidden lg:block text-gray-500">
+                  <Send
+                    size={32}
+                    className="rotate-[45deg]"
+                    strokeWidth={1.5}
+                  />
+                </div> */}
 
-                                <button
-                                    type="submit"
-                                    disabled={status === "loading"}
-                                    className="bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold py-3.5 px-10 rounded-lg transition-all active:scale-95 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    {status === "loading" ? "Sending..." : "Send Message"}
-                                </button>
+                                <div className="flex flex-wrap items-center gap-4">
+                                    <WhatsAppButton variant="inline" />
+                                    <button
+                                        type="submit"
+                                        disabled={status === "loading"}
+                                        className="bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold py-3.5 px-10 rounded-lg transition-all active:scale-95 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        {status === "loading" ? "Sending..." : "Send Message"}
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </div>
