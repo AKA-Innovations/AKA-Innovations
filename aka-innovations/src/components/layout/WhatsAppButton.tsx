@@ -13,7 +13,7 @@ interface WhatsAppButtonProps {
 
 export function WhatsAppButton({
   variant = "floating",
-  number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "6307817665",
+  number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER,
   message = "Hello! I would like to get in touch regarding your services.",
   className = "",
 }: WhatsAppButtonProps) {
