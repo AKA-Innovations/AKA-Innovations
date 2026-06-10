@@ -18,7 +18,8 @@ export function WhatsAppButton({
   className = "",
 }: WhatsAppButtonProps) {
   const [showTooltip, setShowTooltip] = useState(false);
-  const formattedNumber = number.startsWith("91") ? number : `91${number}`;
+  const numString = number || "910000000000";
+  const formattedNumber = numString.startsWith("91") ? numString : `91${numString}`;
   const whatsappUrl = `https://wa.me/${formattedNumber}?text=${encodeURIComponent(message)}`;
 
   useEffect(() => {
