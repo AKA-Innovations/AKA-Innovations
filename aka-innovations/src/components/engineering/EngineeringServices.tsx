@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Cpu, Globe, Smartphone, Layers } from "lucide-react";
 import Link from "next/link";
 
@@ -170,6 +170,20 @@ function DetailSection({ svc }: { svc: ServiceDetail }) {
   const { layout, Illustration, Icon } = svc;
   const isRight = layout === "right";
 
+  // 3D Tilt Values
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 300, damping: 30 });
+  const springY = useSpring(y, { stiffness: 300, damping: 30 });
+  const rotateX = useTransform(springY, [-0.5, 0.5], ["8deg", "-8deg"]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], ["-8deg", "8deg"]);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    x.set((event.clientX - rect.left - rect.width / 2) / rect.width);
+    y.set((event.clientY - rect.top - rect.height / 2) / rect.height);
+  };
+
   const ContentBlock = (
     <motion.div
       initial="hidden"
@@ -252,16 +266,21 @@ function DetailSection({ svc }: { svc: ServiceDetail }) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="flex-1 flex items-center justify-center py-8"
+      className="flex-1 flex items-center justify-center py-8 [perspective:1000px]"
     >
       {/* Frame */}
-      <div
-        className="relative w-full max-w-[380px] md:max-w-[420px] aspect-square
-                   rounded-3xl flex items-center justify-center p-10"
+      <motion.div
         style={{
           background: `linear-gradient(135deg, ${svc.accentHex}08 0%, ${svc.accentHex}04 100%)`,
           border: `1px solid ${svc.accentHex}18`,
+          rotateX: rotateX,
+          rotateY: rotateY,
+          transformStyle: "preserve-3d",
         }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => { x.set(0); y.set(0); }}
+        className="relative w-full max-w-[380px] md:max-w-[420px] aspect-square
+                   rounded-3xl flex items-center justify-center p-10 transition-all duration-200 hover:shadow-lg dark:hover:shadow-white/[0.02]"
       >
         {/* Corner marks */}
         {[
@@ -293,7 +312,7 @@ function DetailSection({ svc }: { svc: ServiceDetail }) {
         >
           <Illustration className="w-full h-auto" />
         </motion.div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 

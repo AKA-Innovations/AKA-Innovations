@@ -59,6 +59,8 @@ const products = [
 ];
 
 export default function ProductsPage() {
+    const headingWords = "Built for Scale and Speed".split(" ");
+
     return (
         <div className="relative min-h-screen bg-[#F8FAFC] dark:bg-[#0a0a0a] overflow-hidden transition-colors duration-500">
             <Header />
@@ -70,26 +72,62 @@ export default function ProductsPage() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md mb-8 shadow-sm"
                 >
                     <LayoutDashboard className="w-4 h-4 text-emerald-600" />
                     <span className="text-slate-600 dark:text-slate-300 text-sm font-medium tracking-wide">Our Flagship Products</span>
                 </motion.div>
 
-                <motion.h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
-                    Built for <br className="md:hidden" />
-                    <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
-                        Scale and Speed
-                    </span>
-                </motion.h1>
+                <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight flex flex-wrap justify-center gap-x-4">
+                    {headingWords.map((word, wIdx) => (
+                        <span key={wIdx} className="inline-block overflow-hidden py-1">
+                            <motion.span
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                transition={{
+                                    duration: 0.8,
+                                    delay: wIdx * 0.1,
+                                    ease: [0.16, 1, 0.3, 1]
+                                }}
+                                className={`inline-block ${
+                                    word === "Scale" || word === "Speed" || word === "and"
+                                        ? "bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent"
+                                        : ""
+                                }`}
+                            >
+                                {word}
+                            </motion.span>
+                        </span>
+                    ))}
+                </h1>
             </section>
 
             <section className="relative px-6 sm:px-12 pb-32 max-w-7xl mx-auto z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={{
+                        hidden: {},
+                        visible: {
+                            transition: { staggerChildren: 0.2 }
+                        }
+                    }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
+                >
                     {products.map((product) => (
-                        <FlipCard key={product.id} product={product} />
+                        <motion.div
+                            key={product.id}
+                            variants={{
+                                hidden: { opacity: 0, y: 50 },
+                                visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                            }}
+                        >
+                            <FlipCard product={product} />
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </section>
         </div>
     );

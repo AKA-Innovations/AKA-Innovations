@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/components/theme-provider";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import CreativeScrollWrapper from "@/components/school-erp/CreativeScrollWrapper";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -164,7 +165,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <CreativeScrollWrapper>
+            {children}
+          </CreativeScrollWrapper>
           <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
           <WhatsAppButton variant="floating" />
         </ThemeProvider>

@@ -65,7 +65,7 @@ export default function SchoolERPPage() {
             '@type': 'AggregateRating',
             'ratingValue': '4.9',
             'ratingCount': '184',
-        },
+            },
         'author': {
             '@type': 'Organization',
             'name': 'AKA Innovations',
@@ -74,7 +74,7 @@ export default function SchoolERPPage() {
     };
 
     return (
-        <main className="min-h-screen bg-[#080d1a] text-white font-inter selection:bg-blue-500/20 selection:text-blue-300">
+        <main className="min-h-screen bg-slate-50 dark:bg-[#080d1a] text-slate-900 dark:text-white font-inter selection:bg-blue-500/20 selection:text-blue-300 transition-colors duration-300">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -4,25 +4,25 @@ import React from 'react';
 
 export default function SEOAuthority() {
   return (
-    <section className="py-24 bg-[#080d1a] border-t border-white/[0.05] relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 max-w-5xl text-slate-300">
+    <section className="py-24 bg-slate-50 dark:bg-[#080d1a] border-t border-slate-200 dark:border-white/[0.05] relative overflow-hidden transition-colors duration-300">
+      <div className="container mx-auto px-6 lg:px-12 max-w-5xl text-slate-700 dark:text-slate-300">
         
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-650 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
             Industry Analysis & Guide
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight font-dm-sans mb-6">
-            The Definitive Guide to <span className="text-blue-400">School ERP Platforms</span>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight font-dm-sans mb-6">
+            The Definitive Guide to <span className="text-blue-605 dark:text-blue-400">School ERP Platforms</span>
           </h2>
-          <p className="text-lg text-slate-400 font-dm-sans leading-relaxed">
+          <p className="text-lg text-slate-600 dark:text-slate-400 font-dm-sans leading-relaxed">
             Understanding the transition from traditional administrative software database logging to autonomous Agentic AI operations.
           </p>
         </div>
 
-        <div className="prose prose-invert max-w-none space-y-10 text-slate-400 text-sm lg:text-base leading-relaxed">
+        <div className="prose dark:prose-invert max-w-none space-y-10 text-slate-600 dark:text-slate-400 text-sm lg:text-base leading-relaxed">
           
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">What Is School ERP Software?</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">What Is School ERP Software?</h3>
             <p className="mb-4">
               A <strong>School ERP</strong> (Enterprise Resource Planning) or <strong>School Management Software</strong> is the central digital operating platform of modern educational institutions. It integrates multiple administrative and academic workflows into a single system, coordinating student registration, billing, payroll, timetable configuration, and exams grading.
             </p>
@@ -31,8 +31,8 @@ export default function SEOAuthority() {
             </p>
           </div>
 
-          <div className="border-t border-white/[0.05] pt-10">
-            <h3 className="text-2xl font-bold text-white mb-4">The Evolution: From Cloud School ERP to AI Powered School ERP</h3>
+          <div className="border-t border-slate-200 dark:border-white/[0.05] pt-10">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">The Evolution: From Cloud School ERP to AI Powered School ERP</h3>
             <p className="mb-4">
               Traditional ERPs successfully moved school operations to the cloud, making rosters and marksheets accessible via web browsers. However, these systems remained heavily reliant on manual data input. Teachers had to manually log grades, click through multiple forms to register attendance, and send parents report updates one-by-one.
             </p>
@@ -41,8 +41,8 @@ export default function SEOAuthority() {
             </p>
           </div>
 
-          <div className="border-t border-white/[0.05] pt-10">
-            <h3 className="text-2xl font-bold text-white mb-4">What Is Agentic AI ERP & Agentic School ERP?</h3>
+          <div className="border-t border-slate-200 dark:border-white/[0.05] pt-10">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">What Is Agentic AI ERP & Agentic School ERP?</h3>
             <p className="mb-4">
               An <strong>Agentic AI ERP</strong> shifts the focus from passive recommendations to autonomous task execution. Instead of simply highlighting an issue, <strong>Agentic School ERP</strong> allows the user to issue a natural-language request (via voice or text), which the system then executes directly.
             </p>
@@ -51,8 +51,8 @@ export default function SEOAuthority() {
             </p>
           </div>
 
-          <div className="border-t border-white/[0.05] pt-10">
-            <h3 className="text-2xl font-bold text-white mb-4">How AI Improves School Management & Operating Systems</h3>
+          <div className="border-t border-slate-200 dark:border-white/[0.05] pt-10">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">How AI Improves School Management & Operating Systems</h3>
             <p className="mb-4">
               Integrating Agentic AI with an <strong>Education ERP</strong> delivers immediate operational benefits for schools:
             </p>
@@ -65,8 +65,8 @@ export default function SEOAuthority() {
             </ul>
           </div>
 
-          <div className="border-t border-white/[0.05] pt-10">
-            <h3 className="text-2xl font-bold text-white mb-4">The Future: The Dual-Operating Model</h3>
+          <div className="border-t border-slate-200 dark:border-white/[0.05] pt-10">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">The Future: The Dual-Operating Model</h3>
             <p>
               The most reliable school operating systems do not force administrators to choose between traditional and AI-driven interfaces. The future lies in a dual-operating model: a robust, traditional database platform that supports standard dashboards, forms, and compliance reporting, coupled with an actionable Agentic AI layer for rapid execution. AKA Innovations leads this space, offering institutions the reliability of a standard ERP and the speed of modern AI.
             </p>

@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { 
-  Users, CheckSquare, GraduationCap, DollarSign, 
+import {
+  Users, CheckSquare, GraduationCap, DollarSign,
   MapPin, Clock, BookOpen, Library, Award, FileText,
-  Mail, ShieldAlert, Database, Laptop, Smartphone, BarChart2 
+  Mail, ShieldAlert, Database, Laptop, Smartphone, BarChart2
 } from 'lucide-react';
 
 const coreModules = [
@@ -44,11 +44,6 @@ const coreModules = [
     icon: Clock
   },
   {
-    title: "HR, Staff & Payroll",
-    desc: "Staff attendance, salary calculators, bonus config, leave records, tax declaration submissions, and payroll slips.",
-    icon: ShieldAlert
-  },
-  {
     title: "Communications Hub",
     desc: "Broadcast center (SMS, email, notifications), custom lists, calendar updates, and unified parent-student chat support panels.",
     icon: Mail
@@ -72,18 +67,18 @@ const coreModules = [
 
 export default function FeatureDirectory() {
   return (
-    <section className="py-24 bg-[#080d1a] relative overflow-hidden">
+    <section className="py-24 bg-slate-50 dark:bg-[#080d1a] relative overflow-hidden transition-colors duration-300">
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
             Complete Capabilities
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight font-dm-sans mb-6">
-            All Traditional ERP Features. <span className="text-blue-400">Zero Deletions.</span>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight font-dm-sans mb-6">
+            All Traditional ERP Features. <span className="text-blue-650 dark:text-blue-400">Zero Deletions.</span>
           </h2>
-          <p className="text-lg text-slate-400 font-dm-sans leading-relaxed">
+          <p className="text-lg text-slate-655 dark:text-slate-400 font-dm-sans leading-relaxed">
             We preserve and expand all standard institutional capabilities. If a traditional ERP can do it, AKA does it faster, better, and with more security.
           </p>
         </div>
@@ -92,15 +87,15 @@ export default function FeatureDirectory() {
           {coreModules.map((mod, index) => {
             const IconComp = mod.icon;
             return (
-              <div 
+              <div
                 key={index}
-                className="bg-[#0f172a]/60 border border-white/[0.05] rounded-[24px] p-6 lg:p-8 hover:bg-slate-800/40 hover:border-slate-700 transition-all duration-300"
+                className="bg-white dark:bg-[#0f172a]/60 border border-slate-200 dark:border-white/[0.05] rounded-[24px] p-6 lg:p-8 hover:bg-slate-50 dark:hover:bg-slate-800/40 hover:border-slate-400 dark:hover:border-slate-700 transition-all duration-300 shadow-sm dark:shadow-none"
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-6">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-6">
                   <IconComp className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white font-dm-sans mb-2">{mod.title}</h3>
-                <p className="text-slate-400 text-xs leading-relaxed">{mod.desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white font-dm-sans mb-2">{mod.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{mod.desc}</p>
               </div>
             );
           })}

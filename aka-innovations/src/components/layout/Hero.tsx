@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,6 +11,20 @@ export function Hero() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  // 3D Tilt Motion Values
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 300, damping: 30 });
+  const springY = useSpring(y, { stiffness: 300, damping: 30 });
+  const rotateX = useTransform(springY, [-0.5, 0.5], ["6deg", "-6deg"]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], ["-6deg", "6deg"]);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    x.set((event.clientX - rect.left - rect.width / 2) / rect.width);
+    y.set((event.clientY - rect.top - rect.height / 2) / rect.height);
+  };
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -18,7 +32,7 @@ export function Hero() {
   const isDark = mounted && resolvedTheme === "dark";
 
   return (
-    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden pt-24 md:pt-20 dark:bg-[#0a0a0a]">
+    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 overflow-hidden pt-24 md:pt-20 dark:bg-[#0a0a0a] [perspective:1000px]">
 
       {/* Background Image with subtle motion */}
       <motion.div
@@ -59,7 +73,14 @@ export function Hero() {
               transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
             },
           }}
-          className="p-6 sm:p-10 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/45 dark:bg-slate-900/40 backdrop-blur-lg border border-white/40 dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] text-center will-change-transform"
+          style={{
+            rotateX: rotateX,
+            rotateY: rotateY,
+            transformStyle: "preserve-3d",
+          }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => { x.set(0); y.set(0); }}
+          className="p-6 sm:p-10 md:px-16 w-full rounded-[2rem] md:rounded-[3rem] bg-white/45 dark:bg-slate-900/40 backdrop-blur-lg border border-white/40 dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] text-center will-change-transform transition-all duration-200 hover:shadow-2xl dark:hover:shadow-[0_20px_80px_rgba(139,92,246,0.15)]"
         >
           {/* Heading */}
           <motion.h1

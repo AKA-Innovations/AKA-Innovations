@@ -2,7 +2,57 @@
 
 import Image from "next/image";
 import { FC } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useMotionValue, useSpring, useTransform } from "framer-motion";
+
+const TiltCard = ({ children, variants }: { children: React.ReactNode; variants: any }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 300, damping: 30 });
+  const springY = useSpring(y, { stiffness: 300, damping: 30 });
+  const rotateX = useTransform(springY, [-0.5, 0.5], ["6deg", "-6deg"]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], ["-6deg", "6deg"]);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    x.set((event.clientX - rect.left - rect.width / 2) / rect.width);
+    y.set((event.clientY - rect.top - rect.height / 2) / rect.height);
+  };
+
+  return (
+    <motion.div
+      variants={variants}
+      style={{
+        rotateX: rotateX,
+        rotateY: rotateY,
+        transformStyle: "preserve-3d",
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => { x.set(0); y.set(0); }}
+      className="
+        group
+        relative
+        overflow-hidden
+        rounded-[28px]
+        border
+        border-slate-200/70
+        dark:border-white/10
+        bg-white/80
+        dark:bg-white/[0.04]
+        p-6
+        lg:p-8
+        backdrop-blur-xl
+        shadow-[0_10px_40px_rgba(0,0,0,0.05)]
+        dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)]
+        transition-all
+        duration-300
+        hover:border-cyan-300/60
+        dark:hover:border-cyan-400/20
+      "
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export const ProblemsSection: FC = () => {
     const blobVariants: Variants = {
@@ -218,35 +268,9 @@ export const ProblemsSection: FC = () => {
                         "
                     >
                         {problems.map((problem, index) => (
-                            <motion.div
+                            <TiltCard
                                 key={index}
                                 variants={cardVariants}
-                                whileHover={{
-                                    y: -6,
-                                }}
-                                transition={{
-                                    duration: 0.25,
-                                }}
-                                className="
-                                    group
-                                    relative
-                                    overflow-hidden
-                                    rounded-[28px]
-                                    border
-                                    border-slate-200/70
-                                    dark:border-white/10
-                                    bg-white/80
-                                    dark:bg-white/[0.04]
-                                    p-6
-                                    lg:p-8
-                                    backdrop-blur-xl
-                                    shadow-[0_10px_40px_rgba(0,0,0,0.05)]
-                                    dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)]
-                                    transition-all
-                                    duration-300
-                                    hover:border-cyan-300/60
-                                    dark:hover:border-cyan-400/20
-                                "
                             >
                                 {/* Hover Glow */}
                                 <div
@@ -316,7 +340,7 @@ export const ProblemsSection: FC = () => {
                                 >
                                     {problem.description}
                                 </p>
-                            </motion.div>
+                            </TiltCard>
                         ))}
                     </motion.div>
 

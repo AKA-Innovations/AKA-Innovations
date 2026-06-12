@@ -84,16 +84,16 @@ export default function AgentSimulations() {
   const activeData = simulationPrompts[activeSim];
 
   return (
-    <section className="py-24 bg-[#080d1a] relative overflow-hidden">
+    <section className="py-24 bg-slate-50 dark:bg-[#080d1a] relative overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
             Real Agent Examples
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight font-dm-sans mb-6">
-            Watch the AI Agent <span className="text-blue-400">Perform Real Work</span>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight font-dm-sans mb-6">
+            Watch the AI Agent <span className="text-blue-600 dark:text-blue-400">Perform Real Work</span>
           </h2>
-          <p className="text-lg text-slate-400 font-dm-sans leading-relaxed">
+          <p className="text-lg text-slate-600 dark:text-slate-400 font-dm-sans leading-relaxed">
             Select a role, press run, and see how the Agent validates permissions, calls database systems, and completes workflows.
           </p>
         </div>
@@ -109,23 +109,23 @@ export default function AgentSimulations() {
                 className={`
                   w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between
                   ${activeSim === index 
-                    ? 'bg-blue-600/10 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.15)]' 
-                    : 'bg-[#0f172a]/60 border-white/[0.06] text-slate-400 hover:text-white hover:bg-slate-800/60'}
+                    ? 'bg-blue-600/10 border-blue-500 text-slate-900 dark:text-white shadow-[0_0_20px_rgba(59,130,246,0.15)] font-bold' 
+                    : 'bg-white dark:bg-[#0f172a]/60 border-slate-200 dark:border-white/[0.06] text-slate-600 dark:text-slate-400 hover:text-slate-900 hover:bg-slate-100 dark:hover:text-white dark:hover:bg-slate-800/60'}
                   ${isRunning ? 'opacity-65 cursor-not-allowed' : ''}
                 `}
               >
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-blue-400 block mb-1">{sim.role} Agent</span>
+                  <span className="text-[10px] uppercase font-bold text-blue-600 dark:text-blue-400 block mb-1">{sim.role} Agent</span>
                   <p className="text-sm font-semibold italic">{sim.prompt}</p>
                 </div>
-                <Play className={`w-4 h-4 text-blue-400 ${activeSim === index ? 'opacity-100' : 'opacity-30'}`} />
+                <Play className={`w-4 h-4 text-blue-600 dark:text-blue-400 ${activeSim === index ? 'opacity-100' : 'opacity-30'}`} />
               </button>
             ))}
 
             <button
               onClick={startSimulation}
               disabled={isRunning || stepIndex === activeData.logs.length - 1}
-              className="w-full mt-4 flex items-center justify-center gap-2 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800/40 text-white font-bold rounded-xl transition-all shadow-xl shadow-blue-950/50"
+              className="w-full mt-4 flex items-center justify-center gap-2 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800/40 text-white font-bold rounded-xl transition-all shadow-xl shadow-blue-550/20 dark:shadow-blue-950/50"
             >
               <Sparkles className="w-5 h-5 animate-pulse" />
               {isRunning ? 'Executing Agent Logic...' : 'Run Action Simulation'}
@@ -133,36 +133,36 @@ export default function AgentSimulations() {
           </div>
 
           {/* Interactive Console Screen */}
-          <div className="bg-[#0f172a] rounded-[24px] border border-white/[0.08] shadow-2xl overflow-hidden flex flex-col min-h-[380px]">
+          <div className="bg-white dark:bg-[#0f172a] rounded-[24px] border border-slate-200 dark:border-white/[0.08] shadow-lg dark:shadow-2xl overflow-hidden flex flex-col min-h-[380px]">
             {/* Header */}
-            <div className="px-6 py-4 bg-[#0a0f1d] border-b border-white/[0.06] flex items-center justify-between">
+            <div className="px-6 py-4 bg-slate-50 dark:bg-[#0a0f1d] border-b border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Terminal className="w-4 h-4 text-slate-400" />
-                <span className="text-xs text-slate-400 font-mono font-semibold">Agent Workflow Engine v1.0.4</span>
+                <Terminal className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono font-semibold">Agent Workflow Engine v1.0.4</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-700" />
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-700" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700" />
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
               </div>
             </div>
 
             {/* Prompt Display */}
-            <div className="p-6 border-b border-white/[0.04] bg-[#0b1120] flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-blue-600/20 flex items-center justify-center text-blue-400">
+            <div className="p-6 border-b border-slate-250 dark:border-white/[0.04] bg-slate-50 dark:bg-[#0b1120] flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-blue-500/10 dark:bg-blue-600/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
                 <User className="w-4 h-4" />
               </div>
               <div>
                 <span className="text-[10px] text-slate-500 font-bold uppercase block tracking-wider">{activeData.role} Command Input</span>
-                <p className="text-white text-sm font-semibold italic">&quot;{activeData.prompt}&quot;</p>
+                <p className="text-slate-905 dark:text-white text-sm font-semibold italic">&quot;{activeData.prompt}&quot;</p>
               </div>
             </div>
 
             {/* Execution logs */}
             <div className="p-6 flex-1 font-mono text-xs space-y-3.5 overflow-y-auto">
               {stepIndex === -1 && (
-                <div className="h-full flex flex-col items-center justify-center text-slate-500 text-center py-10">
-                  <Settings className="w-8 h-8 text-slate-600 animate-spin mb-3" />
+                <div className="h-full flex flex-col items-center justify-center text-slate-450 dark:text-slate-500 text-center py-10">
+                  <Settings className="w-8 h-8 text-slate-400 dark:text-slate-600 animate-spin mb-3" />
                   <p>System Ready. Click &apos;Run Action Simulation&apos; to watch details.</p>
                 </div>
               )}
@@ -176,14 +176,14 @@ export default function AgentSimulations() {
                     animate={{ opacity: 1, x: 0 }}
                     className="flex gap-3 items-start"
                   >
-                    {log.type === "auth" && <Shield className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />}
-                    {log.type === "fetch" && <Database className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />}
-                    {log.type === "eval" && <Settings className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />}
-                    {log.type === "conflict" && <Settings className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />}
-                    {log.type === "mutate" && <Database className="w-4 h-4 text-pink-400 shrink-0 mt-0.5" />}
-                    {log.type === "confirm" && <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />}
+                    {log.type === "auth" && <Shield className="w-4 h-4 text-purple-650 dark:text-purple-400 shrink-0 mt-0.5" />}
+                    {log.type === "fetch" && <Database className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />}
+                    {log.type === "eval" && <Settings className="w-4 h-4 text-yellow-600 dark:text-yellow-400 shrink-0 mt-0.5" />}
+                    {log.type === "conflict" && <Settings className="w-4 h-4 text-red-500 dark:text-red-400 shrink-0 mt-0.5" />}
+                    {log.type === "mutate" && <Database className="w-4 h-4 text-pink-500 dark:text-pink-400 shrink-0 mt-0.5" />}
+                    {log.type === "confirm" && <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />}
 
-                    <p className="text-slate-300 leading-relaxed"><span className="text-slate-500">[{new Date().toLocaleTimeString()}]</span> {log.text}</p>
+                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed"><span className="text-slate-450 dark:text-slate-500">[{new Date().toLocaleTimeString()}]</span> {log.text}</p>
                   </motion.div>
                 );
               })}
@@ -192,7 +192,7 @@ export default function AgentSimulations() {
                 <motion.div 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="mt-6 p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20 text-emerald-300 font-semibold"
+                  className="mt-6 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-semibold"
                 >
                   🎉 Execution Successful: {activeData.status}
                 </motion.div>

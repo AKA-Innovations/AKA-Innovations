@@ -28,19 +28,19 @@ const governanceItems = [
 
 export default function SecurityGovernance() {
   return (
-    <section className="py-24 bg-[#080d1a] relative overflow-hidden">
+    <section className="py-24 bg-slate-50 dark:bg-[#080d1a] relative overflow-hidden transition-colors duration-300">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-red-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-semibold uppercase tracking-wider mb-6">
             <Lock className="w-3.5 h-3.5" />
             Enterprise Security
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight font-dm-sans mb-6">
-            Enterprise Governance <span className="text-red-400">and Guardrails</span>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight font-dm-sans mb-6">
+            Enterprise Governance <span className="text-red-600 dark:text-red-400">and Guardrails</span>
           </h2>
-          <p className="text-lg text-slate-400 font-dm-sans leading-relaxed">
+          <p className="text-lg text-slate-655 dark:text-slate-400 font-dm-sans leading-relaxed">
             Every AI action follows the identical rules, validation constraints, and database permissions as traditional ERP dashboards.
           </p>
         </div>
@@ -51,14 +51,14 @@ export default function SecurityGovernance() {
             return (
               <div 
                 key={index} 
-                className="bg-[#0f172a]/60 border border-white/[0.05] rounded-[24px] p-6 lg:p-8 flex gap-6 hover:border-red-500/20 transition-all duration-300"
+                className="bg-white dark:bg-[#0f172a]/60 border border-slate-200 dark:border-white/[0.05] rounded-[24px] p-6 lg:p-8 flex gap-6 hover:border-red-500/20 hover:shadow-lg dark:hover:shadow-none transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center shrink-0">
                   <IconComp className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white font-dm-sans mb-2">{item.title}</h3>
-                  <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white font-dm-sans mb-2">{item.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             );

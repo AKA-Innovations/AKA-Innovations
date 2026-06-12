@@ -35,11 +35,6 @@ const modules = [
         description: "Premium Android & iOS apps with your school's branding."
     },
     {
-        icon: Building2,
-        title: "Smart Attendance",
-        description: "QR-based or biometric integration with instant SMS alerts."
-    },
-    {
         icon: CreditCard,
         title: "Fee Management",
         description: "Online payments, automated receipts, and due reminders."

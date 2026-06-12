@@ -136,17 +136,17 @@ export default function FAQSection() {
   );
 
   return (
-    <section className="py-24 bg-[#0a0f1d] border-t border-white/[0.05] relative overflow-hidden">
+    <section className="py-24 bg-white dark:bg-[#0a0f1d] border-t border-slate-200 dark:border-white/[0.05] relative overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-4 lg:px-8 max-w-4xl relative z-10">
         
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
             Frequently Asked Questions
           </div>
-          <h2 className="text-3xl md:text-5xl font-black text-white leading-tight font-dm-sans mb-6">
-            Answers For Your <span className="text-blue-400">Administration Team</span>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight font-dm-sans mb-6">
+            Answers For Your <span className="text-blue-605 dark:text-blue-400">Administration Team</span>
           </h2>
-          <p className="text-lg text-slate-400 font-dm-sans leading-relaxed">
+          <p className="text-lg text-slate-600 dark:text-slate-400 font-dm-sans leading-relaxed">
             Everything you need to know about security, traditional modules, and Agentic AI operations.
           </p>
         </div>
@@ -158,9 +158,9 @@ export default function FAQSection() {
             placeholder="Search FAQs..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-[#0f172a]/60 border border-white/[0.08] rounded-xl px-5 py-4 pl-12 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full bg-slate-50 dark:bg-[#0f172a]/60 border border-slate-200 dark:border-white/[0.08] rounded-xl px-5 py-4 pl-12 text-sm text-slate-800 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
           />
-          <Search className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
+          <Search className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
         </div>
 
         {/* Accordions */}
@@ -170,18 +170,18 @@ export default function FAQSection() {
             return (
               <div 
                 key={index}
-                className="bg-[#0f172a]/60 border border-white/[0.06] rounded-2xl overflow-hidden transition-all duration-300"
+                className="bg-slate-50 dark:bg-[#0f172a]/60 border border-slate-200 dark:border-white/[0.06] rounded-2xl overflow-hidden transition-all duration-300 shadow-sm dark:shadow-none"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left p-6 flex items-center justify-between font-bold text-white hover:bg-white/[0.02] transition-colors"
+                  className="w-full text-left p-6 flex items-center justify-between font-bold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/[0.02] transition-colors"
                 >
                   <span className="text-sm md:text-base font-dm-sans pr-4">{faq.q}</span>
-                  {isOpen ? <ChevronUp className="w-5 h-5 text-blue-400 shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-500 shrink-0" />}
+                  {isOpen ? <ChevronUp className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-450 dark:text-slate-500 shrink-0" />}
                 </button>
                 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 border-t border-white/[0.04] text-xs md:text-sm text-slate-400 leading-relaxed">
+                  <div className="px-6 pb-6 pt-2 border-t border-slate-200 dark:border-white/[0.04] text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                     {faq.a}
                   </div>
                 )}
@@ -190,7 +190,7 @@ export default function FAQSection() {
           })}
 
           {filteredFAQs.length === 0 && (
-            <p className="text-center text-slate-500 text-sm py-10">No FAQs match your search query. Try typing another term.</p>
+            <p className="text-center text-slate-400 dark:text-slate-500 text-sm py-10">No FAQs match your search query. Try typing another term.</p>
           )}
         </div>
 
