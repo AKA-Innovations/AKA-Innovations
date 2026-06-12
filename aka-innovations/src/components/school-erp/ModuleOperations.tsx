@@ -69,6 +69,13 @@ export default function ModuleOperations() {
           <p className="text-lg text-slate-600 dark:text-slate-400 font-dm-sans leading-relaxed">
             See how AKA upgrades the core modules of standard education ERPs with actionable agents.
           </p>
+          <div className="flex flex-wrap justify-center gap-4 mt-6 text-sm font-bold text-indigo-700 dark:text-indigo-400">
+            <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25">✔ Attendance</span>
+            <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25">✔ Examination</span>
+            <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25">✔ Fees</span>
+            <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25">✔ Parent App</span>
+            <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25">✔ Analytics</span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

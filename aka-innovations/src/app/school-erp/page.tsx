@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import Link from 'next/link';
 
 // Newly Redesigned School ERP components
 import Hero from '@/components/school-erp/Hero';
@@ -83,8 +84,28 @@ export default function SchoolERPPage() {
             
             {/* Redesigned structured sections */}
             <Hero />
+
+            {/* Programmatic SEO Internal Navigation Bar */}
+            <div className="bg-blue-650/10 dark:bg-blue-500/5 py-6 border-y border-blue-500/20 text-center">
+              <span className="text-xs uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400 block mb-2">Explore Solutions & Modules</span>
+              <div className="flex flex-wrap justify-center gap-4 text-xs font-bold text-blue-600 dark:text-blue-400">
+                <Link href="/ai-school-erp" className="hover:underline">AI Positioning</Link>
+                <span>•</span>
+                <Link href="/agentic-school-erp" className="hover:underline">Agentic Automation</Link>
+                <span>•</span>
+                <Link href="/principal-dashboard" className="hover:underline">Principal Dashboard</Link>
+                <span>•</span>
+                <Link href="/attendance-management" className="hover:underline">Attendance Module</Link>
+                <span>•</span>
+                <Link href="/examination-management" className="hover:underline">Examination Module</Link>
+                <span>•</span>
+                <Link href="/school-fee-management" className="hover:underline">Fee Management</Link>
+              </div>
+            </div>
+
             <ProblemStatement />
             <TraditionalVsAgentic />
+            <FeatureDirectory />
             <AgentWorkforce />
             <ModuleOperations />
             
@@ -92,12 +113,10 @@ export default function SchoolERPPage() {
                 <AgentSimulations />
             </div>
             
-            <HowItWorks />
             <SecurityGovernance />
             <BenefitsList />
-            <FeatureDirectory />
+            <HowItWorks />
             <ComparisonTable />
-            <SEOAuthority />
             <FAQSection />
             <FinalCTA />
             

@@ -30,7 +30,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6 border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse" />
             <span className="text-blue-700 dark:text-blue-300 text-xs font-semibold uppercase tracking-wider">
-              Enterprise School ERP + Agentic AI
+              Complete School ERP. Optional Agentic Automation.
             </span>
           </div>
 
@@ -41,7 +41,7 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="block"
             >
-              The School ERP
+              Run Your School Today.
             </motion.span>
             <motion.span 
               initial={{ y: "100%", opacity: 0 }}
@@ -49,13 +49,36 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:via-indigo-400 dark:to-blue-400"
             >
-              That Works Both Ways.
+              Automate Operations Tomorrow.
             </motion.span>
           </h1>
 
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed font-dm-sans max-w-lg">
+          <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed font-dm-sans max-w-lg">
             Use the ERP traditionally through dashboards, forms, and tables. Use AI when you want to execute workloads via text commands. Switch between both seamlessly.
           </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8 text-sm font-semibold text-slate-700 dark:text-slate-300">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+              Admissions
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+              Attendance
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+              Fees
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+              Exams
+            </div>
+            <div className="flex items-center gap-2 col-span-2 md:col-span-1">
+              <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+              Parent Communication
+            </div>
+          </div>
 
           <div className="flex flex-wrap gap-4 mb-10">
             <Link

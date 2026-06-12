@@ -38,7 +38,7 @@ export default function FinalCTA() {
             className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 dark:text-slate-300 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl hover:bg-slate-200 dark:hover:bg-white/10 transition-all hover:-translate-y-0.5"
           >
             <MessageSquare className="mr-2 w-5 h-5" />
-            See AI in Action
+            Watch 3-min Product Tour
           </Link>
         </div>
 

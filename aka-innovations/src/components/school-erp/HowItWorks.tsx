@@ -57,9 +57,28 @@ export default function HowItWorks() {
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight font-dm-sans mb-6">
             How AKA Innovations <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Agentic AI Works</span>
           </h2>
-          <p className="text-lg text-slate-650 dark:text-slate-400 font-dm-sans leading-relaxed">
+          <p className="text-lg text-slate-655 dark:text-slate-400 font-dm-sans leading-relaxed">
             Every query goes through a strict verification, validation, and processing pipeline before database modification.
           </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-4xl mx-auto text-center">
+            <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/10 border border-emerald-200 dark:border-emerald-550/20">
+              <span className="text-emerald-600 dark:text-emerald-400 font-black text-xs md:text-sm block">✓ Human Approval</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 block">Staff validates critical actions</span>
+            </div>
+            <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/10 border border-blue-200 dark:border-blue-550/20">
+              <span className="text-blue-600 dark:text-blue-400 font-black text-xs md:text-sm block">✓ Audit Logging</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 block">100% immutable history trails</span>
+            </div>
+            <div className="p-4 rounded-xl bg-purple-50 dark:bg-purple-950/10 border border-purple-200 dark:border-purple-550/20">
+              <span className="text-purple-600 dark:text-purple-400 font-black text-xs md:text-sm block">✓ Permission Validation</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 block">Strict RBAC verification checks</span>
+            </div>
+            <div className="p-4 rounded-xl bg-cyan-50 dark:bg-cyan-950/10 border border-cyan-200 dark:border-cyan-550/20">
+              <span className="text-cyan-600 dark:text-cyan-400 font-black text-xs md:text-sm block">✓ Rollback Capability</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 block">Instantly revert database changes</span>
+            </div>
+          </div>
         </div>
 
         {/* 3D Flow Diagram component */}

@@ -91,7 +91,7 @@ export default function AgentSimulations() {
             Real Agent Examples
           </div>
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight font-dm-sans mb-6">
-            Watch the AI Agent <span className="text-blue-600 dark:text-blue-400">Perform Real Work</span>
+            See School Workflows <span className="text-blue-600 dark:text-blue-400">Execute Live</span>
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 font-dm-sans leading-relaxed">
             Select a role, press run, and see how the Agent validates permissions, calls database systems, and completes workflows.
@@ -110,7 +110,7 @@ export default function AgentSimulations() {
                   w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between
                   ${activeSim === index 
                     ? 'bg-blue-600/10 border-blue-500 text-slate-900 dark:text-white shadow-[0_0_20px_rgba(59,130,246,0.15)] font-bold' 
-                    : 'bg-white dark:bg-[#0f172a]/60 border-slate-200 dark:border-white/[0.06] text-slate-600 dark:text-slate-400 hover:text-slate-900 hover:bg-slate-100 dark:hover:text-white dark:hover:bg-slate-800/60'}
+                    : 'bg-white dark:bg-[#0f172a]/60 border-slate-200 dark:border-white/[0.06] text-slate-650 dark:text-slate-400 hover:text-slate-900 hover:bg-slate-100 dark:hover:text-white dark:hover:bg-slate-800/60'}
                   ${isRunning ? 'opacity-65 cursor-not-allowed' : ''}
                 `}
               >
@@ -125,10 +125,10 @@ export default function AgentSimulations() {
             <button
               onClick={startSimulation}
               disabled={isRunning || stepIndex === activeData.logs.length - 1}
-              className="w-full mt-4 flex items-center justify-center gap-2 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800/40 text-white font-bold rounded-xl transition-all shadow-xl shadow-blue-550/20 dark:shadow-blue-950/50"
+              className="w-full mt-4 flex items-center justify-center gap-2 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800/40 text-white font-bold rounded-xl transition-all shadow-xl shadow-blue-550/20 dark:shadow-blue-950/50 animate-pulse hover:animate-none"
             >
-              <Sparkles className="w-5 h-5 animate-pulse" />
-              {isRunning ? 'Executing Agent Logic...' : 'Run Action Simulation'}
+              <Sparkles className="w-5 h-5" />
+              {isRunning ? 'Executing Agent Logic...' : activeSim === 0 ? '▶ Run Attendance Workflow' : `▶ Run ${activeData.role} Workflow`}
             </button>
           </div>
 

@@ -91,7 +91,7 @@ export default function AgentWorkforce() {
             Role-Based Agents Working <span className="text-indigo-650 dark:text-indigo-400">For Your Team</span>
           </h2>
           <p className="text-lg text-slate-655 dark:text-slate-400 font-dm-sans leading-relaxed">
-            Every staff member, parent, and student gets a dedicated, secure AI Agent companion. Your team is not just entering data; they are delegating workloads.
+            Every role gets intelligent operational assistance. Your team is not just entering data; they are delegating workloads.
           </p>
         </div>
 

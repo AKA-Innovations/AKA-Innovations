@@ -5,6 +5,26 @@ import { ChevronDown, ChevronUp, Search, Sparkles } from 'lucide-react';
 
 const faqsData = [
   {
+    q: "Does AI replace school staff?",
+    a: "No. Our Agentic AI functions as an intelligent operational assistant, not a replacement. It takes over routine administration—like attendance logging, timetable conflict checking, and grade compilation—allowing teachers and administrators to spend more time working directly with students."
+  },
+  {
+    q: "Can workflows require approval before execution?",
+    a: "Yes. Every database write or outward communication triggered by the AI can be configured to require explicit human validation. No fee receipt, announcement, or grade modification is published without authorized staff approval."
+  },
+  {
+    q: "Can we disable AI automation entirely?",
+    a: "Absolutely. You have 100% control. Because AKA is built as a complete traditional ERP first, you can disable the Agentic AI capabilities entirely and run your school using standard, legacy dashboards and menus."
+  },
+  {
+    q: "How long does migration from our current ERP take?",
+    a: "Migration typically takes between 7 to 14 working days. Our dedicated migration team handles all database exports, sanitizes student registries, maps historical fee structures, and sets up your system with zero downtime."
+  },
+  {
+    q: "Is student data isolated and protected?",
+    a: "Yes. Your database is fully isolated and encrypted. Student records are strictly private and are never shared with third-party providers or used to train public AI systems."
+  },
+  {
     q: "What is a School ERP?",
     a: "A School ERP (Enterprise Resource Planning) is an integrated cloud software solution designed to coordinate all academic and administrative operations. It handles student information systems (SIS), fee payments, homework collection, attendance, bus tracking, exams, timetables, and teacher scheduling in a unified database."
   },

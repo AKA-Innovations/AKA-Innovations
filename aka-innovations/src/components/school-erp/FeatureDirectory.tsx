@@ -20,7 +20,7 @@ const coreModules = [
   },
   {
     title: "Academics & Attendance",
-    desc: "Real-time attendance registers, biometric integration, automated holiday lists, calendar scheduling, and leave management.",
+    desc: "Real-time attendance registers, automated holiday lists, calendar scheduling, and leave management.",
     icon: CheckSquare
   },
   {
