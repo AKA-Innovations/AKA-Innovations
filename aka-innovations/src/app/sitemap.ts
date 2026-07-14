@@ -1,7 +1,23 @@
 import { MetadataRoute } from 'next'
+import { getPosts } from '@/lib/sanity'
+import { mockPosts } from '@/lib/mockData'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://www.akainnovations.com'
+
+    let posts = await getPosts();
+    
+    // Fallback to mock posts if Sanity not configured yet
+    if (!posts || posts.length === 0) {
+        posts = mockPosts;
+    }
+
+    const blogSitemaps = posts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.publishedAt),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+    }));
 
     return [
         {
@@ -40,5 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'monthly',
             priority: 0.8,
         },
+        {
+            url: `${baseUrl}/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.85,
+        },
+        ...blogSitemaps,
     ]
 }

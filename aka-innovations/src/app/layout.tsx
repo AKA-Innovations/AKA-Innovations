@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/components/theme-provider";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import CreativeScrollWrapper from "@/components/school-erp/CreativeScrollWrapper";
+import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -165,6 +166,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollProgress />
           <CreativeScrollWrapper>
             {children}
           </CreativeScrollWrapper>
