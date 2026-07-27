@@ -3,15 +3,18 @@
 import React from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { AmbientBackground } from "@/components/layout/AmbientBackground";
 import BlogList from "./BlogList";
 import { getPosts } from "@/lib/sanity";
-import { Sparkles, MessageSquare } from "lucide-react";
-import { motion } from "framer-motion";
+import { BookOpen, Mail, ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 export default function BlogLandingPage() {
   const [posts, setPosts] = React.useState<any[]>([]);
   const [loading, setLoading] = React.useState(true);
+
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 500], [0, 90]);
 
   React.useEffect(() => {
     getPosts()
@@ -25,8 +28,8 @@ export default function BlogLandingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "AKA Innovations Blog",
-    "description": "Insights on Agentic AI, School ERP systems, software engineering, and digital transformation.",
+    "name": "AKA Innovations Journal & Essays",
+    "description": "Architectural essays, technical deep dives, and design guidelines on Agentic AI, School ERP systems, and cloud PaaS.",
     "url": "https://www.akainnovations.com/blog",
     "publisher": {
       "@type": "Organization",
@@ -39,106 +42,68 @@ export default function BlogLandingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-[#080d1a] text-slate-900 dark:text-white font-inter selection:bg-blue-500/20 selection:text-blue-300 transition-colors duration-300 relative overflow-hidden">
+    <main className="min-h-screen bg-[#faf8f5] dark:bg-[#07111f] text-slate-900 dark:text-slate-100 font-geist transition-colors duration-300 relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <AmbientBackground />
       <Header />
 
-      {/* State of the art: Drifting background glow blurs */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            x: [0, 80, -40, 0],
-            y: [0, -100, 50, 0],
-            scale: [1, 1.1, 0.9, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[10%] left-[5%] w-[450px] h-[450px] bg-blue-500/[0.08] dark:bg-blue-600/[0.04] rounded-full blur-[120px]"
-        />
-        <motion.div
-          animate={{
-            x: [0, -60, 100, 0],
-            y: [0, 80, -90, 0],
-            scale: [1, 0.9, 1.1, 1],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[40%] right-[5%] w-[500px] h-[500px] bg-purple-500/[0.08] dark:bg-indigo-600/[0.03] rounded-full blur-[130px]"
-        />
-        <motion.div
-          animate={{
-            x: [0, 50, -50, 0],
-            y: [0, -50, 80, 0],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-[10%] left-[20%] w-[380px] h-[380px] bg-emerald-500/[0.06] dark:bg-teal-600/[0.02] rounded-full blur-[110px]"
-        />
-      </div>
+      {/* Parallax Hero Header */}
+      <section className="relative pt-36 pb-20 border-b border-slate-200 dark:border-slate-800 overflow-hidden">
+        {/* Parallax Background Banner Image */}
+        <motion.div 
+          style={{ y: yParallax }}
+          className="absolute inset-0 z-0 opacity-20 dark:opacity-25 pointer-events-none"
+        >
+          <Image
+            src="/images/blog_editorial_hero_bg.png"
+            alt="Editorial Background"
+            fill
+            className="object-cover scale-110"
+            priority
+          />
+        </motion.div>
 
-      {/* Grid Pattern overlays */}
-      <div 
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.015]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(148,163,184,0.3) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(148,163,184,0.3) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Main Listing Shell */}
-      <section className="relative pt-40 pb-24 z-10">
-        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
           
-          {/* Header Title Section */}
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="max-w-3xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 dark:bg-indigo-500/5 border border-blue-500/20 dark:border-indigo-500/10 text-blue-650 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider mb-6"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
             >
-              <Sparkles className="w-3.5 h-3.5 text-blue-550 dark:text-indigo-400 animate-pulse" />
-              AKA Innovations Insights
+              {/* Writer Annotation */}
+              <span className="font-doctor text-3xl text-amber-600 dark:text-amber-400 block mb-2 font-bold -rotate-1">
+                ✍️ Architectural Essays & Systems Analysis
+              </span>
+
+              <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white leading-[1.1] mb-6 font-newsreader">
+                The AKA Engineering Journal
+              </h1>
+
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed mb-4 max-w-2xl mx-auto">
+                Deep dives, system design patterns, and case studies on Agentic AI, School ERP architectures, continuous health telemetry, and modern web infrastructure.
+              </p>
+
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-center gap-6 text-xs text-slate-500 font-mono">
+                <span>PUBLISHED WEEKLY</span>
+                <span>•</span>
+                <span>PEER-REVIEWED CONTENT</span>
+              </div>
             </motion.div>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-7xl font-extrabold leading-[1.08] text-slate-900 dark:text-white font-dm-sans mb-6 tracking-tighter"
-            >
-              Engineering the <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Future of Software</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base md:text-lg text-slate-650 dark:text-slate-400 font-dm-sans leading-relaxed"
-            >
-              Explore deep dives, architectural case studies, and guide maps on School ERP, product health diagnostics, and cutting-edge B2B SaaS engineering patterns.
-            </motion.p>
           </div>
 
-          {/* Listing Grid */}
+        </div>
+      </section>
+
+      {/* Main Listing Section */}
+      <section className="py-20 relative z-10">
+        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-32 space-y-4">
-              <div className="w-10 h-10 border-4 border-blue-500/20 border-t-blue-600 rounded-full animate-spin" />
-              <p className="text-sm font-mono text-slate-500 dark:text-slate-400 tracking-wider">LOADING ARCHIVES...</p>
+              <div className="w-10 h-10 border-4 border-amber-400/20 border-t-amber-500 rounded-full animate-spin" />
+              <p className="text-xs font-mono text-slate-500 tracking-wider">INDEXING ARCHIVES...</p>
             </div>
           ) : (
             <BlogList posts={posts} />
@@ -146,45 +111,43 @@ export default function BlogLandingPage() {
         </div>
       </section>
 
-      {/* Newsletter Signup (Stunning Diagonal Grid Backdrop) */}
-      <section className="py-24 bg-white/40 dark:bg-[#0a0f1d]/30 border-t border-slate-200/80 dark:border-white/[0.05] relative overflow-hidden transition-colors duration-300 z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
-        
+      {/* Writer Dispatch Newsletter Section */}
+      <section className="py-24 bg-white dark:bg-[#0c1424] border-t border-slate-200 dark:border-slate-800 relative overflow-hidden transition-colors duration-300 z-10">
         <div className="container mx-auto px-6 max-w-4xl text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-slate-50 dark:bg-[#0b1224]/60 border border-slate-200 dark:border-white/[0.06] rounded-[36px] p-8 lg:p-16 shadow-xl relative overflow-hidden group"
+            transition={{ duration: 0.5 }}
+            className="bg-[#faf8f5] dark:bg-[#07111f] border border-slate-200 dark:border-slate-800 rounded-2xl p-8 lg:p-14 shadow-lg relative overflow-hidden"
           >
-            {/* Top glow border */}
-            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-30 group-hover:opacity-100 transition-opacity" />
+            <span className="font-doctor text-2xl text-amber-600 dark:text-amber-400 block mb-2 font-bold -rotate-1">
+              📬 Shipped directly to your inbox...
+            </span>
 
-            <MessageSquare className="w-12 h-12 text-blue-500 dark:text-indigo-400 mx-auto mb-6" />
-            <h2 className="text-3xl md:text-5xl font-extrabold font-dm-sans text-slate-900 dark:text-white leading-tight mb-4 tracking-tight">
-              Subscribe to our Technical Newsletter
+            <h2 className="text-3xl md:text-5xl font-bold font-newsreader text-slate-900 dark:text-white leading-tight mb-4">
+              Subscribe to the Engineering Dispatch
             </h2>
-            <p className="text-slate-650 dark:text-slate-400 mb-8 max-w-lg mx-auto text-sm lg:text-base leading-relaxed font-dm-sans">
-              Get actionable engineering insights, tech assessment frameworks, and product design rules shipped directly to your inbox.
+
+            <p className="text-slate-600 dark:text-slate-300 mb-8 max-w-lg mx-auto text-sm leading-relaxed font-normal">
+              Receive actionable technical breakdowns, architectural blueprints, and engineering rules delivered every fortnight.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3.5 max-w-md mx-auto relative z-10">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10">
               <input
                 type="email"
                 placeholder="Enter your professional email address"
-                className="flex-1 bg-white dark:bg-[#080d1a]/50 border border-slate-200 dark:border-white/[0.08] focus:border-blue-500 dark:focus:border-indigo-500 rounded-xl px-5 py-3.5 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none transition-all shadow-sm"
+                className="flex-1 bg-white dark:bg-[#0c1424] border border-slate-200 dark:border-slate-800 focus:border-amber-400 dark:focus:border-amber-400 rounded-xl px-4 py-3 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none transition-colors"
               />
               <button
-                className="px-7 py-3.5 bg-blue-600 hover:bg-blue-700 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white text-sm font-bold rounded-xl transition-all shadow-lg shadow-blue-600/20 dark:shadow-indigo-600/20 hover:cursor-pointer hover:scale-[1.01]"
-                style={{ background: 'linear-gradient(135deg, #2563EB, #7C3AED)' }}
+                className="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-black text-xs font-extrabold rounded-xl transition-all shadow-md shadow-amber-400/20 active:scale-[0.97]"
               >
-                Subscribe Now
+                Subscribe Dispatch
               </button>
             </div>
             
-            <p className="text-xs text-slate-550 dark:text-slate-500 mt-4 font-mono tracking-wider">
-              Join 5,000+ engineers & startup operators. No spam, ever.
+            <p className="text-[11px] text-slate-500 mt-4 font-mono">
+              Join 5,000+ senior engineers & CTOs. Zero spam.
             </p>
           </motion.div>
         </div>

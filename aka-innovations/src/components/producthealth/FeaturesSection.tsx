@@ -1,678 +1,127 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { FC } from "react";
-import { motion, Variants } from "framer-motion";
+import React from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { HeartPulse, Stethoscope, FileText, Pill, ShieldAlert, Cpu } from 'lucide-react';
 
-const FeaturesSection: FC = () => {
-  // Left-side entrance
-  const slideLeft: Variants = {
-    hidden: { opacity: 0, x: -80 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 70,
-        damping: 20,
-        duration: 0.8,
-      },
-    },
-  };
+const features = [
+  {
+    title: 'Continuous Remote Telemetry',
+    category: '24/7 Vitals Monitoring',
+    desc: 'Streams wearable ECG, pulse, blood pressure, and SpO2 readings directly to attending physician dashboards.',
+    colSpan: 'md:col-span-2 lg:col-span-2',
+    image: '/images/health_patient_mobile.png',
+    stat: '99.99% Live Sync',
+    icon: HeartPulse
+  },
+  {
+    title: 'AI Clinical Triage',
+    category: 'Risk Prioritization',
+    desc: 'Automatically evaluates incoming patient symptoms and flags critical vital drops for immediate physician intervention.',
+    colSpan: 'md:col-span-1 lg:col-span-1',
+    stat: '< 2s Alert Speed',
+    icon: Cpu
+  },
+  {
+    title: 'Direct EMR & EHR Integration',
+    category: 'Interoperability',
+    desc: 'Seamlessly syncs clinical encounter notes, diagnostic imaging, and lab test results across HL7 / FHIR standards.',
+    colSpan: 'md:col-span-1 lg:col-span-1',
+    stat: 'HL7 & FHIR Compliant',
+    icon: FileText
+  },
+  {
+    title: 'Prescription & Pharmacy Sync',
+    category: 'Medication Adherence',
+    desc: 'Dispatches digital prescriptions directly to accredited pharmacies with automated refill alerts for patients.',
+    colSpan: 'md:col-span-1 lg:col-span-1',
+    stat: 'Rx Digital Verification',
+    icon: Pill
+  },
+  {
+    title: 'Multi-Specialty Routing Engine',
+    category: 'Clinical Escalation',
+    desc: 'Routes complex patient cases across Cardiology, Neurology, Pediatrics, and General Medicine care teams.',
+    colSpan: 'md:col-span-2 lg:col-span-2',
+    stat: 'Multi-Department Roster',
+    icon: Stethoscope
+  },
+  {
+    title: 'Emergency Response Protocols',
+    category: 'Critical Care',
+    desc: 'Triggers automated GPS ambulance dispatch and nearest ER alert routing when vital thresholds drop dangerously.',
+    colSpan: 'md:col-span-1 lg:col-span-1',
+    stat: 'Automated ER Dispatch',
+    icon: ShieldAlert
+  }
+];
 
-  // Right-side entrance
-  const slideRight: Variants = {
-    hidden: { opacity: 0, x: 80 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 70,
-        damping: 20,
-        duration: 0.8,
-      },
-    },
-  };
-
-  const containerStagger: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        when: "beforeChildren",
-      },
-    },
-  };
-
-  const bulletVariants: Variants = {
-    hidden: { opacity: 0, x: 30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 90,
-        damping: 15,
-      },
-    },
-  };
-
-  const fadeInUp: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
+export default function FeaturesSection() {
   return (
-    <section
-      className="
-        relative py-20 overflow-hidden
-        bg-(--color-health-bg)
-        dark:bg-[#07111F]
-        transition-colors duration-300
-      "
-    >
-      <div className="container mx-auto px-4 lg:px-12">
-        {/* FEATURE 1 */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid lg:grid-cols-2 gap-16 mb-20 items-center"
-        >
-          {/* Phone Mockup */}
-          <motion.div
-            variants={slideLeft}
-            className="relative h-[500px] flex items-center justify-center"
-          >
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <Image
-                src="/illustrations/phone-mockup.svg"
-                alt="App Interface"
-                width={430}
-                height={430}
-                className="object-contain"
-              />
-            </motion.div>
-          </motion.div>
+    <section className="py-24 bg-slate-50 dark:bg-[#0c1424] text-slate-900 dark:text-slate-100 font-jakarta border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+      <div className="container mx-auto px-4 lg:px-8">
+        
+        <div className="max-w-3xl mb-16">
+          <span className="font-doctor text-2xl text-cyan-600 dark:text-cyan-300 block mb-2 font-bold -rotate-1">
+            🔬 Built for hospitals, clinics, and digital health platforms...
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
+            Enterprise Clinical Capabilities
+          </h2>
+          <p className="text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
+            Every module in Health-Connect operates on unified HL7/FHIR healthcare infrastructure with zero data silos.
+          </p>
+        </div>
 
-          {/* Text */}
-          <motion.div
-            variants={containerStagger}
-            className="space-y-6"
-          >
-            <motion.div
-              variants={slideRight}
-              className="flex items-center gap-3 mb-4"
-            >
-              <Image
-                src="/icons/clock-blue.svg"
-                alt=""
-                width={20}
-                height={20}
-              />
-
-              <h3
-                className="
-                  text-[30px]
-                  font-inter
-                  font-extrabold
-                  text-(--color-health-navy)
-                  dark:text-white
-                "
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+          {features.map((feat, idx) => {
+            const IconComp = feat.icon;
+            return (
+              <motion.div
+                key={feat.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.05, ease: [0.23, 1, 0.32, 1] }}
+                className={`rounded-2xl bg-white dark:bg-[#07111f] border border-slate-200 dark:border-slate-800 p-6 lg:p-8 flex flex-col justify-between overflow-hidden group hover:border-slate-300 dark:hover:border-slate-700 transition-colors duration-200 shadow-sm dark:shadow-md ${feat.colSpan}`}
               >
-                Continuity of Care
-              </h3>
-            </motion.div>
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 flex items-center justify-center font-bold">
+                      <IconComp className="w-5 h-5" />
+                    </div>
+                    <span className="font-doctor text-xl text-emerald-600 dark:text-emerald-400 font-bold">
+                      {feat.stat}
+                    </span>
+                  </div>
 
-            <motion.p
-              variants={slideRight}
-              className="
-                text-[20px]
-                font-inter
-                font-medium
-                text-(--color-health-slate)
-                dark:text-slate-300
-                mb-6
-              "
-            >
-              Every patient has a living medical timeline.
-            </motion.p>
-
-            <div className="space-y-3">
-              {[
-                "Visit-wise doctor notes & prescriptions",
-                "Symptom history & progress tracking",
-                "Accessible across doctors & specializations",
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  variants={bulletVariants}
-                  className="flex items-start gap-2"
-                >
-                  <div
-                    className="
-                      w-2 h-2 rounded-full
-                      bg-(--color-health-cyan)
-                      mt-2
-                    "
-                  />
-
-                  <p
-                    className="
-                      text-[16px]
-                      font-inter
-                      text-(--color-health-slate)
-                      dark:text-slate-400
-                    "
-                  >
-                    {item}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              variants={slideRight}
-              className="
-                bg-(--color-health-off-white)
-                dark:bg-slate-900/70
-                border-l-4 border-(--color-health-cyan)
-                rounded-r-lg
-                p-6 mt-8
-                shadow-sm
-                dark:border-slate-700
-              "
-            >
-              <div
-                className="
-                  text-[14px]
-                  font-inter
-                  font-bold
-                  tracking-wider
-                  uppercase
-                  text-(--color-health-navy)
-                  dark:text-white
-                  mb-2
-                "
-              >
-                Impact
-              </div>
-
-              <p
-                className="
-                  text-[16px]
-                  font-inter
-                  text-(--color-health-slate)
-                  dark:text-slate-400
-                  leading-relaxed
-                "
-              >
-                No repeated explanations. Better clinical decisions.
-                Strong long-term doctor–patient trust.
-              </p>
-            </motion.div>
-
-            <motion.p
-              variants={slideRight}
-              className="
-                text-[15px]
-                font-inter
-                text-(--color-health-navy)
-                dark:text-slate-300
-                mt-6
-              "
-            >
-              Healthcare that remembers you.
-            </motion.p>
-          </motion.div>
-        </motion.div>
-
-        {/* FEATURE 2 */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid lg:grid-cols-2 gap-16 mb-20 items-center"
-        >
-          {/* Left Content */}
-          <motion.div
-            variants={containerStagger}
-            className="space-y-6"
-          >
-            <motion.div
-              variants={slideLeft}
-              className="flex items-center gap-3 mb-4"
-            >
-              <Image
-                src="/icons/user-purple.svg"
-                alt=""
-                width={20}
-                height={18}
-              />
-
-              <h3
-                className="
-                  text-[29px]
-                  font-inter
-                  font-extrabold
-                  text-(--color-health-navy)
-                  dark:text-white
-                  leading-tight
-                "
-              >
-                Symptom-Driven Doctor Recommendations
-              </h3>
-            </motion.div>
-
-            <motion.p
-              variants={slideLeft}
-              className="
-                text-[20px]
-                font-inter
-                font-medium
-                text-(--color-health-slate-dark)
-                dark:text-slate-300
-                mb-4
-              "
-            >
-              Describe the problem. We find the right doctor.
-            </motion.p>
-
-            <motion.p
-              variants={slideLeft}
-              className="
-                text-[16px]
-                font-inter
-                text-(--color-health-slate)
-                dark:text-slate-400
-                leading-relaxed
-                mb-6
-              "
-            >
-              Instead of forcing patients to guess specializations,
-              Health-Connect intelligently recommends:
-            </motion.p>
-
-            <div className="space-y-3">
-              {[
-                "Correct medical specialization",
-                "Doctors experienced with similar symptoms",
-                "Best-fit doctors for faster, accurate care",
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  variants={bulletVariants}
-                  className="flex items-start gap-3"
-                >
-                  <Image
-                    src="/icons/checkmark-indigo.svg"
-                    alt=""
-                    width={14}
-                    height={10}
-                  />
-
-                  <p
-                    className="
-                      text-[16px]
-                      font-inter
-                      text-(--color-health-slate)
-                      dark:text-slate-400
-                    "
-                  >
-                    {item}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              variants={slideLeft}
-              className="flex flex-wrap gap-4 mt-6"
-            >
-              <span
-                className="
-                  bg-indigo-100 dark:bg-indigo-500/20
-                  text-indigo-700 dark:text-indigo-300
-                  text-[14px]
-                  font-inter
-                  font-medium
-                  px-4 py-2
-                  rounded-full
-                "
-              >
-                Fewer wrong consultations
-              </span>
-
-              <span
-                className="
-                  bg-indigo-100 dark:bg-indigo-500/20
-                  text-indigo-700 dark:text-indigo-300
-                  text-[14px]
-                  font-inter
-                  font-medium
-                  px-4 py-2
-                  rounded-full
-                "
-              >
-                Higher success rate
-              </span>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Card */}
-          <motion.div
-            variants={slideRight}
-            whileHover={{ y: -5 }}
-            className="
-              bg-white dark:bg-slate-900
-              rounded-3xl
-              border border-gray-100 dark:border-slate-800
-              shadow-xl dark:shadow-black/30
-              p-8
-              transition-colors duration-300
-            "
-          >
-            <div
-              className="
-                bg-(--color-health-off-white)
-                dark:bg-slate-800
-                border border-gray-200 dark:border-slate-700
-                rounded-xl
-                p-4 mb-6
-              "
-            >
-              <div
-                className="
-                  text-[12px]
-                  font-inter
-                  tracking-wider
-                  uppercase
-                  text-indigo-500 dark:text-indigo-400
-                  mb-1
-                "
-              >
-                Input
-              </div>
-
-              <p
-                className="
-                  text-[16px]
-                  font-inter
-                  font-medium
-                  text-(--color-health-navy)
-                  dark:text-white
-                "
-              >
-                "Severe headache and blurred vision"
-              </p>
-            </div>
-
-            <div className="h-px bg-(--color-health-gray-light) dark:bg-slate-700 my-6" />
-
-            <div className="space-y-4 mb-6">
-              {[
-                {
-                  icon: "/icons/checkmark-dark.svg",
-                  text: "Full patient history before consult",
-                },
-                {
-                  icon: "/icons/plus-dark.svg",
-                  text: "Structured visit notes",
-                },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-3"
-                >
-                  <Image
-                    src={item.icon}
-                    alt=""
-                    width={11}
-                    height={14}
-                  />
-
-                  <p
-                    className="
-                      text-[16px]
-                      font-inter
-                      text-(--color-health-navy)
-                      dark:text-slate-300
-                    "
-                  >
-                    {item.text}
+                  <span className="font-doctor text-xl text-cyan-600 dark:text-cyan-300 block mb-1 font-bold">{feat.category}</span>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                    {feat.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal mb-6">
+                    {feat.desc}
                   </p>
                 </div>
-              ))}
-            </div>
 
-            <div className="h-px bg-(--color-health-gray-light) dark:bg-slate-700 my-6" />
+                {feat.image && (
+                  <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 mt-2 shadow-inner">
+                    <Image
+                      src={feat.image}
+                      alt={feat.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
 
-            <div
-              className="
-                bg-indigo-50 dark:bg-indigo-500/10
-                border border-indigo-200 dark:border-indigo-500/20
-                rounded-xl
-                p-4
-              "
-            >
-              <div
-                className="
-                  text-[12px]
-                  font-inter
-                  tracking-wider
-                  uppercase
-                  text-indigo-500 dark:text-indigo-400
-                  mb-1
-                "
-              >
-                Recommendation
-              </div>
-
-              <p
-                className="
-                  text-[16px]
-                  font-inter
-                  font-extrabold
-                  text-indigo-900 dark:text-indigo-300
-                  mb-3
-                "
-              >
-                Neurologist (Specialist)
-              </p>
-
-              <div className="flex items-center gap-3">
-                <Image
-                  src="/images/doctor-avatar.png"
-                  alt="Dr. Anjali Rao"
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-
-                <p
-                  className="
-                    text-[14px]
-                    font-inter
-                    text-indigo-700 dark:text-indigo-300
-                  "
-                >
-                  Dr. Anjali Rao • 12 Yrs Exp
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Bottom Cards */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid md:grid-cols-2 gap-8"
-        >
-          {/* Language Card */}
-          <motion.div
-            variants={fadeInUp}
-            whileHover={{ y: -8 }}
-            transition={{ type: "spring", stiffness: 100 }}
-            className="
-              bg-white dark:bg-slate-900
-              rounded-3xl
-              border border-gray-100 dark:border-slate-800
-              shadow-xl dark:shadow-black/30
-              p-8
-              relative overflow-hidden
-            "
-          >
-            <div
-              className="
-                absolute top-0 right-0
-                w-24 h-24
-                bg-orange-50 dark:bg-orange-500/10
-                rounded-bl-full
-              "
-            />
-
-            <h3
-              className="
-                text-[24px]
-                font-inter
-                font-extrabold
-                text-(--color-health-navy)
-                dark:text-white
-                mb-3
-              "
-            >
-              Language-First Experience
-            </h3>
-
-            <p
-              className="
-                text-[16px]
-                font-inter
-                text-(--color-health-slate)
-                dark:text-slate-400
-                mb-6
-              "
-            >
-              Comfortable communication leads to better care.
-            </p>
-
-            <div className="space-y-3 mb-6">
-              {[
-                "Regional language consultations",
-                "Patient-friendly summaries",
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2"
-                >
-                  <Image
-                    src="/icons/checkmark-orange.svg"
-                    alt=""
-                    width={11}
-                    height={9}
-                  />
-
-                  <p
-                    className="
-                      text-[14px]
-                      font-inter
-                      text-(--color-health-slate-dark)
-                      dark:text-slate-300
-                    "
-                  >
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <p
-              className="
-                text-[15px]
-                font-inter
-                text-(--color-health-orange-dark)
-                dark:text-orange-300
-              "
-            >
-              Healthcare in the language you trust.
-            </p>
-          </motion.div>
-
-          {/* Doctor Card */}
-          <motion.div
-            variants={fadeInUp}
-            whileHover={{ y: -8 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              delay: 0.1,
-            }}
-            className="
-              bg-(--color-health-navy)
-              dark:bg-[#020817]
-              rounded-3xl
-              border border-(--color-health-navy)
-              dark:border-slate-800
-              shadow-xl dark:shadow-black/30
-              p-8
-              relative overflow-hidden
-            "
-          >
-            <div
-              className="
-                absolute bottom-0 left-0
-                w-32 h-32
-                bg-(--color-health-slate-dark)/50
-                dark:bg-slate-700/20
-                rounded-tr-full
-              "
-            />
-
-            <h3
-              className="
-                text-[24px]
-                font-inter
-                font-extrabold
-                text-white
-                mb-3
-              "
-            >
-              Doctor-Centric Experience
-            </h3>
-
-            <p
-              className="
-                text-[16px]
-                font-inter
-                text-(--color-health-gray)
-                dark:text-slate-400
-              "
-            >
-              Doctors get context, not clutter.
-            </p>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
-};
-
-export default FeaturesSection;
+}

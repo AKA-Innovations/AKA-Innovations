@@ -2,22 +2,16 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import Link from 'next/link';
 
-// Newly Redesigned School ERP components
+// Redesigned School ERP Components with Theme Support & Finger Paint font
 import Hero from '@/components/school-erp/Hero';
 import ProblemStatement from '@/components/school-erp/ProblemStatement';
-import TraditionalVsAgentic from '@/components/school-erp/TraditionalVsAgentic';
+import DualEngine from '@/components/school-erp/DualEngine';
 import AgentWorkforce from '@/components/school-erp/AgentWorkforce';
-import ModuleOperations from '@/components/school-erp/ModuleOperations';
-import AgentSimulations from '@/components/school-erp/AgentSimulations';
-import HowItWorks from '@/components/school-erp/HowItWorks';
-import SecurityGovernance from '@/components/school-erp/SecurityGovernance';
-import BenefitsList from '@/components/school-erp/BenefitsList';
-import FeatureDirectory from '@/components/school-erp/FeatureDirectory';
-import ComparisonTable from '@/components/school-erp/ComparisonTable';
-import SEOAuthority from '@/components/school-erp/SEOAuthority';
-import FAQSection from '@/components/school-erp/FAQSection';
+import ModuleGrid from '@/components/school-erp/ModuleGrid';
+import LiveDemo from '@/components/school-erp/LiveDemo';
+import SocialProof from '@/components/school-erp/SocialProof';
+import FAQ from '@/components/school-erp/FAQ';
 import FinalCTA from '@/components/school-erp/FinalCTA';
 
 export const metadata: Metadata = {
@@ -66,7 +60,7 @@ export default function SchoolERPPage() {
             '@type': 'AggregateRating',
             'ratingValue': '4.9',
             'ratingCount': '184',
-            },
+        },
         'author': {
             '@type': 'Organization',
             'name': 'AKA Innovations',
@@ -75,49 +69,22 @@ export default function SchoolERPPage() {
     };
 
     return (
-        <main className="min-h-screen bg-slate-50 dark:bg-[#080d1a] text-slate-900 dark:text-white font-inter selection:bg-blue-500/20 selection:text-blue-300 transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-[#090d16] text-slate-900 dark:text-slate-100 font-geist selection:bg-amber-400/20 selection:text-amber-600 transition-colors duration-300">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <Header />
             
-            {/* Redesigned structured sections */}
+            {/* Dual Theme Light & Dark Compatible Components */}
             <Hero />
-
-            {/* Programmatic SEO Internal Navigation Bar */}
-            <div className="bg-blue-650/10 dark:bg-blue-500/5 py-6 border-y border-blue-500/20 text-center">
-              <span className="text-xs uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400 block mb-2">Explore Solutions & Modules</span>
-              <div className="flex flex-wrap justify-center gap-4 text-xs font-bold text-blue-600 dark:text-blue-400">
-                <Link href="/ai-school-erp" className="hover:underline">AI Positioning</Link>
-                <span>•</span>
-                <Link href="/agentic-school-erp" className="hover:underline">Agentic Automation</Link>
-                <span>•</span>
-                <Link href="/principal-dashboard" className="hover:underline">Principal Dashboard</Link>
-                <span>•</span>
-                <Link href="/attendance-management" className="hover:underline">Attendance Module</Link>
-                <span>•</span>
-                <Link href="/examination-management" className="hover:underline">Examination Module</Link>
-                <span>•</span>
-                <Link href="/school-fee-management" className="hover:underline">Fee Management</Link>
-              </div>
-            </div>
-
             <ProblemStatement />
-            <TraditionalVsAgentic />
-            <FeatureDirectory />
+            <DualEngine />
             <AgentWorkforce />
-            <ModuleOperations />
-            
-            <div id="simulation">
-                <AgentSimulations />
-            </div>
-            
-            <SecurityGovernance />
-            <BenefitsList />
-            <HowItWorks />
-            <ComparisonTable />
-            <FAQSection />
+            <ModuleGrid />
+            <LiveDemo />
+            <SocialProof />
+            <FAQ />
             <FinalCTA />
             
             <Footer />

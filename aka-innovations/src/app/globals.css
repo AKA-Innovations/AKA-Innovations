@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=Inter:wght@300;400;500;700;800&family=Raleway:wght@600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Caveat:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Architects+Daughter&family=Finger+Paint&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Reenie+Beanie&family=Covered+By+Your+Grace&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
 
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
@@ -7,6 +7,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .dark {
@@ -102,6 +105,42 @@ body {
 
 @utility font-dm-sans {
   font-family: 'DM Sans', sans-serif;
+}
+
+@utility font-geist {
+  font-family: 'Geist', system-ui, sans-serif;
+}
+
+@utility font-geist-mono {
+  font-family: 'Geist Mono', monospace;
+}
+
+@utility font-caveat {
+  font-family: 'Caveat', cursive, handwriting;
+}
+
+@utility font-fredoka {
+  font-family: 'Fredoka', cursive, sans-serif;
+}
+
+@utility font-handwriting {
+  font-family: 'Architects Daughter', cursive, handwriting;
+}
+
+@utility font-finger-paint {
+  font-family: 'Finger Paint', cursive, display;
+}
+
+@utility font-jakarta {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@utility font-doctor {
+  font-family: 'Covered By Your Grace', 'Reenie Beanie', cursive, handwriting;
+}
+
+@utility font-newsreader {
+  font-family: 'Newsreader', Georgia, serif;
 }
 
 @utility gradient-text-cyan-purple {

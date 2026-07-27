@@ -38,8 +38,8 @@ const PortableTextComponents = {
       </p>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-4 border-indigo-500 pl-6 italic text-slate-700 dark:text-slate-350 my-8 bg-indigo-500/[0.04] dark:bg-indigo-500/[0.015] py-5 pr-5 rounded-r-2xl relative">
-        <span className="absolute top-2 left-2 text-indigo-500/10 dark:text-indigo-400/5 text-6xl font-serif pointer-events-none">&ldquo;</span>
+      <blockquote className="border border-amber-300 dark:border-amber-500/30 pl-6 pr-5 py-5 italic text-amber-950 dark:text-amber-100 my-8 bg-amber-50/50 dark:bg-amber-950/20 rounded-2xl relative font-newsreader">
+        <span className="absolute top-2 left-2 text-amber-500/10 text-6xl font-serif pointer-events-none">&ldquo;</span>
         <span className="relative z-10">{children}</span>
       </blockquote>
     ),
@@ -222,7 +222,7 @@ export default async function BlogPostDetailsPage({ params }: PageProps) {
     : null;
 
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-[#080d1a] text-slate-900 dark:text-white font-inter selection:bg-blue-500/20 selection:text-blue-300 transition-colors duration-300 relative overflow-hidden">
+    <main className="min-h-screen bg-[#faf8f5] dark:bg-[#07111f] text-slate-900 dark:text-white font-geist transition-colors duration-300 relative overflow-hidden">
       {/* Cleared drop-cap to keep font normal and readable */}
 
       {/* Schema Injection */}
@@ -340,7 +340,7 @@ export default async function BlogPostDetailsPage({ params }: PageProps) {
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullUrl)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 bg-slate-100 dark:bg-white/[0.03] hover:bg-blue-600/10 dark:hover:bg-blue-400/10 rounded-xl text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 border border-slate-200 dark:border-white/[0.05] transition-all hover:scale-105"
+                    className="p-2.5 bg-slate-100 dark:bg-[#07111f] rounded-xl text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-all hover:scale-105"
                     title="Share on LinkedIn"
                   >
                     <Linkedin className="w-4.5 h-4.5" />
@@ -349,7 +349,7 @@ export default async function BlogPostDetailsPage({ params }: PageProps) {
                     href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(post.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 bg-slate-100 dark:bg-white/[0.03] hover:bg-slate-950/10 dark:hover:bg-white/10 rounded-xl text-slate-500 hover:text-black dark:hover:text-white border border-slate-200 dark:border-white/[0.05] transition-all hover:scale-105"
+                    className="p-2.5 bg-slate-100 dark:bg-[#07111f] rounded-xl text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-all hover:scale-105"
                     title="Share on X"
                   >
                     <Twitter className="w-4.5 h-4.5" />
@@ -358,7 +358,7 @@ export default async function BlogPostDetailsPage({ params }: PageProps) {
                     href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${post.title} - ${fullUrl}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 bg-slate-100 dark:bg-white/[0.03] hover:bg-emerald-600/10 dark:hover:bg-emerald-400/10 rounded-xl text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 border border-slate-200 dark:border-white/[0.05] transition-all hover:scale-105"
+                    className="p-2.5 bg-slate-100 dark:bg-[#07111f] rounded-xl text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-all hover:scale-105"
                     title="Share on WhatsApp"
                   >
                     <MessageSquare className="w-4.5 h-4.5" />
