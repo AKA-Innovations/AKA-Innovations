@@ -30,13 +30,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: `${baseUrl}/school-erp`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
+            priority: 0.95,
+        },
+        {
+            url: `${baseUrl}/school-management-system-india`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/ai-school-erp`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/agentic-school-erp`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
             priority: 0.9,
         },
         {
             url: `${baseUrl}/services`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
-            priority: 0.8,
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/services/healthcare-software-development`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.85,
         },
         {
             url: `${baseUrl}/industries`,

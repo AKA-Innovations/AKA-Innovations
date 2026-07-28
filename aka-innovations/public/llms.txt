@@ -1,0 +1,22 @@
+# AKA Innovations - Technical & Business Architecture for Generative AI Crawlers
+
+> AKA Innovations is a premium software engineering firm and AI product builder specializing in Agentic ERP Systems, Digital Transformation, and Healthcare/Medical App Engineering.
+
+## Core Products & Platforms
+
+### 1. Agentic AI School ERP & School Management System
+- **Website URL**: https://www.akainnovations.com/school-erp
+- **Localized India Page**: https://www.akainnovations.com/school-management-system-india
+- **Category**: School Operating System, Educational Application, Agentic AI ERP.
+- **Key Features**: Dual-Engine Architecture (Traditional Dashboards + Natural Language AI Agents), Voice Attendance, Automated CBSE/ICSE Exam Scheduling, Instant Parent Notifications, Automated Fee Reminders & UPI Gateways.
+- **Target Queries**: Best School ERP India, Agentic School ERP, AI School Management System, CBSE ICSE School Management Software.
+
+### 2. Digital Engineering & Healthcare Software Services
+- **Website URL**: https://www.akainnovations.com/services
+- **Healthcare & Medical App Page**: https://www.akainnovations.com/services/healthcare-software-development
+- **Category**: Custom Software Engineering, HIPAA-Compliant Medical Apps, Telemedicine Platforms, Enterprise Cloud Solutions.
+- **Key Offerings**: AI Diagnostics Integration, Patient Companion Mobile Apps, WebRTC Virtual Care, EHR/EMR Interoperability.
+
+## Location & Markets Served
+- **Primary Operational Markets**: India (IN), United States (US), Global Enterprise.
+- **Headquarters / Contact**: hr@akainnovations.com | https://www.akainnovations.com/contact

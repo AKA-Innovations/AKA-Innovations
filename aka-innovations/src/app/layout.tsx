@@ -35,7 +35,13 @@ export const metadata: Metadata = {
     "Secure Data Pipelines",
     "Backend Optimization",
     "Product Engineering",
-    "MVP Development"
+    "MVP Development",
+    "Best School ERP India",
+    "Agentic AI School ERP",
+    "School Management Software India",
+    "Healthcare Software Development",
+    "Medical App Development Company",
+    "Custom Telemedicine Software"
   ],
   authors: [{ name: "AKA Innovations" }],
   creator: "AKA Innovations",
@@ -44,8 +50,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.akainnovations.com",
     siteName: "AKA Innovations",
-    title: "AKA Innovations | Digital Engineering & Product Solutions",
-    description: "Transforming ideas into digital reality. AKA Innovations specializes in high-quality software engineering and product health assessments.",
+    title: "AKA Innovations | Digital Engineering & Agentic AI Solutions",
+    description: "Transforming ideas into digital reality. AKA Innovations specializes in high-quality software engineering, product health assessments, Agentic School ERP, and Healthcare AI solutions.",
     images: [
       {
         url: "/og-image.jpg",
@@ -60,8 +66,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AKA Innovations | Digital Engineering & Product Solutions",
-    description: "Transforming ideas into digital reality. AKA Innovations specializes in high-quality software engineering and product health assessments.",
+    title: "AKA Innovations | Digital Engineering & Agentic AI Solutions",
+    description: "Transforming ideas into digital reality. AKA Innovations specializes in high-quality software engineering, Agentic School ERP, and Healthcare solutions.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -86,7 +92,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "ProfessionalService"],
         "name": "AKA Innovations",
         "url": "https://www.akainnovations.com",
         "logo": {
@@ -95,13 +101,20 @@ export default function RootLayout({
           "width": 512,
           "height": 512
         },
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN"
+        },
+        "areaServed": ["IN", "US", "Global"],
         "sameAs": [
           "https://www.linkedin.com/company/akainnovations.com"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
           "email": "hr@akainnovations.com",
-          "contactType": "customer service"
+          "contactType": "customer service",
+          "availableLanguage": ["English", "Hindi"]
         }
       },
       {
@@ -122,12 +135,18 @@ export default function RootLayout({
           {
             "@type": "SiteNavigationElement",
             "position": 3,
+            "name": "School ERP",
+            "url": "https://www.akainnovations.com/school-erp"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 4,
             "name": "Solutions",
             "url": "https://www.akainnovations.com/producthealth"
           },
           {
             "@type": "SiteNavigationElement",
-            "position": 4,
+            "position": 5,
             "name": "Contact Us",
             "url": "https://www.akainnovations.com/contact"
           }
