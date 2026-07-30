@@ -24,7 +24,21 @@ export function Header() {
   const { scrollY } = useScroll();
   const pathname = usePathname();
   const isHealthPage = pathname === "/producthealth";
-  const isSchoolErpPage = pathname === "/school-erp";
+  const schoolErpPaths = [
+    "/school-erp",
+    "/school-management-system-india",
+    "/ai-school-erp",
+    "/agentic-school-erp",
+    "/attendance-management",
+    "/examination-management",
+    "/school-fee-management",
+    "/parent-app",
+    "/principal-dashboard",
+  ];
+  const isSchoolErpPage =
+    schoolErpPaths.includes(pathname) ||
+    pathname.startsWith("/compare/") ||
+    pathname.startsWith("/guides/");
   const isProductPage = isHealthPage || isSchoolErpPage;
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -44,10 +58,52 @@ export function Header() {
 
   const productLinks = [
     {
-      title: "School ERP",
+      title: "School ERP Operating System",
       href: "/school-erp",
       desc: "Complete digital ecosystem for modern educational institutions.",
       icon: "🎓"
+    },
+    {
+      title: "AI & Agentic School ERP",
+      href: "/ai-school-erp",
+      desc: "Autonomous AI agents and zero-click administrative workflows.",
+      icon: "🤖"
+    },
+    {
+      title: "Attendance & Biometrics",
+      href: "/attendance-management",
+      desc: "Voice roll-call, RFID/biometrics, and instant parent alerts.",
+      icon: "📋"
+    },
+    {
+      title: "Exam & Report Cards",
+      href: "/examination-management",
+      desc: "Conflict-free exam schedules and CBSE/ICSE board marksheets.",
+      icon: "📝"
+    },
+    {
+      title: "Fee & Billing Management",
+      href: "/school-fee-management",
+      desc: "Online gateways, digital tax receipts, and automated dues reminders.",
+      icon: "💰"
+    },
+    {
+      title: "Parent Companion App",
+      href: "/parent-app",
+      desc: "White-labeled iOS/Android mobile app for parents and students.",
+      icon: "📱"
+    },
+    {
+      title: "Principal Dashboard",
+      href: "/principal-dashboard",
+      desc: "Executive analytics, high-risk attendance alerts, and audit logs.",
+      icon: "🏫"
+    },
+    {
+      title: "School System (India)",
+      href: "/school-management-system-india",
+      desc: "Localized CBSE, ICSE, and State Board compliance management.",
+      icon: "🇮🇳"
     },
     {
       title: "Health Connect",
@@ -126,29 +182,102 @@ export function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 5, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[400px]"
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[560px]"
                       >
-                        <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-2xl shadow-2xl p-4 overflow-hidden ring-1 ring-black/5 dark:ring-white/5">
-                          <div className="flex flex-col gap-2">
-                            {productLinks.map((product) => (
+                        <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-2xl shadow-2xl p-5 max-h-[500px] overflow-y-auto ring-1 ring-black/5 dark:ring-white/5">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            
+                            {/* School ERP Column with Sub-Links */}
+                            <div className="space-y-1">
                               <Link
-                                key={product.href}
-                                href={product.href}
-                                className="group flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                                href="/school-erp"
+                                className="group flex items-center gap-2 p-2.5 rounded-xl bg-amber-50 dark:bg-amber-400/10 border border-amber-200 dark:border-amber-400/20 hover:border-amber-400 transition-colors"
                               >
-                                <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover:scale-110 transition-transform duration-300">
-                                  {product.icon}
-                                </div>
+                                <span className="text-xl">🎓</span>
                                 <div>
-                                  <div className="font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                                    {product.title}
+                                  <div className="font-bold text-xs text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-300">
+                                    School ERP Ecosystem
                                   </div>
-                                  <div className="text-sm text-slate-500 dark:text-slate-400 leading-tight mt-1">
-                                    {product.desc}
+                                  <div className="text-[10px] text-slate-500 dark:text-slate-400">
+                                    Main Operating System
                                   </div>
                                 </div>
                               </Link>
-                            ))}
+
+                              {/* Indented Sub-Modules */}
+                              <div className="pl-3 border-l-2 border-amber-200 dark:border-amber-400/20 space-y-0.5 pt-1">
+                                {[
+                                  { title: "AI & Agentic ERP", href: "/ai-school-erp", icon: "🤖" },
+                                  { title: "Attendance Management", href: "/attendance-management", icon: "📋" },
+                                  { title: "Exam & Report Cards", href: "/examination-management", icon: "📝" },
+                                  { title: "Fee & Billing", href: "/school-fee-management", icon: "💰" },
+                                  { title: "Parent Mobile App", href: "/parent-app", icon: "📱" },
+                                  { title: "Principal Dashboard", href: "/principal-dashboard", icon: "🏫" },
+                                  { title: "School System (India)", href: "/school-management-system-india", icon: "🇮🇳" },
+                                ].map((sub) => (
+                                  <Link
+                                    key={sub.href}
+                                    href={sub.href}
+                                    className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-amber-600 dark:hover:text-amber-300 transition-colors"
+                                  >
+                                    <span className="text-xs">{sub.icon}</span>
+                                    <span>{sub.title}</span>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Other Products Column */}
+                            <div className="space-y-3">
+                              <div>
+                                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-1.5 px-2">
+                                  Healthcare Platform
+                                </span>
+                                <Link
+                                  href="/producthealth"
+                                  className="group flex items-start gap-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors"
+                                >
+                                  <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-lg shrink-0">
+                                    🏥
+                                  </div>
+                                  <div>
+                                    <div className="font-bold text-xs text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                                      Health-Connect
+                                    </div>
+                                    <div className="text-[11px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">
+                                      AI-powered health monitoring and management system.
+                                    </div>
+                                  </div>
+                                </Link>
+                              </div>
+
+                              <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-1.5 px-2">
+                                  Guides & Resources
+                                </span>
+                                <div className="space-y-0.5">
+                                  <Link
+                                    href="/guides/what-is-school-erp"
+                                    className="block px-2 py-1 rounded text-xs text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                                  >
+                                    📖 What is School ERP?
+                                  </Link>
+                                  <Link
+                                    href="/compare/traditional-school-erp"
+                                    className="block px-2 py-1 rounded text-xs text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                                  >
+                                    ⚖️ Traditional vs AI ERP
+                                  </Link>
+                                  <Link
+                                    href="/guides/choose-school-erp"
+                                    className="block px-2 py-1 rounded text-xs text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors"
+                                  >
+                                    ✅ How to Choose ERP
+                                  </Link>
+                                </div>
+                              </div>
+                            </div>
+
                           </div>
                         </div>
                       </motion.div>

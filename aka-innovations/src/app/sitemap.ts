@@ -20,18 +20,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
     return [
+        // Core pages
         {
             url: baseUrl,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 1,
         },
+        // School ERP — Hub
         {
             url: `${baseUrl}/school-erp`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.95,
         },
+        // School ERP — Positioning / SEO Landing Pages
         {
             url: `${baseUrl}/school-management-system-india`,
             lastModified: new Date(),
@@ -50,6 +53,71 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'weekly',
             priority: 0.9,
         },
+        // School ERP — Role Pages
+        {
+            url: `${baseUrl}/principal-dashboard`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.85,
+        },
+        // School ERP — Module Pages
+        {
+            url: `${baseUrl}/attendance-management`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/examination-management`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/school-fee-management`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/parent-app`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        // School ERP — Comparison Pages
+        {
+            url: `${baseUrl}/compare/traditional-school-erp`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/compare/manual-vs-ai-school`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        // School ERP — Guide Pages
+        {
+            url: `${baseUrl}/guides/what-is-school-erp`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.75,
+        },
+        {
+            url: `${baseUrl}/guides/how-ai-is-changing-schools`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.75,
+        },
+        {
+            url: `${baseUrl}/guides/choose-school-erp`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.75,
+        },
+        // Other site pages
         {
             url: `${baseUrl}/services`,
             lastModified: new Date(),
@@ -89,3 +157,4 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ...blogSitemaps,
     ]
 }
+

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BookOpen, Users, DollarSign, Calendar, Smartphone, Bus } from 'lucide-react';
 
@@ -13,7 +14,8 @@ const modules = [
     colSpan: 'md:col-span-2 lg:col-span-2',
     image: '/images/erp_student_classroom.png',
     stat: '100k+ Records',
-    icon: Users
+    icon: Users,
+    href: '/principal-dashboard'
   },
   {
     title: 'Automated Fee Management',
@@ -21,7 +23,8 @@ const modules = [
     desc: 'Multi-tiered fee structures, online gateway payments, partial payment tracking, and automated receipts.',
     colSpan: 'md:col-span-1 lg:col-span-1',
     stat: 'Instant Digital Receipts',
-    icon: DollarSign
+    icon: DollarSign,
+    href: '/school-fee-management'
   },
   {
     title: 'Examination & Report Cards',
@@ -29,7 +32,8 @@ const modules = [
     desc: 'Custom grading scales, term marksheets, rank generation, and Board exam preparation tracking.',
     colSpan: 'md:col-span-1 lg:col-span-1',
     stat: 'CBSE / ICSE / IB Board Aligned',
-    icon: BookOpen
+    icon: BookOpen,
+    href: '/examination-management'
   },
   {
     title: 'Attendance & Leave Tracking',
@@ -37,7 +41,8 @@ const modules = [
     desc: 'Real-time RFID/biometric integration, manual class register logging, and automated parent SMS alerts.',
     colSpan: 'md:col-span-1 lg:col-span-1',
     stat: '30s / Class Log',
-    icon: Calendar
+    icon: Calendar,
+    href: '/attendance-management'
   },
   {
     title: 'Native Parent & Student Apps',
@@ -45,7 +50,8 @@ const modules = [
     desc: 'iOS and Android applications for live homework submission, fee payments, and push notifications.',
     colSpan: 'md:col-span-2 lg:col-span-2',
     stat: 'iOS & Android Native',
-    icon: Smartphone
+    icon: Smartphone,
+    href: '/parent-app'
   },
   {
     title: 'Transport & Fleet GPS',
@@ -53,7 +59,8 @@ const modules = [
     desc: 'Live bus route tracking, driver assignments, parent arrival notifications, and fuel log auditing.',
     colSpan: 'md:col-span-1 lg:col-span-1',
     stat: 'Real-Time GPS Tracking',
-    icon: Bus
+    icon: Bus,
+    href: '/school-management-system-india'
   }
 ];
 
@@ -70,7 +77,7 @@ export default function ModuleGrid() {
             Comprehensive Module Directory
           </h2>
           <p className="text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
-            Every department in your school operates on unified database logic with zero data silos.
+            Every department in your school operates on unified database logic with zero data silos. Click any module to explore its feature set.
           </p>
         </div>
 
@@ -85,37 +92,39 @@ export default function ModuleGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.05, ease: [0.23, 1, 0.32, 1] }}
-                className={`rounded-2xl bg-slate-50 dark:bg-[#0e1424] border border-slate-200 dark:border-slate-800 p-6 lg:p-8 flex flex-col justify-between overflow-hidden group hover:border-slate-300 dark:hover:border-slate-700 transition-colors duration-200 ${mod.colSpan}`}
+                className={`rounded-2xl bg-slate-50 dark:bg-[#0e1424] border border-slate-200 dark:border-slate-800 p-6 lg:p-8 flex flex-col justify-between overflow-hidden group hover:border-amber-400/50 dark:hover:border-amber-400/30 transition-all duration-200 ${mod.colSpan}`}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-400/10 text-amber-700 dark:text-amber-400 flex items-center justify-center font-bold">
-                      <IconComp className="w-5 h-5" />
+                <Link href={mod.href} className="flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-400/10 text-amber-700 dark:text-amber-400 flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
+                        <IconComp className="w-5 h-5" />
+                      </div>
+                      <span className="font-caveat text-xl text-emerald-600 dark:text-emerald-300 font-bold">
+                        {mod.stat}
+                      </span>
                     </div>
-                    <span className="font-caveat text-xl text-emerald-600 dark:text-emerald-300 font-bold">
-                      {mod.stat}
-                    </span>
+
+                    <span className="font-caveat text-xl text-amber-600 dark:text-amber-300 block mb-1 font-bold">{mod.category}</span>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-amber-500 transition-colors font-finger-paint">
+                      {mod.title} →
+                    </h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal mb-6 font-geist">
+                      {mod.desc}
+                    </p>
                   </div>
 
-                  <span className="font-caveat text-xl text-amber-600 dark:text-amber-300 block mb-1 font-bold">{mod.category}</span>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-amber-500 transition-colors font-finger-paint">
-                    {mod.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal mb-6 font-geist">
-                    {mod.desc}
-                  </p>
-                </div>
-
-                {mod.image && (
-                  <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 mt-2">
-                    <Image
-                      src={mod.image}
-                      alt={mod.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                )}
+                  {mod.image && (
+                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 mt-2">
+                      <Image
+                        src={mod.image}
+                        alt={mod.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                </Link>
               </motion.div>
             );
           })}

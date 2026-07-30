@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Search, Sparkles } from 'lucide-react';
+import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 
 const faqsData = [
   {
@@ -93,48 +93,8 @@ const faqsData = [
     a: "Yes. Standard compliant reporting tables are built-in. Administrators can download CSV, PDF, or Excel sheets with a single click from their traditional admin dashboard."
   },
   {
-    q: "Are transport tracking and library modules supported?",
-    a: "Bus tracking and library management modules are scheduled for future system releases. The current platform focuses on core administration, fees, parent-student communications, timetables, grading, and attendance."
-  },
-  {
-    q: "Can teachers edit student grades via AI?",
-    a: "Yes, provided they have grading permissions. A teacher can instruct the AI to update grades, and the system will log the update alongside the teacher's profile in the audit trail."
-  },
-  {
     q: "Does the system support multiple school branches?",
     a: "Yes. AKA supports multi-school group management, allowing school groups to oversee multiple branches from a single unified portal."
-  },
-  {
-    q: "How are school holidays and timetable changes handled?",
-    a: "Once holidays are configured in the school calendar module, all timetable scheduling and exam generation systems automatically update to prevent scheduling conflicts."
-  },
-  {
-    q: "Is there a digital student ID option?",
-    a: "Yes, the unified parent-student mobile application features a digital ID card complete with a secure QR code for check-in validation systems."
-  },
-  {
-    q: "Can the system calculate custom late fee structures?",
-    a: "Yes. Admins can customize fine rules based on grade levels, days overdue, or payment methods, and let the billing engine handle the calculations automatically."
-  },
-  {
-    q: "Can students access study resources online?",
-    a: "Yes, teachers can upload PDFs, quizzes, notes, and media links, which are stored in the digital syllabus directory for students to access at any time through the companion app."
-  },
-  {
-    q: "How does the system ensure student data privacy?",
-    a: "We comply with standard data protection rules. Your institution's data is isolated and encrypted. Student records are never used to train external, public AI systems."
-  },
-  {
-    q: "Can the AI send automated absent alerts?",
-    a: "Yes. If a student is marked absent during morning roll, the system can automatically send a push notification or SMS alert to the registered parent-student profile."
-  },
-  {
-    q: "What happens if there is a conflict in the timetable?",
-    a: "The scheduling engine flags conflicts (e.g., a teacher assigned to two rooms at once) and suggests alternative schedules, allowing coordinators to resolve the issue in seconds."
-  },
-  {
-    q: "Can parents view fee breakdowns on the app?",
-    a: "Yes. The unified dashboard displays current balances, payment history, invoice breakdowns, and payment links for easy tracking."
   },
   {
     q: "How do we get started with a demo?",
@@ -150,58 +110,62 @@ export default function FAQSection() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const filteredFAQs = faqsData.filter(faq => 
-    faq.q.toLowerCase().includes(searchQuery.toLowerCase()) || 
+  const filteredFAQs = faqsData.filter(faq =>
+    faq.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
     faq.a.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
-    <section className="py-24 bg-white dark:bg-[#0a0f1d] border-t border-slate-200 dark:border-white/[0.05] relative overflow-hidden transition-colors duration-300">
-      <div className="container mx-auto px-4 lg:px-8 max-w-4xl relative z-10">
-        
+    <section className="py-24 bg-white dark:bg-[#090d16] text-slate-900 dark:text-slate-100 font-geist border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
+      <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
+
+        {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
-            Frequently Asked Questions
-          </div>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight font-dm-sans mb-6">
-            Answers For Your <span className="text-blue-605 dark:text-blue-400">Administration Team</span>
+          <span className="font-caveat text-2xl text-amber-600 dark:text-amber-300 block mb-3 font-bold -rotate-1">
+            ❓ Got questions? We have answers!
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 font-finger-paint leading-snug">
+            Answers For Your Administration Team
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 font-dm-sans leading-relaxed">
+          <p className="text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
             Everything you need to know about security, traditional modules, and Agentic AI operations.
           </p>
         </div>
 
-        {/* Search bar */}
+        {/* Search Bar */}
         <div className="relative mb-10 max-w-lg mx-auto">
-          <input 
+          <input
             type="text"
             placeholder="Search FAQs..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-50 dark:bg-[#0f172a]/60 border border-slate-200 dark:border-white/[0.08] rounded-xl px-5 py-4 pl-12 text-sm text-slate-800 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+            className="w-full bg-slate-50 dark:bg-[#0e1424] border border-slate-200 dark:border-slate-800 rounded-xl px-5 py-4 pl-12 text-sm text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/50 transition-colors font-geist"
           />
           <Search className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
         </div>
 
-        {/* Accordions */}
-        <div className="space-y-4">
+        {/* FAQ Accordions */}
+        <div className="space-y-3">
           {filteredFAQs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div 
+              <div
                 key={index}
-                className="bg-slate-50 dark:bg-[#0f172a]/60 border border-slate-200 dark:border-white/[0.06] rounded-2xl overflow-hidden transition-all duration-300 shadow-sm dark:shadow-none"
+                className={`bg-slate-50 dark:bg-[#0e1424] border rounded-2xl overflow-hidden transition-all duration-200 shadow-sm dark:shadow-none ${isOpen ? 'border-amber-400/50 dark:border-amber-400/30' : 'border-slate-200 dark:border-slate-800 hover:border-amber-400/30'}`}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left p-6 flex items-center justify-between font-bold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/[0.02] transition-colors"
+                  className="w-full text-left p-6 flex items-center justify-between transition-colors hover:bg-amber-50/50 dark:hover:bg-amber-400/[0.03]"
                 >
-                  <span className="text-sm md:text-base font-dm-sans pr-4">{faq.q}</span>
-                  {isOpen ? <ChevronUp className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-450 dark:text-slate-500 shrink-0" />}
+                  <span className="text-sm md:text-base font-finger-paint font-bold text-slate-900 dark:text-white pr-4">{faq.q}</span>
+                  {isOpen
+                    ? <ChevronUp className="w-5 h-5 text-amber-500 shrink-0" />
+                    : <ChevronDown className="w-5 h-5 text-slate-400 dark:text-slate-500 shrink-0" />
+                  }
                 </button>
-                
+
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 border-t border-slate-200 dark:border-white/[0.04] text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  <div className="px-6 pb-6 pt-2 border-t border-slate-200 dark:border-slate-800/50 text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                     {faq.a}
                   </div>
                 )}
@@ -210,7 +174,9 @@ export default function FAQSection() {
           })}
 
           {filteredFAQs.length === 0 && (
-            <p className="text-center text-slate-400 dark:text-slate-500 text-sm py-10">No FAQs match your search query. Try typing another term.</p>
+            <div className="text-center py-10">
+              <p className="font-caveat text-xl text-slate-400 dark:text-slate-500">No FAQs match your search. Try another term!</p>
+            </div>
           )}
         </div>
 
